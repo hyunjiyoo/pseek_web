@@ -2,22 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>MyPage</title>
-    <!-- Bootstrap core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
-    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <!-- Custom styles for this template -->
-    <link href="/css/resume.min.css" rel="stylesheet">
+    <title>My Page</title>
+    <% include ./head/head %>
+    <% include ./head/headMypage %>
 </head>
 
 <body id="page-top">
@@ -63,7 +50,7 @@
 
     <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
         <div class="my-auto ">
-            <img id="myprofile-img" class="img-fluid img-profile rounded-circle mb-4" src="public/img/team/3.jpg" alt="" style="width: 35%; margin-left:8rem; display:none; border: 0.5rem solid rgba(153, 153, 153, 0.2); !important; ">
+            <img id="myprofile-img" class="img-fluid img-profile rounded-circle mb-4" src="./img/team/3.jpg" alt="" style="width: 35%; margin-left:8rem; display:none; border: 0.5rem solid rgba(153, 153, 153, 0.2); !important; ">
             <h1 class="mb-0">Clarence
                 <span class="text-primary">Taylor</span>
             </h1>
@@ -285,18 +272,8 @@
     </section>
 
 </div>
-
-<!-- Bootstrap core JavaScript -->
-<script src="/vendor/jquery/jquery.min.js"></script>
-<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-
 <!-- Custom scripts for this template -->
 <script src="/js/resume.min.js"></script>
 <script src="/js/custom_resume.js"></script>
-
 </body>
-
 </html>
