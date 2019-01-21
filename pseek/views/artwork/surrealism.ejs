@@ -2,13 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>P-SEEK</title>
+    <title>P-SEEK:: surealism</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,70 +17,30 @@
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
-    <link href="css/img_hover.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/mpo_modal.css">
+    <link href="css/artwork.css" rel="stylesheet">
 
-    <style>
-        #columns{
-            column-width:350px;
-            column-gap: 15px;
-            margin-top: 100px;
-            padding-top: 20px;
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-        #columns figure{
-            display: inline-block;
-            border:1px solid rgba(0,0,0,0.2);
-            margin:0;
-            margin-bottom: 15px;
-            padding:10px;
-            box-shadow: 2px 2px 5px rgba(0,0,0,0.5);;
-        }
-        #columns figure img{
-            width:100%;
-        }
-        #columns figure figcaption{
-            border-top:1px solid rgba(0,0,0,0.2);
-            padding:10px;
-            margin-top:11px;
-        }
-    </style>
 </head>
 <body>
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="index_modal_finish.html">P-Seek :: <small>artists' playground</small></a>
+        <a class="navbar-brand js-scroll-trigger" href="/">P-Seek :: <small>artists' playground</small></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="masorny_contemporary.html">현대미술</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="mModern.ejs">모던아트</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="mPop.ejs">팝아트</a>
-                </li>
-                <!--<li class="nav-item">-->
-                <!--<a class="nav-link js-scroll-trigger" href="#mypage">MyPage</a>-->
-                <!--</li>-->
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="masorny_abstract.html">추상화</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="mSurrealism.ejs">초현실주의</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="mStillLife.ejs">정물화</a>
-                </li>
+                <span hidden>
+                <%= artGenre = ['contemporary', 'modern', 'pop', 'abstract', 'surrealism', 'stillLife'] %>
+                    <%= artName = ['현대미술', '모던아트', '팝아트', '추상화', '초현실주의', '정물화'] %>
+                </span>
+                <% for(let i in artGenre) { %>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="<%= artGenre[i] %>"><%= artName[i] %></a>
+                    </li>
+                <% } %>
                 <li class="nav-item" style="margin-top: 10px;">
                     <a class="btn btn-primary btn-sm" href="#" style="color: #474747">Sign In</a>
                 </li>
@@ -93,6 +48,7 @@
         </div>
     </div>
 </nav>
+
 
 <div id="columns">
     <figure>

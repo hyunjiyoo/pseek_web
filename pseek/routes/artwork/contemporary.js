@@ -3,7 +3,7 @@ var router = express.Router();
 
 // contemporary로 이동
 router.get('/', (req, res) => {
-    res.render("./artwork/mContemporary.ejs",{});
+    res.render("./artwork/contemporary.ejs",{});
 });
 
 module.exports = router;

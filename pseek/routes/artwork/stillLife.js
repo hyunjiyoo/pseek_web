@@ -3,7 +3,7 @@ var router = express.Router();
 
 // stillLife으로 이동
 router.get('/', (req, res) => {
-    res.render("./artwork/mStillLife.ejs",{});
+    res.render("./artwork/stillLife.ejs",{});
 });
 
 module.exports = router;
