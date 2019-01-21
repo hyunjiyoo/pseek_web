@@ -9,7 +9,6 @@
 </head>
 
 <body id="page-top">
-
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
@@ -20,24 +19,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#services">Service</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#product">Product</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#artist">Artist</a>
-                </li>
-                <!--<li class="nav-item">-->
-                <!--<a class="nav-link js-scroll-trigger" href="#mypage">MyPage</a>-->
-                <!--</li>-->
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-                </li>
+                <span hidden><%= navItem = ['services', 'product', 'artist', 'team', 'contact'] %></span>
+                <% for (var i in navItem) { %>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#<%= navItem[i] %>">
+                            <%= navItem[i] %>
+                        </a>
+                    </li>
+                <% } %>
                 <li class="nav-item" style="margin-top: 10px;">
                     <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747">Sign In</a>
                 </li>
@@ -111,90 +100,23 @@
             </div>
         </div>
         <div class="row">
+            <span hidden><%= artGenre = ['contemporary', 'modern', 'pop', 'abstract', 'surrealism', 'stillLife'] %></span>
+            <% for (let i in artGenre) { %>
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" href="/abstract">
+                <a class="portfolio-link" href="/<%= artGenre[i] %>">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
                             <i class="fas fa-plus fa-3x"></i>
                         </div>
                     </div>
-                    <img class="img-fluid" src="/img/portfolio/01-thumbnail.jpg" alt="">
+                    <img class="img-fluid" src="/img/portfolio/0<%= ++i %>-thumbnail.jpg" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>Contemporary Art</h4>
+                    <h4><%= artGenre[i] %> Art</h4>
                     <p class="text-muted">현대미술</p>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" href="/modern">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="/img/portfolio/02-thumbnail.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Modern Art</h4>
-                    <p class="text-muted">모던아트</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" href="/pop">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="/img/portfolio/03-thumbnail.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Pop Art</h4>
-                    <p class="text-muted">팝아트</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" href="/abstract">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="/img/portfolio/04-thumbnail.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Abstract Art</h4>
-                    <p class="text-muted">추상화</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" href="/surrealism">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="/img/portfolio/05-thumbnail.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Surrealism Art</h4>
-                    <p class="text-muted">초현실주의</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" href="/stillLife">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="/img/portfolio/06-thumbnail.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4>Still Life Art</h4>
-                    <p class="text-muted">정물화</p>
-                </div>
-            </div>
+            <% } %>
         </div>
     </div>
 </section>
