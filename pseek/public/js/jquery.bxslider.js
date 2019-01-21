@@ -1592,7 +1592,7 @@
       if (settings !== undefined) { options = settings; }
       el.destroySlider();
       init();
-      //store reference to self in order to access public functions later
+      //store reference to self in order to access img functions later
       $(el).data('bxSlider', this);
     };
 
