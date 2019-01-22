@@ -1,3 +1,4 @@
+/* hover css */
 .fa-ticket-alt:hover {
     color: #8c8988;
 }
@@ -10,4 +11,18 @@
 .timeline-image h4:hover {
     color: #8c8988;
 }
+
+/* login modal */
+.login-header, .h4, .loginClose {
+    background-color: #fed136;
+    color:#474747 !important;
+    text-align: center;
+    font-size: 30px;
+    justify-content: space-between;
+}
+
+#login-footer {
+    margin: auto;
+}
+
 
