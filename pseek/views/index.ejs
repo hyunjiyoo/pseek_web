@@ -26,10 +26,17 @@
                         </a>
                     </li>
                 <% } %>
+                <!-- new Code -->
                 <li class="nav-item" style="margin-top: 10px;">
-                    <span id="user" style="color: #fed136; padding-right: 10px"></span>
-                    <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" data-toggle="modal" href="#loginModal">Sign In</a>
+                    <% if (isLogined) { %>
+                        <i class="fas fa-user-circle" style="color: #fed136;"></i>
+                        <span id="user" style="color: #fed136; padding-right: 10px"><%= user %></span>
+                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/logout">Sign Out</a>
+                    <% } else { %>
+                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/login">Sign In</a>
+                    <% } %>
                 </li>
+                <!-- new Code -->
             </ul>
         </div>
     </div>
@@ -63,16 +70,16 @@
                 <%= serviceLink = ['/', '/', '/myPage'] %>
             </span>
             <% for(let i in serviceItem) { %>
-            <div class="col-md-4">
-                <a href="<%= serviceLink[i] %>">
+                <div class="col-md-4">
+                    <a href="<%= serviceLink[i] %>">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
                 <i class="fas fa-<%= serviceIcon[i] %> fa-stack-1x fa-inverse"></i>
               </span>
-                </a>
-                <h4 class="service-heading"><%= serviceItem[i] %></h4>
-                <p class="text-muted"><%= serviceDes[i] %></p>
-            </div>
+                    </a>
+                    <h4 class="service-heading"><%= serviceItem[i] %></h4>
+                    <p class="text-muted"><%= serviceDes[i] %></p>
+                </div>
             <% } %>
         </div>
     </div>
@@ -93,20 +100,20 @@
                 <%= artName = ['현대미술', '모던아트', '팝아트', '추상화', '초현실주의', '정물화'] %>
             </span>
             <% for (let i in artGenre) { %>
-            <div class="col-md-4 col-sm-6 portfolio-item">
-                <a class="portfolio-link" href="/<%= artGenre[i] %>">
-                    <div class="portfolio-hover">
-                        <div class="portfolio-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" href="/<%= artGenre[i] %>">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
                         </div>
+                        <img class="img-fluid" src="/img/portfolio/0<%= ++i %>-thumbnail.jpg" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4><%= artGenre[i-1] %> art</h4>
+                        <p class="text-muted"><%= artName[i-1] %></p>
                     </div>
-                    <img class="img-fluid" src="/img/portfolio/0<%= ++i %>-thumbnail.jpg" alt="">
-                </a>
-                <div class="portfolio-caption">
-                    <h4><%= artGenre[i-1] %> art</h4>
-                    <p class="text-muted"><%= artName[i-1] %></p>
                 </div>
-            </div>
             <% } %>
         </div>
     </div>
@@ -125,23 +132,23 @@
             <div class="col-lg-12">
                 <ul class="timeline">
                     <% artistNames.forEach((element, i) => { %>
-                    <!-- index가 홀수이면 오른쪽 정렬 -->
-                    <li<% if(i%2===1) { %> class="timeline-inverted" <% } else { %> class="" <% } %>>
-                        <div class="timeline-image hovereffect">
-                            <img class="rounded-circle img-fluid" src="img/about/<%= i+1 %>.jpg" alt="">
-                            <img class="img-responsive" src="img/about/<%= i+1 %>.jpg">
-                            <a href="#"><div class="overlay"></div></a>
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>:: <%= element["userId"] %></h4>
-                                <h4 class="subheading"><%= element["userName"] %></h4>
+                        <!-- index가 홀수이면 오른쪽 정렬 -->
+                        <li<% if(i%2===1) { %> class="timeline-inverted" <% } else { %> class="" <% } %>>
+                            <div class="timeline-image hovereffect">
+                                <img class="rounded-circle img-fluid" src="img/about/<%= i+1 %>.jpg" alt="">
+                                <img class="img-responsive" src="img/about/<%= i+1 %>.jpg">
+                                <a href="#"><div class="overlay"></div></a>
                             </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>:: <%= element["userId"] %></h4>
+                                    <h4 class="subheading"><%= element["userName"] %></h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
                     <% }); %>
                     <li class="timeline-inverted">
                         <a href="#">
@@ -174,22 +181,22 @@
                 <%= teamSns = ['twitter', 'facebook-f', 'linkedin-in'] %>
             </span>
             <% for(let i in teamPISA) { %>
-            <div class="col-sm-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="/img/team/<%= ++i %>.jpg" alt="">
-                    <h4><%= teamPISA[i-1]%></h4>
-                    <p class="text-muted"><%= teamRole[i-1] %></p>
-                    <ul class="list-inline social-buttons">
-                        <% for(let i in teamSns) { %>
-                        <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fab fa-<%= teamSns[i] %>"></i>
-                            </a>
-                        </li>
-                        <% }%>
-                    </ul>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="/img/team/<%= ++i %>.jpg" alt="">
+                        <h4><%= teamPISA[i-1]%></h4>
+                        <p class="text-muted"><%= teamRole[i-1] %></p>
+                        <ul class="list-inline social-buttons">
+                            <% for(let i in teamSns) { %>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <i class="fab fa-<%= teamSns[i] %>"></i>
+                                    </a>
+                                </li>
+                            <% }%>
+                        </ul>
+                    </div>
                 </div>
-            </div>
             <% } %>
         </div>
         <div class="row">
@@ -206,11 +213,11 @@
         <div class="row">
             <span hidden><%= clientItem = ['envato', 'designmodo', 'themeforest', 'creative-market'] %></span>
             <% for(let i in clientItem) { %>
-            <div class="col-md-3 col-sm-6">
-                <a href="#">
-                    <img class="img-fluid d-block mx-auto" src="/img/logos/<%= clientItem[i] %>.jpg" alt="">
-                </a>
-            </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img class="img-fluid d-block mx-auto" src="/img/logos/<%= clientItem[i] %>.jpg" alt="">
+                    </a>
+                </div>
             <% } %>
         </div>
     </div>
@@ -272,11 +279,11 @@
             <div class="col-md-4">
                 <ul class="list-inline social-buttons">
                     <% for(let i in iconItem) { %>
-                    <li class="list-inline-item">
-                        <a href="#">
-                            <i class="fab fa-<%= iconItem[i] %>"></i>
-                        </a>
-                    </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <i class="fab fa-<%= iconItem[i] %>"></i>
+                            </a>
+                        </li>
                     <% } %>
                 </ul>
             </div>
@@ -296,219 +303,17 @@
 
 <!-- Product Modals -->
 
-<!-- login Modal -->
-<% include ./login.ejs %>
-<script>
-    $(document).ready(function(){
-        $("#loginBtn").click(function(){
-            $("#loginModal").modal();
-        });
-    });
-</script>
+<!--&lt;!&ndash; login Modal &ndash;&gt;-->
+<!--include ./login.ejs-->
+<!--<script>-->
+<!--$(document).ready(function(){-->
+<!--$("#loginBtn").click(function(){-->
+<!--$("#loginModal").modal();-->
+<!--});-->
+<!--});-->
+<!--</script>-->
 
-<!-- Modal 1 -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Contemporary Art</h2>
-                            <p class="item-intro text-muted">현대 미술</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Threads</li>
-                                <li>Category: Illustration</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times"></i>
-                                Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 2 -->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Explore</li>
-                                <li>Category: Graphic Design</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times"></i>
-                                Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 3 -->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Finish</li>
-                                <li>Category: Identity</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times"></i>
-                                Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 4 -->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Lines</li>
-                                <li>Category: Branding</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times"></i>
-                                Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 5 -->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Southwest</li>
-                                <li>Category: Website Design</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times"></i>
-                                Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal 6 -->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="modal-body">
-                            <!-- Project Details Go Here -->
-                            <h2 class="text-uppercase">Project Name</h2>
-                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                            <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
-                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                            <ul class="list-inline">
-                                <li>Date: January 2017</li>
-                                <li>Client: Window</li>
-                                <li>Category: Photography</li>
-                            </ul>
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                                <i class="fas fa-times"></i>
-                                Close Project</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- 1,2,3,4,5,6 Modal deleted-->
 
 <!-- Modal 7 = sample images -->
 <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true" style="overflow:auto;">
