@@ -14,6 +14,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/', require("./routes/home"));
 
-app.listen(30000, () => {
+app.listen(30010, () => {
     console.log('server running');
 });
