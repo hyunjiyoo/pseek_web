@@ -96,22 +96,22 @@
         </div>
         <div class="row">
             <span hidden>
-                <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
-                <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
+            <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
+            <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
             </span>
             <% for (let i in artGenre) { %>
                 <div class="col-md-4 col-sm-6 portfolio-item">
-                    <a class="portfolio-link" href="/<%= artGenre[i] %>">
+                    <a class="portfolio-link" href="./<%= artGenre[i] %>">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fas fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="/img/portfolio/0<%= ++i %>-thumbnail.jpg" alt="">
+                        <img class="img-fluid" src="/img/portfolio/<%= artGenre[i] %>_thum.jpg" alt="">
                     </a>
                     <div class="portfolio-caption">
-                        <h4><%= artGenre[i-1] %> art</h4>
-                        <p class="text-muted"><%= artName[i-1] %></p>
+                        <h4><%= artGenre[i] %> art</h4>
+                        <p class="text-muted"><%= artName[i] %></p>
                     </div>
                 </div>
             <% } %>
@@ -392,12 +392,6 @@
                                     </button>
                                 </div>
                             </div>
-                            <!--
-                            <button class="btn btn-primary" data-dismiss="modal" type="button">
-                              <i class="fas fa-times"></i>
-                              Close Art
-                            </button>
-                            -->
                         </div>
                     </div>
                 </div>

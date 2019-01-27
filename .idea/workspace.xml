@@ -3,19 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="10888e21-efb6-440b-9ff1-971f17da4521" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/01-full.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/01-full.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/01-thumbnail.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/01-thumbnail.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/02-full.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/02-full.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/02-thumbnail.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/02-thumbnail.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/03-full.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/03-full.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/03-thumbnail.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/03-thumbnail.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/04-full.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/04-full.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/04-thumbnail.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/04-thumbnail.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/05-full.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/05-full.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/05-thumbnail.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/05-thumbnail.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/06-full.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/06-full.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/06-thumbnail.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/img/portfolio/06-thumbnail.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/public/js/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/01-full.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/01-thumbnail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/02-full.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/02-thumbnail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/03-full.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/03-thumbnail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/04-full.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/04-thumbnail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/05-full.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/05-thumbnail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/06-full.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/public/img/portfolio/06-thumbnail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/routes/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/views/artwork/abstract.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/views/artwork/abstract.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/views/artwork/contemporary.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/views/artwork/contemporary.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/views/artwork/modern.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/views/artwork/modern.ejs" afterDir="false" />
@@ -59,7 +59,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="14" />
-          <entry key="ejs" value="62" />
+          <entry key="ejs" value="65" />
           <entry key="html" value="10" />
           <entry key="jpg" value="1" />
           <entry key="js" value="66" />
@@ -70,7 +70,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="14" />
-          <entry key="EJS" value="61" />
+          <entry key="EJS" value="64" />
           <entry key="HTML" value="10" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="11" />
@@ -85,7 +85,7 @@
           <entry key="ejs" value="4057" />
           <entry key="html" value="3" />
           <entry key="js" value="4297" />
-          <entry key="txt" value="191" />
+          <entry key="txt" value="198" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -94,7 +94,7 @@
           <entry key="EJS" value="4057" />
           <entry key="HTML" value="3" />
           <entry key="JavaScript" value="4297" />
-          <entry key="PLAIN_TEXT" value="191" />
+          <entry key="PLAIN_TEXT" value="198" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -106,83 +106,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pseek/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pseek/views/index.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="104" column="53" lean-forward="true" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pseek/views/artwork/abstract.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pseek/views/artwork/contemporary.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pseek/views/artwork/modern.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pseek/views/artwork/pop.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pseek/views/artwork/stillLife.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pseek/views/artwork/surrealism.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pseek/routes/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="826">
-              <caret line="82" column="44" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
+            <state relative-caret-position="299">
+              <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -272,14 +200,14 @@
         <option value="$PROJECT_DIR$/pseek/app.js" />
         <option value="$PROJECT_DIR$/pseek/public/css/agency.min.css" />
         <option value="$PROJECT_DIR$/pseek/public/css/artwork.css" />
-        <option value="$PROJECT_DIR$/pseek/routes/home.js" />
-        <option value="$PROJECT_DIR$/pseek/views/index.ejs" />
         <option value="$PROJECT_DIR$/pseek/views/artwork/abstract.ejs" />
         <option value="$PROJECT_DIR$/pseek/views/artwork/contemporary.ejs" />
         <option value="$PROJECT_DIR$/pseek/views/artwork/modern.ejs" />
         <option value="$PROJECT_DIR$/pseek/views/artwork/pop.ejs" />
         <option value="$PROJECT_DIR$/pseek/views/artwork/stillLife.ejs" />
         <option value="$PROJECT_DIR$/pseek/views/artwork/surrealism.ejs" />
+        <option value="$PROJECT_DIR$/pseek/views/index.ejs" />
+        <option value="$PROJECT_DIR$/pseek/routes/home.js" />
       </list>
     </option>
   </component>
@@ -298,11 +226,11 @@
       <path value="$PROJECT_DIR$/pseek/public/vendor/fontawesome-free/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1593" />
-    <option name="y" value="136" />
-    <option name="width" value="1551" />
-    <option name="height" value="839" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1927" />
+    <option name="y" value="9" />
+    <option name="width" value="1439" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -325,35 +253,6 @@
               <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
               <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="art" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -361,13 +260,6 @@
               <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
               <item name="pseek" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="artwork" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -450,7 +342,7 @@
       <workItem from="1548492999309" duration="1182000" />
       <workItem from="1548521350425" duration="680000" />
       <workItem from="1548533036767" duration="2993000" />
-      <workItem from="1548555214040" duration="5588000" />
+      <workItem from="1548555214040" duration="6496000" />
     </task>
     <task id="LOCAL-00001" summary=".">
       <created>1547892637008</created>
@@ -529,11 +421,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548567863048</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="artwork 순서 변경">
+      <created>1548569755903</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1548569755903</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84349000" />
+    <option name="totallyTimeSpent" value="85257000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -545,15 +444,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="1" width="1936" height="1056" extended-state="6" />
+    <frame x="-1927" y="9" width="825" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14541623" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35069886" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.2662722" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49966952" visible="true" weight="0.22172453" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966952" visible="true" weight="0.2239819" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39940828" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -584,7 +483,8 @@
     <MESSAGE value="index.ejs db에서 artistName GET&#10;artwork 정리" />
     <MESSAGE value="login, logout 구현" />
     <MESSAGE value="artwork nav에 username 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="artwork nav에 username 추가" />
+    <MESSAGE value="artwork 순서 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="artwork 순서 변경" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pseek/views/head/footerIndex.ejs">
@@ -716,20 +616,6 @@
     <entry file="file://$PROJECT_DIR$/pseek/sessions/0AhfchvA9UTOG8vGhHdgHmZGVOvecEqX.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pseek/views/myPage.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="70" lean-forward="true" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pseek/views/login.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1426">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pseek/public/css/agency.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -751,13 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pseek/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="55" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pseek/public/js/custom_resume.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -768,59 +647,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pseek/routes/home.js">
+    <entry file="file://$PROJECT_DIR$/pseek/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="826">
-          <caret line="82" column="44" selection-start-line="82" selection-start-column="44" selection-end-line="82" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pseek/views/artwork/abstract.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        <state relative-caret-position="113">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/artwork/contemporary.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+        <state relative-caret-position="573">
+          <caret line="153" column="7" selection-start-line="153" selection-start-column="7" selection-end-line="153" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/artwork/modern.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        <state relative-caret-position="573">
+          <caret line="148" column="7" selection-start-line="148" selection-start-column="7" selection-end-line="148" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/artwork/pop.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        <state relative-caret-position="573">
+          <caret line="149" column="7" selection-start-line="149" selection-start-column="7" selection-end-line="149" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/artwork/stillLife.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="54" column="6" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+        <state relative-caret-position="320">
+          <caret line="137" column="20" lean-forward="true" selection-start-line="137" selection-start-column="20" selection-end-line="137" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/artwork/surrealism.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+        <state relative-caret-position="389">
+          <caret line="141" column="32" lean-forward="true" selection-start-line="141" selection-start-column="32" selection-end-line="141" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/views/myPage.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="70" lean-forward="true" selection-start-line="23" selection-start-column="70" selection-end-line="23" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="104" column="53" lean-forward="true" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
+        <state relative-caret-position="9658">
+          <caret line="393" column="34" selection-start-line="393" selection-start-column="34" selection-end-line="393" selection-end-column="34" />
+          <folding>
+            <element signature="n#section#2;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/views/artwork/abstract.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4071">
+          <caret line="136" lean-forward="true" selection-start-line="136" selection-end-line="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/routes/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
         </state>
       </provider>
     </entry>
