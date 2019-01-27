@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var router = express.Router();
 var db = require('../lib/db.js');
 
@@ -52,12 +53,11 @@ router.post('/login', (req, res) => {
 
 // 로그아웃
 router.get('/logout', (req, res) => {
+    // 세션 삭제
     req.session.destroy((err) => {
         res.redirect('/');
     }) ;
 });
-
-
 
 // 마이페이지로 이동
 router.get('/mypage',(req, res) => {
@@ -65,23 +65,13 @@ router.get('/mypage',(req, res) => {
 });
 
 // 장르별 작품페이지로 이동
-router.get('/abstract',(req, res) => {
-    res.render("./artwork/abstract.ejs",{});
-});
-router.get('/contemporary',(req, res) => {
-    res.render("./artwork/contemporary.ejs",{});
-});
-router.get('/modern',(req, res) => {
-    res.render("./artwork/modern.ejs",{});
-});
-router.get('/pop',(req, res) => {
-    res.render("./artwork/pop.ejs",{});
-});
-router.get('/stillLife',(req, res) => {
-    res.render("./artwork/stillLife.ejs",{});
-});
-router.get('/surrealism',(req, res) => {
-    res.render("./artwork/surrealism.ejs",{});
+fs.readdir('./views/artwork', (err, filelist) => {
+    for(let i = 0; i < filelist.length; i++) {
+        let artGenre = filelist[i].slice(0, -4);
+        router.get(`/${artGenre}`, (req, res) => {
+            res.render(`./artwork/${artGenre}.ejs`,{});
+        });
+    }
 });
 
 module.exports = router;
