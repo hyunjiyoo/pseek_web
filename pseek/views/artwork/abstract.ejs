@@ -40,8 +40,14 @@
                     <a class="nav-link js-scroll-trigger" href="<%= artGenre[i] %>"><%= artName[i] %></a>
                 </li>
                 <% } %>
-                <li class="nav-item" style="margin-top: 10px;">
-                    <a class="btn btn-primary btn-sm" href="#" style="color: #474747">Sign In</a>
+                <li class="nav-item" style="margin-top: 13px;">
+                    <% if (isLogined) { %>
+                        <i class="fas fa-user-circle" style="color: #fed136; padding-left: 5px"></i>
+                        <span id="user" style="color: #fed136; padding-left: 5px"><%= user %></span>
+                    <% } else { %>
+                        <i class="fas fa-user-circle" style="color: #ADADAD;  padding-left: 5px"></i>
+                        <span id="user" style="color: #fed136; padding-left: 5px">Guest</span>
+                    <% } %>
                 </li>
             </ul>
         </div>

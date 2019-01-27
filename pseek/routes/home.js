@@ -52,12 +52,11 @@ router.post('/login', (req, res) => {
 
 // 로그아웃
 router.get('/logout', (req, res) => {
+    // 세션 삭제
     req.session.destroy((err) => {
         res.redirect('/');
     }) ;
 });
-
-
 
 // 마이페이지로 이동
 router.get('/mypage',(req, res) => {
