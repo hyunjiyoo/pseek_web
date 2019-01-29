@@ -50,7 +50,6 @@ router.post('/login', (req, res) => {
         }
     });
 });
-
 // 로그아웃
 router.get('/logout', (req, res) => {
     // 세션 삭제
@@ -58,6 +57,15 @@ router.get('/logout', (req, res) => {
         res.redirect('/');
     }) ;
 });
+
+// 회원가입
+router.get('/register', (req, res) => {
+    res.render('register.ejs', {});
+});
+router.post('/register', (req, res) => {
+    res.redirect('/login');
+});
+
 
 // 마이페이지로 이동
 router.get('/mypage',(req, res) => {

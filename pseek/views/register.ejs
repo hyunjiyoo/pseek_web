@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PSEEK:: Register</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="./css/register.css">
+</head>
+<body>
+
+<div class="main">
+    <div class="container">
+        <form action="register" method="POST" class="appointment-form" id="appointment-form">
+            <h2 style="color:#ffffff">PSEEK. Registration form</h2>
+            <div class="form-group-1">
+                <input type="text" name="title" id="title" placeholder="Title" required />
+                <input type="text" name="name" id="name" placeholder="Your Name" required />
+                <input type="email" name="email" id="email" placeholder="Email" required />
+                <input type="number" name="phone_number" id="phone_number" placeholder="Phone number" required />
+            </div>
+            <div class="form-check">
+                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                <label for="agree-term" class="label-agree-term" style="color: #ffffff"><span><span></span></span>
+                    I agree to the<a href="#" class="term-service" style="color:#d0d0d0"> Terms and Conditions</a>
+                </label>
+            </div>
+            <div class="form-submit" style="color: #000000; font-weight: bold">
+                <input type="submit" name="submit" id="submit" class="submit button-h" value="Request an registration" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="./vendor/jquery/jquery.min.js"></script>
+</body>
+</html>
