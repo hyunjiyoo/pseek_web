@@ -32,11 +32,12 @@ app.use(function(req, res, next) {
     res.locals.user = req.session.userId;
     res.locals.username = req.session.username;
     res.locals.isLogined = req.session.is_Logined;
+    res.locals.userphone = req.session.userphone;
     res.locals.existId = null;
     next();
 });
 app.use('/', require("./routes/home"));
 
-app.listen(30000, () => {
+app.listen(30010, () => {
     console.log('server running');
 });

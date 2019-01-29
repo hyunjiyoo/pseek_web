@@ -44,7 +44,9 @@
             </li>
             <br />
             <li>
-                <input class="btn btn-sm" type="button" value="이용권구매" style="background-color: #fed136; color:#474747; font-weight: bold;" href="#" />
+                <form action="./payTicket">
+                    <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold;"/>
+                </form>
             </li>
             <br />
         </ul>
@@ -60,7 +62,7 @@
             <h1 class="mb-0"><%= username %>
                 <span class="text-primary">PAGE</span>
             </h1>
-            <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · (317) 585-8468 ·
+            <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · <%= userphone%>> ·
                 <a href="mailto:name@email.com">name@email.com</a>
             </div>
             <p class="lead mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>

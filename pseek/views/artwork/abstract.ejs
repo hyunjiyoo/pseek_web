@@ -34,7 +34,7 @@
             <ul class="navbar-nav text-uppercase ml-auto">
                 <span hidden>
                 <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
-                <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
+                    <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
                 </span>
                 <% for(let i in artGenre) { %>
                     <li class="nav-item">
@@ -43,9 +43,9 @@
                 <% } %>
                 <li class="nav-item" style="margin-top: 13px;">
                     <% if (isLogined) { %>
-                    <a class="mypage-h" href="/mypage">
-                        <i class="fas fa-user-circle" style="color: #fed136"></i>&nbsp;
-                        <span id="user" style="color: #fed136"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/mypage">MYPAGE</a></span></a>
+                        <a class="mypage-h" href="/myPage">
+                            <i class="fas fa-user-circle" style="color: #fed136"></i>&nbsp;
+                            <span id="user" style="color: #fed136"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/myPage">MYPAGE</a></span></a>
                     <% } else { %>
                         <i class="fas fa-user-circle" style="color: #ADADAD"></i>&nbsp;
                         <span id="user" style="color: #fed136">Guest</span>
