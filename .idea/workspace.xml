@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10888e21-efb6-440b-9ff1-971f17da4521" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pseek/public/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pseek/views/register.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/routes/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pseek/views/login.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/views/login.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pseek/views/register.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/views/register.ejs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,11 +43,11 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="15" />
-          <entry key="ejs" value="73" />
+          <entry key="css" value="17" />
+          <entry key="ejs" value="74" />
           <entry key="html" value="10" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="71" />
+          <entry key="js" value="74" />
           <entry key="json" value="13" />
           <entry key="md" value="2" />
           <entry key="test" value="1" />
@@ -56,33 +55,33 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="15" />
-          <entry key="EJS" value="72" />
+          <entry key="CSS" value="17" />
+          <entry key="EJS" value="73" />
           <entry key="HTML" value="10" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="13" />
-          <entry key="JavaScript" value="71" />
+          <entry key="JavaScript" value="74" />
           <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="169" />
-          <entry key="ejs" value="4516" />
+          <entry key="css" value="185" />
+          <entry key="ejs" value="4983" />
           <entry key="html" value="3" />
-          <entry key="js" value="4506" />
+          <entry key="js" value="5629" />
           <entry key="test" value="2" />
-          <entry key="txt" value="238" />
+          <entry key="txt" value="254" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="169" />
-          <entry key="EJS" value="4516" />
+          <entry key="CSS" value="185" />
+          <entry key="EJS" value="4983" />
           <entry key="HTML" value="3" />
-          <entry key="JavaScript" value="4506" />
-          <entry key="PLAIN_TEXT" value="240" />
+          <entry key="JavaScript" value="5629" />
+          <entry key="PLAIN_TEXT" value="256" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -101,14 +100,14 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7548387">
+    <splitter split-orientation="horizontal" split-proportion="0.40507302">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/pseek/routes/home.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="385">
-                  <caret line="63" column="3" lean-forward="true" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
+                <state relative-caret-position="104">
+                  <caret line="71" column="102" lean-forward="true" selection-start-line="71" selection-start-column="102" selection-end-line="71" selection-end-column="102" />
                   <folding>
                     <element signature="e#167#732#0" />
                     <element signature="e#852#1603#0" />
@@ -122,7 +121,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pseek/views/index.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="759">
+                <state relative-caret-position="943">
                   <caret line="32" column="91" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
                   <folding>
                     <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -150,22 +149,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pseek/views/login.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="339">
+                <state relative-caret-position="615">
                   <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pseek/views/register.ejs">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-                  <folding>
-                    <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#a#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -175,10 +160,10 @@
       <split-second>
         <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pseek/views/artwork/abstract.ejs">
+            <entry file="file://$PROJECT_DIR$/pseek/views/register.ejs">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2645">
-                  <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+                <state relative-caret-position="184">
+                  <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
                 </state>
               </provider>
             </entry>
@@ -261,8 +246,6 @@
         <option value="$PROJECT_DIR$/pseek/config/login.js" />
         <option value="$PROJECT_DIR$/pseek/config/passport.js" />
         <option value="$PROJECT_DIR$/pseek/views/login.ejs.js" />
-        <option value="$PROJECT_DIR$/pseek/public/css/login.css" />
-        <option value="$PROJECT_DIR$/pseek/app.js" />
         <option value="$PROJECT_DIR$/pseek/public/css/agency.min.css" />
         <option value="$PROJECT_DIR$/pseek/public/css/artwork.css" />
         <option value="$PROJECT_DIR$/pseek/views/artwork/contemporary.ejs" />
@@ -274,10 +257,12 @@
         <option value="$PROJECT_DIR$/pseek/lib/db.js" />
         <option value="$PROJECT_DIR$/pseek/views/index.ejs" />
         <option value="$PROJECT_DIR$/pseek/views/artwork/abstract.ejs" />
-        <option value="$PROJECT_DIR$/pseek/views/register.ejs" />
         <option value="$PROJECT_DIR$/pseek/public/css/register.css" />
         <option value="$PROJECT_DIR$/pseek/views/login.ejs" />
+        <option value="$PROJECT_DIR$/pseek/public/css/login.css" />
+        <option value="$PROJECT_DIR$/pseek/app.js" />
         <option value="$PROJECT_DIR$/pseek/routes/home.js" />
+        <option value="$PROJECT_DIR$/pseek/views/register.ejs" />
       </list>
     </option>
   </component>
@@ -378,31 +363,6 @@
               <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
               <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
-              <item name="sessions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="pseek" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -420,16 +380,17 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\pseek\pseekWeb\pseek\public\img" />
+      <recent name="E:\pseek\pseekWeb\pseek\public\css" />
+      <recent name="E:\pseek\pseekWeb\pseek\views" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\pseek\pseekWeb\pseek\views\artwork" />
       <recent name="E:\pseek\pseekWeb\pseek\views\head" />
       <recent name="E:\pseek\pseekWeb\pseek\routes\artwork" />
       <recent name="E:\pseek\pseekWeb\pseek\views" />
       <recent name="E:\pseek\pseekWeb\pseek\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\pseek\pseekWeb\pseek\public\css" />
-      <recent name="E:\pseek\pseekWeb\pseek\views" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -604,11 +565,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548740481540</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="register page 생성">
+      <created>1548745030433</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1548745030433</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93743000" />
+    <option name="totallyTimeSpent" value="98382000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -621,13 +589,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18043622" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14011897" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.2662722" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49966952" visible="true" weight="0.1612426" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49966952" visible="true" weight="0.3239645" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39940828" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -662,10 +631,10 @@
     <MESSAGE value="test" />
     <MESSAGE value="guide modal" />
     <MESSAGE value="artimage db에서 가져오기" />
-    <option name="LAST_COMMIT_MESSAGE" value="artimage db에서 가져오기" />
+    <MESSAGE value="register page 생성" />
+    <option name="LAST_COMMIT_MESSAGE" value="register page 생성" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pseek/routes/artwork/stillLife.js" />
     <entry file="file://$PROJECT_DIR$/pseek/routes/artwork/surrealism.js" />
     <entry file="file://$PROJECT_DIR$/pseek/views/index3.ejs" />
     <entry file="file://$PROJECT_DIR$/pseek/public/img/logos/creative-market.jpg">
@@ -729,13 +698,6 @@
     <entry file="file://$PROJECT_DIR$/pseek/config/login.js" />
     <entry file="file://$PROJECT_DIR$/pseek/config/passport.js" />
     <entry file="file://$PROJECT_DIR$/pseek/package.json" />
-    <entry file="file://$PROJECT_DIR$/pseek/public/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pseek/sessions/pErZUaYNV5pQouphlz5Q3nOdLi8UL4sC.json" />
     <entry file="file://$PROJECT_DIR$/pseek/sessions/efMLkNY6ouWzCQRGysDqz0Vco8Dka7Za.json" />
     <entry file="file://$PROJECT_DIR$/pseek/sessions/bxOnFCRsZBof3TIl3XqaxAiS-ktEGpH9.json" />
@@ -769,13 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="127" column="33" lean-forward="true" selection-start-line="127" selection-start-column="33" selection-end-line="127" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pseek/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -849,9 +804,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/public/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/public/css/register.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
+        <state relative-caret-position="943">
           <caret line="32" column="91" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
           <folding>
             <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -875,24 +844,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pseek/public/css/register.css">
+    <entry file="file://$PROJECT_DIR$/pseek/node_modules/mysql/lib/protocol/Parser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="31" column="19" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+        <state relative-caret-position="69">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="33" column="30" lean-forward="true" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
+          <folding>
+            <element signature="e#407#715#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/login.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
+        <state relative-caret-position="615">
           <caret line="48" column="60" selection-start-line="48" selection-start-column="60" selection-end-line="48" selection-end-column="60" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/routes/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="63" column="3" lean-forward="true" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
+        <state relative-caret-position="104">
+          <caret line="71" column="102" lean-forward="true" selection-start-line="71" selection-start-column="102" selection-end-line="71" selection-end-column="102" />
           <folding>
             <element signature="e#167#732#0" />
             <element signature="e#852#1603#0" />
@@ -904,13 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/views/register.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#label#0;n#div#1;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="184">
+          <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
         </state>
       </provider>
     </entry>

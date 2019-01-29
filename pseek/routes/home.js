@@ -63,7 +63,24 @@ router.get('/register', (req, res) => {
     res.render('register.ejs', {});
 });
 router.post('/register', (req, res) => {
-    res.redirect('/login');
+    let body = req.body;
+    var regId = body.id;
+    var regname = body.name;
+    var regPwd = body.password;
+    var regPhone = body.phone_number;
+
+    var sql = 'INSERT INTO `user_tbl` (user_id, user_name, user_password, user_tel) VALUES (?,?,?,?)';
+    db().query(sql, [regId, regname, regPwd, regPhone], (err, results) => {
+        if (err) {
+            // INSERT시 user_id가 PK이므로 중복값 존재 X
+            // 따라서, err발생 => 동일아이디가 존재한다는 의미. (DB자체에서 수행)
+            res.render('register.ejs', {
+                existId: regId
+            });
+        } else {
+            res.redirect('/login');
+        }
+    });
 });
 
 

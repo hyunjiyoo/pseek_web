@@ -31,6 +31,7 @@ app.use(session({
 app.use(function(req, res, next) {
     res.locals.user = req.session.userId;
     res.locals.isLogined = req.session.is_Logined;
+    res.locals.existId = null;
     next();
 });
 app.use('/', require("./routes/home"));
