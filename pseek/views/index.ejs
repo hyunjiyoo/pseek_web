@@ -66,11 +66,9 @@
                 <%= serviceItem = ['E-Ticket', 'Exhibit Artwork', 'My Art Museum'] %>
                 <%= serviceDes = ['서비스 이용권 구매', '작품 감상', '나만의 아트 뮤지엄'] %>
                 <%= serviceIcon = ['ticket-alt', 'landmark', 'users-cog'] %>
-                <%= serviceLink = ['/', '/', '/myPage'] %>
             </span>
             <% for(let i in serviceItem) { %>
                 <div class="col-md-4">
-                    <a href="<%= serviceLink[i] %>">
               <span class="fa-stack fa-4x">
                 <i class="fas fa-circle fa-stack-2x text-primary"></i>
                 <i class="fas fa-<%= serviceIcon[i] %> fa-stack-1x fa-inverse"></i>

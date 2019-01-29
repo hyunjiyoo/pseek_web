@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
                 res.render("index.ejs",{
                     isLogined: req.session.is_Logined,
                     user: req.session.userId,
+                    username: req.session.username,
                     artistNames: results
                 });
             } else {
@@ -30,18 +31,19 @@ router.get('/login', (req, res) => {
 });
 router.post('/login', (req, res) => {
     var body = req.body;
-    var username = body.username;
+    var userid = body.username;
     var password = body.password;
-    var sql = 'SELECT user_id, user_password FROM `user_tbl` WHERE user_id = ? AND user_password = ?';
-    db().query(sql, [username, password], (err, results) => {
+    var sql = 'SELECT user_id, user_name, user_password FROM `user_tbl` WHERE user_id = ? AND user_password = ?';
+    db().query(sql, [userid, password], (err, results) => {
         // results.length는 result 값에 값이 하나가 들어있음
         if(results.length > 0) {
-            if(username === results[0].user_id && password === results[0].user_password) {
+            if(userid === results[0].user_id && password === results[0].user_password) {
                 // 로그인 성공
                 // 세션객체에 로그인여부확인 변수 생성
                 req.session.is_Logined = true;
                 // 세션객체에 userId 변수 생성
-                req.session.userId = username;
+                req.session.userId = userid;
+                req.session.username = results[0].user_name;
                 res.redirect('/');
             }
         } else {
