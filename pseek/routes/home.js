@@ -91,9 +91,15 @@ router.post('/register', (req, res) => {
 });
 
 // 마이페이지로 이동
-router.get('/myPage',(req, res) => {
+router.get('/myPage', (req, res) => {
     res.render("myPage.ejs",{});
 });
+
+// 이용권 구매
+router.get('/payTicket', (req, res) => {
+    res.render("payTicket.ejs", {});
+});
+
 
 // 장르별 작품페이지로 이동
 fs.readdir('./views/artwork', (err, filelist) => {
