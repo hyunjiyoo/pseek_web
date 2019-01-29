@@ -18,6 +18,7 @@
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
     <link href="css/artwork.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet" >
 </head>
 <body>
 
@@ -33,7 +34,7 @@
             <ul class="navbar-nav text-uppercase ml-auto">
                 <span hidden>
                 <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
-                <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
+                    <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
                 </span>
                 <% for(let i in artGenre) { %>
                     <li class="nav-item">
@@ -42,11 +43,12 @@
                 <% } %>
                 <li class="nav-item" style="margin-top: 13px;">
                     <% if (isLogined) { %>
-                        <i class="fas fa-user-circle" style="color: #fed136; padding-left: 5px"></i>
-                        <span id="user" style="color: #fed136; padding-left: 5px"><%= user %></span>
+                        <a class="mypage-h" href="/mypage">
+                            <i class="fas fa-user-circle" style="color: #fed136"></i>&nbsp;
+                            <span id="user" style="color: #fed136"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/mypage">MYPAGE</a></span></a>
                     <% } else { %>
-                        <i class="fas fa-user-circle" style="color: #ADADAD;  padding-left: 5px"></i>
-                        <span id="user" style="color: #fed136; padding-left: 5px">Guest</span>
+                        <i class="fas fa-user-circle" style="color: #ADADAD"></i>&nbsp;
+                        <span id="user" style="color: #fed136">Guest</span>
                     <% } %>
                 </li>
             </ul>
@@ -83,11 +85,6 @@
     <figure>
         <img src="./img/art/contemporary/contemporary_06.jpg">
         <figcaption>Pocahontas based on 17th century Powhatan costume</figcaption>
-    </figure>
-
-    <figure>
-        <img src="./img/portfolio/04-full.jpg">
-        <figcaption>Snow White, based on 16th century German fashion</figcaption>
     </figure>
 
     <figure>
