@@ -11,6 +11,10 @@
 .timeline-image h4:hover {
     color: #8c8988;
 }
+.btn-basic {
+    background-color: #636363;
+    color: #DBDBDB;
+}
 
 /* login modal */
 .login-header, .h4, .loginClose {

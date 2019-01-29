@@ -29,13 +29,12 @@
 
                 <li class="nav-item" style="margin-top: 10px;">
                     <% if (isLogined) { %>
-                        <i class="fas fa-user-circle" style="color: #fed136;"></i>
-                        <span id="user" style="color: #fed136; padding-right: 10px"><%= user %></span>
+                        <!--<a class="mypage-h" href="/mypage"><i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"><%= user %> PAGE</span></a>&nbsp;&nbsp;-->
+                        <i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/mypage">MYPAGE</a></span></a>&nbsp;&nbsp;
                         <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/logout">Sign Out</a>
                     <% } else { %>
-                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/login">Sign In</a>
+                            &nbsp;&nbsp;<a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/login"> Sign In</a>
                     <% } %>
-
                 </li>
             </ul>
         </div>
