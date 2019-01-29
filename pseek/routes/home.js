@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
     res.render("login.ejs",{});
 });
+
 router.post('/login', (req, res) => {
     var body = req.body;
     var userid = body.username;
@@ -54,6 +55,7 @@ router.post('/login', (req, res) => {
         }
     });
 });
+
 // 로그아웃
 router.get('/logout', (req, res) => {
     // 세션 삭제
@@ -66,6 +68,7 @@ router.get('/logout', (req, res) => {
 router.get('/register', (req, res) => {
     res.render('register.ejs', {});
 });
+
 router.post('/register', (req, res) => {
     let body = req.body;
     var regId = body.id;
@@ -87,14 +90,10 @@ router.post('/register', (req, res) => {
     });
 });
 
-
 // 마이페이지로 이동
 router.get('/myPage',(req, res) => {
     res.render("myPage.ejs",{});
 });
-
-
-
 
 // 장르별 작품페이지로 이동
 fs.readdir('./views/artwork', (err, filelist) => {
