@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
                     isLogined: req.session.is_Logined,
                     user: req.session.userId,
                     username: req.session.username,
+                    userphone: req.session.userphone,
                     artistNames: results
                 });
             } else {
@@ -33,7 +34,7 @@ router.post('/login', (req, res) => {
     var body = req.body;
     var userid = body.username;
     var password = body.password;
-    var sql = 'SELECT user_id, user_name, user_password FROM `user_tbl` WHERE user_id = ? AND user_password = ?';
+    var sql = 'SELECT * FROM `user_tbl` WHERE user_id = ? AND user_password = ?';
     db().query(sql, [userid, password], (err, results) => {
         // results.length는 result 값에 값이 하나가 들어있음
         if(results.length > 0) {
@@ -44,6 +45,7 @@ router.post('/login', (req, res) => {
                 // 세션객체에 userId 변수 생성
                 req.session.userId = userid;
                 req.session.username = results[0].user_name;
+                req.session.userphone = results[0].user_tel;
                 res.redirect('/');
             }
         } else {
@@ -87,9 +89,12 @@ router.post('/register', (req, res) => {
 
 
 // 마이페이지로 이동
-router.get('/mypage',(req, res) => {
+router.get('/myPage',(req, res) => {
     res.render("myPage.ejs",{});
 });
+
+
+
 
 // 장르별 작품페이지로 이동
 fs.readdir('./views/artwork', (err, filelist) => {
