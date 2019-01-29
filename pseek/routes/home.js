@@ -6,7 +6,7 @@ var db = require('../lib/db.js');
 // home으로 이동
 router.get('/', (req, res) => {
     // 아티스트 4명만 가져옴
-    var sql = 'SELECT userName, userId FROM `usertbl` WHERE userArtist = 1 LIMIT 4';
+    var sql = 'SELECT user_name, user_id FROM `user_tbl` LIMIT 4';
     db().query(sql, (err, results) => {
         if(!err) {
             if(req.session.is_Logined){
@@ -32,11 +32,11 @@ router.post('/login', (req, res) => {
     var body = req.body;
     var username = body.username;
     var password = body.password;
-    var sql = 'SELECT userId, userPwd FROM `usertbl` WHERE userId = ? AND userPwd = ?';
+    var sql = 'SELECT user_id, user_password FROM `user_tbl` WHERE user_id = ? AND user_password = ?';
     db().query(sql, [username, password], (err, results) => {
         // results.length는 result 값에 값이 하나가 들어있음
         if(results.length > 0) {
-            if(username === results[0].userId && password === results[0].userPwd) {
+            if(username === results[0].user_id && password === results[0].user_password) {
                 // 로그인 성공
                 // 세션객체에 로그인여부확인 변수 생성
                 req.session.is_Logined = true;
@@ -69,9 +69,30 @@ fs.readdir('./views/artwork', (err, filelist) => {
     for(let i = 0; i < filelist.length; i++) {
         let artGenre = filelist[i].slice(0, -4);
         router.get(`/${artGenre}`, (req, res) => {
-            res.render(`./artwork/${artGenre}.ejs`,{});
+            var sql = 'SELECT art_imgsrc FROM `art_tbl`';
+            db().query(sql, (err, results) => {
+                if(!err) {
+                    console.log(results);
+                    res.render(`./artwork/${artGenre}.ejs`,{
+                        art_img: results
+                    });
+                }
+            });
         });
     }
 });
+
+// router.get(`/abstract`, (req, res) => {
+//     var sql = 'SELECT art_imgsrc FROM `art_tbl`';
+//     db().query(sql, (err, results) => {
+//
+//         if(!err) {
+//             console.log(results);
+//             res.render(`./artwork/abstract.ejs`,{
+//                 art_img: results
+//             });
+//         }
+//     });
+// });
 
 module.exports = router;
