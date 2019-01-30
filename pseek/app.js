@@ -38,6 +38,6 @@ app.use(function(req, res, next) {
 });
 app.use('/', require("./routes/home"));
 
-app.listen(30010, () => {
+app.listen(30000, () => {
     console.log('server running at http://pseek.iptime.org:30001');
 });
