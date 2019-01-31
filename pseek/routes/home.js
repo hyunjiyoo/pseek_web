@@ -100,36 +100,21 @@ router.get('/payTicket', (req, res) => {
     res.render("payTicket.ejs", {});
 });
 
-
 // 장르별 작품페이지로 이동
 fs.readdir('./views/artwork', (err, filelist) => {
     for(let i = 0; i < filelist.length; i++) {
         let artGenre = filelist[i].slice(0, -4);
         router.get(`/${artGenre}`, (req, res) => {
-            var sql = 'SELECT art_imgsrc FROM `art_tbl`';
-            db().query(sql, (err, results) => {
+            var sql = 'SELECT art_title, art_imgsrc FROM `art_tbl` WHERE art_genre = ?';
+            db().query(sql, [`${artGenre}`], (err, results) => {
                 if(!err) {
-                    console.log(results);
                     res.render(`./artwork/${artGenre}.ejs`,{
-                        art_img: results
+                        artwork: results
                     });
                 }
             });
         });
     }
 });
-
-// router.get(`/abstract`, (req, res) => {
-//     var sql = 'SELECT art_imgsrc FROM `art_tbl`';
-//     db().query(sql, (err, results) => {
-//
-//         if(!err) {
-//             console.log(results);
-//             res.render(`./artwork/abstract.ejs`,{
-//                 art_img: results
-//             });
-//         }
-//     });
-// });
 
 module.exports = router;
