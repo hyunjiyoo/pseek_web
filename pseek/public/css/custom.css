@@ -19,3 +19,58 @@
 #login-footer {
     margin: auto;
 }
+
+/* like icon */
+.likeBox {
+    position: relative;
+}
+.likeBox img {
+    width: 100%;
+    height: auto;
+}
+/*.likeBox #heart {*/
+    /*position: absolute;*/
+    /*top: 35px;*/
+    /*right: -35px;*/
+    /*transform: translate(-50%, -50%);*/
+    /*-ms-transform: translate(-50%, -50%);*/
+    /*color: #ffffff;*/
+    /*font-size: 23px;*/
+    /*padding: 12px 24px;*/
+    /*border: none;*/
+    /*cursor: pointer;*/
+    /*border-radius: 5px;*/
+/*}*/
+/* like */
+.likeBox #heart {
+    position: absolute;
+    top: 35px;
+    right: -4px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.likeBox #heart:hover {
+    color: #CD2737;
+}
+
+/* dislike */
+.likeBox #dislike {
+    position: absolute;
+    top: 35px;
+    right: -4px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #CD2737;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.likeBox #dislike:hover {
+    color: #ffffff;
+}

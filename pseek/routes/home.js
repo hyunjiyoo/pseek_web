@@ -105,16 +105,33 @@ fs.readdir('./views/artwork', (err, filelist) => {
     for(let i = 0; i < filelist.length; i++) {
         let artGenre = filelist[i].slice(0, -4);
         router.get(`/${artGenre}`, (req, res) => {
-            var sql = 'SELECT art_title, art_imgsrc FROM `art_tbl` WHERE art_genre = ?';
+            var sql = 'SELECT * FROM `art_tbl` WHERE art_genre = ?';
             db().query(sql, [`${artGenre}`], (err, results) => {
                 if(!err) {
-                    res.render(`./artwork/${artGenre}.ejs`,{
-                        artwork: results
+                    var artwork = results;
+
+                    var selectSql = 'SELECT art_id FROM `pick_tbl`';
+                    db().query(selectSql, (err, results) => {
+                        console.log(results);
+                        res.render(`./artwork/${artGenre}.ejs`,{
+                            artwork: artwork,
+                            userpick: results
+                        });
                     });
                 }
             });
         });
+
     }
+});
+
+router.post('/like/:id', (req, res) => {
+    console.log(req.session.userId);
+    var sql = 'INSERT INTO `pick_tbl` (pick_id, user_id, art_id) VALUES (?, ?, (SELECT art_id FROM art_tbl WHERE art_title = ' + "'" + req.params.id + "'" + '))';
+    db().query(sql, [null, req.session.userId], (err, results) => {
+        if(err) throw err;
+        res.redirect('/abstract');
+    });
 });
 
 module.exports = router;
