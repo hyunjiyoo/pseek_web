@@ -108,10 +108,10 @@ fs.readdir('./views/artwork', (err, filelist) => {
             var sql = 'SELECT * FROM `art_tbl` WHERE art_genre = ?';
             db().query(sql, [`${artGenre}`], (err, results) => {
                 if(!err) {
+                    // artwork = 장르별 art테이블에서 전체 데이터 가져오는 값
                     var artwork = results;
-
-                    var selectSql = 'SELECT art_id FROM `pick_tbl`';
-                    db().query(selectSql, (err, results) => {
+                    var selectSql = 'SELECT art_id FROM `pick_tbl` WHERE user_id = ?';
+                    db().query(selectSql, [req.session.userId], (err, results) => {
                         console.log(results);
                         res.render(`./artwork/${artGenre}.ejs`,{
                             artwork: artwork,
