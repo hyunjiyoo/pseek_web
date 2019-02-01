@@ -33,6 +33,7 @@ app.use(function(req, res, next) {
     res.locals.username = req.session.username;
     res.locals.isLogined = req.session.is_Logined;
     res.locals.userphone = req.session.userphone;
+    res.locals.userpick = {};
     res.locals.existId = null;
     next();
 });

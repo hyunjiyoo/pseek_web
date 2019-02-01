@@ -36,11 +36,11 @@
                 <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
                     <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
                 </span>
-                <% for(let i in artGenre) { %>
+                <% artGenre.forEach((element, i) => { %>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="./<%= artGenre[i] %>"><%= artName[i] %></a>
+                        <a class="nav-link js-scroll-trigger" href="./<%= element[i] %>"><%= artName[i] %></a>
                     </li>
-                <% } %>
+                <% }); %>
                 <li class="nav-item" style="margin-top: 13px;">
                     <% if (isLogined) { %>
                         <a class="mypage-h" href="/myPage">
@@ -57,87 +57,30 @@
 </nav>
 
 <div id="columns">
-    <% for(var i in artwork) { %>
-    <figure>
-        <img src=<%= artwork[i].art_imgsrc %>>
+    <% for(var i = artwork.length - 1; i >= 0; i--) { %>
+    <figure class="likeBox">
+        <img src="<%= artwork[i].art_imgsrc %>" />
+        <% if(userpick.length > 0) { %>
+            <% for (var j = 0; j < userpick.length; j++) { %>
+                <% if (userpick[j].art_id !== artwork[i].art_id) { %>
+                    <form method="post" action="/like/<%= artwork[i].art_title %>">
+                        <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
+                    </form>
+                <% } else { %>
+                    <% userpick.pop(); %>
+                    <form method="post" action="/like/<%= artwork[i].art_title %>"> <!-- 활성화 되었을 때 delete로 -->
+                        <button type="submit" class="likeBox btn " id="dislike" ><i class="fas fa-heart"></i></button>
+                    </form>
+                <% } %>
+            <% } %>
+        <% } else { %>
+            <form method="post" action="/like/<%= artwork[i].art_title %>">
+                <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
+            </form>
+        <% } %>
         <figcaption style="text-align: center"><b><%= artwork[i].art_title %></b></figcaption>
     </figure>
     <% } %>
-
-        <!--<figure>-->
-        <!--<img src="">-->
-        <!--<figcaption>Cinderella wearing European fashion of the mid-1860’s</figcaption>-->
-        <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="">-->
-        <!--<figcaption>Rapunzel, clothed in 1820’s period fashion</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_03.jpg">-->
-        <!--<figcaption>Belle, based on 1770’s French court fashion</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_04.jpg">-->
-        <!--<figcaption>Mulan, based on the Ming Dynasty period</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_05.jpg">-->
-        <!--<figcaption>Sleeping Beauty, based on European fashions in 1485</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_06.jpg">-->
-        <!--<figcaption>Pocahontas based on 17th century Powhatan costume</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_07.jpg">-->
-        <!--<figcaption>Snow White, based on 16th century German fashion</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_08.jpg">-->
-        <!--<figcaption>Ariel wearing an evening gown of the 1890’s</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_09.jpg">-->
-        <!--<figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_10.jpg">-->
-        <!--<figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_11.jpg">-->
-        <!--<figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_12.jpg">-->
-        <!--<figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_13.jpg">-->
-        <!--<figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_14.jpg">-->
-        <!--<figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>-->
-    <!--</figure>-->
-
-    <!--<figure>-->
-        <!--<img src="./img/art/abstract/abstract_15.jpg">-->
-        <!--<figcaption>Tiana wearing the <i>robe de style</i> of the 1920’s</figcaption>-->
-    <!--</figure>-->
 </div>
 
 <!-- Bootstrap core JavaScript -->
