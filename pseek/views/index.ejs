@@ -92,12 +92,16 @@
         </div>
         <div class="row">
             <span hidden>
-            <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
+                <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
                 <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
             </span>
             <% for (let i in artGenre) { %>
                 <div class="col-md-4 col-sm-6 portfolio-item">
+                    <% if(isLogined) { %>
                     <a class="portfolio-link" href="./<%= artGenre[i] %>">
+                    <% } else { %>
+                    <a class="portfolio-link" href="./" onclick="alert('Please Log in.')">
+                    <% } %>
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 <i class="fas fa-plus fa-3x"></i>
