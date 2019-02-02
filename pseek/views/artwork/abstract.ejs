@@ -45,7 +45,8 @@
                     <% if (isLogined) { %>
                         <a class="mypage-h" href="/myPage">
                             <i class="fas fa-user-circle" style="color: #fed136"></i>&nbsp;
-                            <span id="user" style="color: #fed136"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/myPage">MYPAGE</a></span></a>
+                            <span id="user" style="color: #fed136"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/myPage">MYPAGE</a></span></a>&nbsp;&nbsp;
+                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/logout">Sign Out</a>
                     <% } else { %>
                         <i class="fas fa-user-circle" style="color: #ADADAD"></i>&nbsp;
                         <span id="user" style="color: #fed136">Guest</span>
@@ -68,13 +69,13 @@
                     </form>
                 <% } else { %>
                     <% userpick.splice(j, 1); %>
-                    <form method="post" action="/<%= artwork[i].art_genre %>/dislike/<%= artwork[i].art_id %>"> <!-- 활성화 되었을 때 delete로 -->
+                    <form method="post" action="/<%= artwork[i].art_genre %>/dislike/<%= artwork[i].art_id %>">
                         <button type="submit" class="likeBox btn " id="dislike" ><i class="fas fa-heart"></i></button>
                     </form>
                 <% } %>
             <% } %>
         <% } else { %>
-            <form method="post" action="/like/<%= artwork[i].art_id %>">
+            <form method="post" action="/<%= artwork[i].art_genre %>/like/<%= artwork[i].art_id %>">
                 <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
             </form>
         <% } %>

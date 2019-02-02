@@ -92,55 +92,31 @@
       <h3 class="my-4" id="pick_art">PICK ART</h3>
       <div class="row">
 
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#" value="hello">
-            <img class="img-fluid" src="./img/art/abstract/abstract_01.jpg" alt="" style="width: 100%; height: 180px;">
-            <div class="caption">Caption goes here</div>
-          </a>
-        </div>
-
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="./img/art/abstract/abstract_02.jpg" alt="" style="width: 100%; height: 180px;">
-            <div class="caption">Caption goes here</div>
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="./img/art/abstract/abstract_03.jpg" alt="" style="width: 100%; height: 180px;">
-            <div class="caption">Caption goes here</div>
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="./img/art/abstract/abstract_04.jpg" alt="" style="width: 100%; height: 180px;">
-            <div class="caption">Caption goes here</div>
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#" value="hello">
-            <img class="img-fluid" src="./img/art/abstract/abstract_05.jpg" alt="" style="width: 100%; height: 180px;">
-            <div class="caption">Caption goes here</div>
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="./img/art/abstract/abstract_06.jpg" alt="" style="width: 100%; height: 180px;">
-            <div class="caption">Caption goes here</div>
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="./img/art/abstract/abstract_07.jpg" alt="" style="width: 100%; height: 180px;">
-            <div class="caption">Caption goes here</div>
-          </a>
-        </div>
-        <div class="col-md-3 col-sm-6 mb-4">
-          <a href="#">
-            <img class="img-fluid" src="./img/art/abstract/abstract_08.jpg" alt="" style="width: 100%; height: 180px;">
-            <div class="caption">Caption goes here</div>
-          </a>
-        </div>
+        <% if (pickArt.length === 0) { %>
+          <% for(let i = 0; i < 4; i++) { %>
+          <div class="col-md-3 col-sm-6 mb-4">
+            <a href="#" value="hello"><img class="img-fluid" src="http://placehold.it/500x300" alt=""></a>
+          </div>
+          <% } %>
+        <% } else if (pickArt.length < 9) { %>
+          <% for(let i = pickArt.length - 1; i >= 0; i--) { %>
+            <div class="col-md-3 col-sm-6 mb-4">
+              <a href="#" value="hello">
+                <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                <div class="caption"><%= pickArt[i].art_title %></div>
+              </a>
+            </div>
+          <% } %>
+        <% } else { %>
+            <% for(let i = pickArt.length - 1; i > pickArt.length - 9; i--) { %>
+              <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#" value="hello">
+                  <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                  <div class="caption"><%= pickArt[i].art_title %></div>
+                </a>
+              </div>
+            <% } %>
+        <% } %>
       </div>
 
 
