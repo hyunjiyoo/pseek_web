@@ -1,287 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="utf-8">
-    <title>My Page</title>
-    <% include ./head/headMypage %>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PSEEK:: My Page</title>
+    <% include ./head/headIndex.ejs %>
+    <style>
+      body {
+        padding-top: 54px;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+      .caption {
+        position: absolute;
+        width: 255px;
+        height: 35px;
+        bottom: 0px;
+        color: #ffffff;
+        background: #000000DD;
+        text-align:center;
+        font-family: Sans-serif;
 
-<body id="page-top">
+        opacity:0.7;
+      }
+    </style>
+  </head>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="sideNav">
-    <a id="mypageLogo" class="nav-link js-scroll-trigger" href="/" style="color: #fed136; font-size: 1.5em; display: block;
-    font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';"><%= user %>'s Page</a>
-    <a id="logoclick" class="navbar-brand js-scroll-trigger" href='/' >
-        <span class="d-block d-lg-none" id="logo-text" style="color: #fed136;
-    font-family: 'Kaushan Script', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';">PSEEK:: <%= user %> Page</span>
-        <span class="d-none d-lg-block">
-          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="./img/user.jpg" alt="">
-        </span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-            <br />
+  <body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/">P-Seek :: <small>artists' playground</small></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav text-uppercase ml-auto">
+                <span hidden>
+                <%= MyPageNav = ['pick_art', 'pick_artist'] %>
+                  <%= NavName = ['PICK ART', 'PICK ARTIST'] %>
+                </span>
+          <% MyPageNav.forEach((element, i) => { %>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="#<%= element %>"><%= NavName[i] %></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#education">Education</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-            </li>
-            <br />
-            <li>
-                <form action="./payTicket">
-                    <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold;"/>
-                </form>
-            </li>
-            <br />
+          <% }); %>
+          <li class="nav-item" style="margin-top: 13px;">
+            <% if (isLogined) { %>
+              <i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"><%= user %>&nbsp;&nbsp;</span></a>&nbsp;&nbsp;
+              <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/logout">Sign Out</a>
+
+
+            <% } else { %>
+              <i class="fas fa-user-circle" style="color: #ADADAD"></i>&nbsp;
+              <span id="user" style="color: #fed136">Guest</span>
+            <% } %>
+          </li>
         </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Contents -->
+    <div class="container">
+
+      <!-- Profile -->
+      <div class="row" style="margin-top: 50px">
+        <div class="col-md-8">
+          <img class="img-fluid" src="./img/mypage-bg.jpg" alt="">
+        </div>
+        <div class="col-md-4" style="background-color: #E6E6E677">
+          <div><img src="./img/user/1.jpg" style=" margin-top: 10px; height: 10rem" /></div>
+          <span style="color: #E84600; font-weight: bold; font-size: 2rem; font-family: Sans-serif;"> MY PROFILE </span>
+          <i class="fas fa-cog" id="edit_profile" style="color:#636363; font-size: 1.3rem;" onclick="alert('You can edit profile contents.');"></i>
+          <ul style="list-style: none; padding:0">
+            <li><b>NAME ㅡ</b> <%= username %></li>
+            <li><b>EMAIL ㅡ</b> <%= user %>@pseek.com </li>
+            <li><b>PHONE ㅡ</b> <%= userphone %></li>
+          </ul>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, assumenda beatae dolor dolorum, earum hic ipsa, ipsum iure natus necessitatibus odit quidem quisquam quo r.</p>
+        </div>
+      </div>
+
+      <!-- My Pick Art -->
+      <h3 class="my-4" id="pick_art">PICK ART</h3>
+      <div class="row">
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#" value="hello">
+            <img class="img-fluid" src="./img/art/abstract/abstract_01.jpg" alt="" style="width: 100%; height: 180px;">
+            <div class="caption">Caption goes here</div>
+          </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="./img/art/abstract/abstract_02.jpg" alt="" style="width: 100%; height: 180px;">
+            <div class="caption">Caption goes here</div>
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="./img/art/abstract/abstract_03.jpg" alt="" style="width: 100%; height: 180px;">
+            <div class="caption">Caption goes here</div>
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="./img/art/abstract/abstract_04.jpg" alt="" style="width: 100%; height: 180px;">
+            <div class="caption">Caption goes here</div>
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#" value="hello">
+            <img class="img-fluid" src="./img/art/abstract/abstract_05.jpg" alt="" style="width: 100%; height: 180px;">
+            <div class="caption">Caption goes here</div>
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="./img/art/abstract/abstract_06.jpg" alt="" style="width: 100%; height: 180px;">
+            <div class="caption">Caption goes here</div>
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="./img/art/abstract/abstract_07.jpg" alt="" style="width: 100%; height: 180px;">
+            <div class="caption">Caption goes here</div>
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="./img/art/abstract/abstract_08.jpg" alt="" style="width: 100%; height: 180px;">
+            <div class="caption">Caption goes here</div>
+          </a>
+        </div>
+      </div>
+
+
+      <!-- My Pick Artist -->
+      <h3 class="my-4" id="pick_artist">PICK ARTIST</h3>
+      <div class="row">
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+        </div>
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+            <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+          </a>
+        </div>
+      </div>
 
     </div>
-</nav>
 
-<div class="container-fluid p-0">
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; P-SEEK.com 2019</p>
+      </div>
+    </footer>
 
-    <section class="resume-section p-3 p-lg-5 d-flex d-column" id="about">
-        <div class="my-auto ">
-            <img id="myprofile-img" class="img-fluid img-profile rounded-circle mb-4" src="./img/user.jpg" alt="" style="width: 35%; margin-left:8rem; display:none; border: 0.5rem solid rgba(153, 153, 153, 0.2); !important; ">
-            <h1 class="mb-0"><%= username %>
-                <span class="text-primary">PAGE</span>
-            </h1>
-            <div class="subheading mb-5">3542 Berry Street · Cheyenne Wells, CO 80810 · <%= userphone%>> ·
-                <a href="mailto:name@email.com">name@email.com</a>
-            </div>
-            <p class="lead mb-5">I am experienced in leveraging agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition.</p>
-            <div class="social-icons">
-                <a href="#">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-            </div>
-        </div>
-    </section>
+  <% include ./head/footerIndex.ejs %>
+  </body>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experience">
-        <div class="my-auto">
-            <h2 class="mb-5">Experience</h2>
-
-            <div class="resume-item d-flex flex-column flex-md-row mb-5">
-                <div class="resume-content mr-auto">
-                    <h3 class="mb-0">Senior Web Developer</h3>
-                    <div class="subheading mb-3">Intelitec Solutions</div>
-                    <p>Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
-                </div>
-                <div class="resume-date text-md-right">
-                    <span class="text-primary">March 2013 - Present</span>
-                </div>
-            </div>
-
-            <div class="resume-item d-flex flex-column flex-md-row mb-5">
-                <div class="resume-content mr-auto">
-                    <h3 class="mb-0">Web Developer</h3>
-                    <div class="subheading mb-3">Intelitec Solutions</div>
-                    <p>Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.</p>
-                </div>
-                <div class="resume-date text-md-right">
-                    <span class="text-primary">December 2011 - March 2013</span>
-                </div>
-            </div>
-
-            <div class="resume-item d-flex flex-column flex-md-row mb-5">
-                <div class="resume-content mr-auto">
-                    <h3 class="mb-0">Junior Web Designer</h3>
-                    <div class="subheading mb-3">Shout! Media Productions</div>
-                    <p>Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.</p>
-                </div>
-                <div class="resume-date text-md-right">
-                    <span class="text-primary">July 2010 - December 2011</span>
-                </div>
-            </div>
-
-            <div class="resume-item d-flex flex-column flex-md-row">
-                <div class="resume-content mr-auto">
-                    <h3 class="mb-0">Web Design Intern</h3>
-                    <div class="subheading mb-3">Shout! Media Productions</div>
-                    <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-                </div>
-                <div class="resume-date text-md-right">
-                    <span class="text-primary">September 2008 - June 2010</span>
-                </div>
-            </div>
-
-        </div>
-
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
-        <div class="my-auto">
-            <h2 class="mb-5">Education</h2>
-
-            <div class="resume-item d-flex flex-column flex-md-row mb-5">
-                <div class="resume-content mr-auto">
-                    <h3 class="mb-0">University of Colorado Boulder</h3>
-                    <div class="subheading mb-3">Bachelor of Science</div>
-                    <div>Computer Science - Web Development Track</div>
-                    <p>GPA: 3.23</p>
-                </div>
-                <div class="resume-date text-md-right">
-                    <span class="text-primary">August 2006 - May 2010</span>
-                </div>
-            </div>
-
-            <div class="resume-item d-flex flex-column flex-md-row">
-                <div class="resume-content mr-auto">
-                    <h3 class="mb-0">James Buchanan High School</h3>
-                    <div class="subheading mb-3">Technology Magnet Program</div>
-                    <p>GPA: 3.56</p>
-                </div>
-                <div class="resume-date text-md-right">
-                    <span class="text-primary">August 2002 - May 2006</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
-        <div class="my-auto">
-            <h2 class="mb-5">Skills</h2>
-
-            <div class="subheading mb-3">Programming Languages &amp; Tools</div>
-            <ul class="list-inline dev-icons">
-                <li class="list-inline-item">
-                    <i class="fab fa-html5"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-css3-alt"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-js-square"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-angular"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-react"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-node-js"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-sass"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-less"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-wordpress"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-gulp"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-grunt"></i>
-                </li>
-                <li class="list-inline-item">
-                    <i class="fab fa-npm"></i>
-                </li>
-            </ul>
-
-            <div class="subheading mb-3">Workflow</div>
-            <ul class="fa-ul mb-0">
-                <li>
-                    <i class="fa-li fa fa-check"></i>
-                    Mobile-First, Responsive Design</li>
-                <li>
-                    <i class="fa-li fa fa-check"></i>
-                    Cross Browser Testing &amp; Debugging</li>
-                <li>
-                    <i class="fa-li fa fa-check"></i>
-                    Cross Functional Teams</li>
-                <li>
-                    <i class="fa-li fa fa-check"></i>
-                    Agile Development &amp; Scrum</li>
-            </ul>
-        </div>
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
-        <div class="my-auto">
-            <h2 class="mb-5">Interests</h2>
-            <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
-            <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
-        </div>
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
-        <div class="my-auto">
-            <h2 class="mb-5">Awards &amp; Certifications</h2>
-            <ul class="fa-ul mb-0">
-                <li>
-                    <i class="fa-li fa fa-trophy text-warning"></i>
-                    Google Analytics Certified Developer</li>
-                <li>
-                    <i class="fa-li fa fa-trophy text-warning"></i>
-                    Mobile Web Specialist - Google Certification</li>
-                <li>
-                    <i class="fa-li fa fa-trophy text-warning"></i>
-                    1<sup>st</sup>
-                    Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
-                <li>
-                    <i class="fa-li fa fa-trophy text-warning"></i>
-                    1<sup>st</sup>
-                    Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
-                <li>
-                    <i class="fa-li fa fa-trophy text-warning"></i>
-                    2<sup>nd</sup>
-                    Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
-                <li>
-                    <i class="fa-li fa fa-trophy text-warning"></i>
-                    1<sup>st</sup>
-                    Place - James Buchanan High School - Hackathon 2006</li>
-                <li>
-                    <i class="fa-li fa fa-trophy text-warning"></i>
-                    3<sup>rd</sup>
-                    Place - James Buchanan High School - Hackathon 2005</li>
-            </ul>
-        </div>
-    </section>
-
-</div>
-<!-- Custom scripts for this template -->
-<script src="/js/resume.min.js"></script>
-<script src="/js/custom_resume.js"></script>
-</body>
 </html>

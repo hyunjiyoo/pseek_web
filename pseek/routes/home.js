@@ -92,7 +92,9 @@ router.post('/register', (req, res) => {
 
 // 마이페이지로 이동
 router.get('/myPage', (req, res) => {
-    res.render("myPage.ejs",{});
+    res.render("myPage.ejs",{
+
+    });
 });
 
 // 이용권 구매
