@@ -38,7 +38,7 @@
                 </span>
                 <% artGenre.forEach((element, i) => { %>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="./<%= element[i] %>"><%= artName[i] %></a>
+                        <a class="nav-link js-scroll-trigger" href="./<%= element %>"><%= artName[i] %></a>
                     </li>
                 <% }); %>
                 <li class="nav-item" style="margin-top: 13px;">
@@ -63,18 +63,18 @@
         <% if (userpick.length > 0) { %>
             <% for (var j = 0; j < userpick.length; j++) { %>
                 <% if (userpick[j].art_id !== artwork[i].art_id) { %>
-                    <form method="post" action="/like/<%= artwork[i].art_title %>">
+                    <form method="post" action="/<%= artwork[i].art_genre %>/like/<%= artwork[i].art_id %>">
                         <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
                     </form>
                 <% } else { %>
                     <% userpick.splice(j, 1); %>
-                    <form method="post" action="/like/<%= artwork[i].art_title %>"> <!-- 활성화 되었을 때 delete로 -->
+                    <form method="post" action="/<%= artwork[i].art_genre %>/dislike/<%= artwork[i].art_id %>"> <!-- 활성화 되었을 때 delete로 -->
                         <button type="submit" class="likeBox btn " id="dislike" ><i class="fas fa-heart"></i></button>
                     </form>
                 <% } %>
             <% } %>
         <% } else { %>
-            <form method="post" action="/like/<%= artwork[i].art_title %>">
+            <form method="post" action="/like/<%= artwork[i].art_id %>">
                 <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
             </form>
         <% } %>

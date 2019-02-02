@@ -105,15 +105,17 @@ fs.readdir('./views/artwork', (err, filelist) => {
     for(let i = 0; i < filelist.length; i++) {
         let artGenre = filelist[i].slice(0, -4);
         router.get(`/${artGenre}`, (req, res) => {
+            // 장르별로 art테이블 컬럼값 가져오는 쿼리문.
             var sql = 'SELECT * FROM `art_tbl` WHERE art_genre = ?';
             db().query(sql, [`${artGenre}`], (err, results) => {
                 if(!err) {
-                    // artwork = 장르별 art테이블에서 전체 데이터 가져오는 값
+                    // artwork = 장르별 art테이블에서 전체 데이터 가져오는 값을 변수에 저장.
                     var artwork = results;
+                    // 로그인된 user_id에 해당하는 art_id를 pick테이블에서 SELECT 수행.
                     var selectSql = 'SELECT art_id FROM `pick_tbl` WHERE user_id = ?';
                     db().query(selectSql, [req.session.userId], (err, results) => {
-                        console.log(results);
-                        res.render(`./artwork/${artGenre}.ejs`,{
+                        // 작품 상세페이지에 작품리스트와 LIKE한 작품 전달.
+                        res.render(`./artwork/abstract.ejs`,{
                             artwork: artwork,
                             userpick: results
                         });
@@ -121,17 +123,25 @@ fs.readdir('./views/artwork', (err, filelist) => {
                 }
             });
         });
-
+        // LIKE 버튼 눌렀을 때 pick_tbl에 데이터 INSERT
+        router.post('/:genre/like/:id', (req, res) => {
+            // req.params객체로 art_id를 가져와서 art테이블에서 해당 값에 대한 데이터를 pick테이블에 INSERT 수행.
+            var sql = 'INSERT INTO `pick_tbl` (pick_id, user_id, art_id) VALUES (?, ?, (SELECT art_id FROM art_tbl WHERE art_id = ' + "'" + req.params.id + "'" + '))';
+            db().query(sql, [null, req.session.userId], (err, results) => {
+                if(err) throw err;
+                res.redirect('/' + req.params.genre);
+            });
+        });
+        // DISLIKE 버튼 눌렀을 때 pick_tbl에 데이터 INSERT
+        router.post('/:genre/dislike/:id', (req, res) => {
+            // req.params객체로 삭제할 art_id를 가져와서 pick테이블에서 DELETE 수행.
+            var sql = 'DELETE FROM `pick_tbl` WHERE `pick_tbl`.art_id = (SELECT `art_tbl`.art_id FROM `art_tbl` WHERE `art_tbl`.art_id = ' + "'" + req.params.id + "'" + ')';
+            db().query(sql, [], (err, results) => {
+                if(err) throw err;
+                res.redirect('/' + req.params.genre);
+            });
+        });
     }
-});
-
-router.post('/like/:id', (req, res) => {
-    console.log(req.session.userId);
-    var sql = 'INSERT INTO `pick_tbl` (pick_id, user_id, art_id) VALUES (?, ?, (SELECT art_id FROM art_tbl WHERE art_title = ' + "'" + req.params.id + "'" + '))';
-    db().query(sql, [null, req.session.userId], (err, results) => {
-        if(err) throw err;
-        res.redirect('/abstract');
-    });
 });
 
 module.exports = router;
