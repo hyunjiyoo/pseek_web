@@ -82,9 +82,14 @@
             <li><b>NAME ㅡ</b> <%= username %></li>
             <li><b>EMAIL ㅡ</b> <%= user %>@pseek.com </li>
             <li><b>PHONE ㅡ</b> <%= userphone %></li>
+            <li style="padding-top: 10px;">
+              <form action="./payTicket">
+                <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold; "/>
+              </form>
+            </li>
           </ul>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, assumenda beatae dolor dolorum, earum hic ipsa, ipsum iure natus necessitatibus odit quidem quisquam quo r.</p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, assumenda beatae dolor dolorum,</p>
         </div>
       </div>
 
@@ -148,13 +153,14 @@
           <% } %>
         <% } %>
     </div>
+    </div>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; P-SEEK.com 2019</p>
-      </div>
-    </footer>
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; P-SEEK.com 2019</p>
+    </div>
+  </footer>
 
   <% include ./head/footerIndex.ejs %>
   </body>

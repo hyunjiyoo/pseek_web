@@ -157,4 +157,10 @@ fs.readdir('./views/artwork', (err, filelist) => {
     }
 });
 
+// 작가페이지로 이동
+router.get('/artist', (req, res) => {
+   res.render('artist.ejs', {});
+});
+
+
 module.exports = router;
