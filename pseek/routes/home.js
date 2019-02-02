@@ -95,9 +95,14 @@ router.get('/myPage', (req, res) => {
     // pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
     var sql = 'SELECT art_id, art_imgsrc, art_title FROM `art_tbl` WHERE `art_tbl`.art_id IN (SELECT `pick_tbl`.art_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
     db().query(sql, [req.session.userId], (err, results) => {
-        console.log(results);
-        res.render("myPage.ejs",{
-            pickArt: results
+        var pickArt = results;
+        //
+        var sql = 'SELECT user_imgsrc, user_name FROM user_tbl WHERE user_tbl.user_id IN (SELECT pick_tbl.artist_id FROM pick_tbl WHERE pick_tbl.user_id = ?)';
+        db().query(sql, [req.session.userId], (err, results) => {
+            res.render("myPage.ejs",{
+                pickArt: pickArt,
+                pickArtist: results
+            });
         });
     });
 
