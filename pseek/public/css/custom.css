@@ -67,3 +67,7 @@
 #edit_profile:hover {
     background-color: #D2D2D2AA;
 }
+
+.fa-plus-square:hover {
+    color: #FEC810;
+}

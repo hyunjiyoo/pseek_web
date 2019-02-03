@@ -7,7 +7,8 @@ db_init = function () {
         user: "root",
         password: "pisa3333",
         database: "pseekdb2",
-        port: 3306
+        port: 3306,
+        multipleStatements: true
     });
     return conn;
 };

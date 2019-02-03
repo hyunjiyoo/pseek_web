@@ -6,6 +6,7 @@ var db = require('../lib/db.js');
 router.get('/login', (req, res) => {
     res.render("login.ejs",{});
 });
+
 router.post('/login', (req, res) => {
     var body = req.body;
     var userid = body.username;
@@ -43,6 +44,7 @@ router.get('/logout', (req, res) => {
 router.get('/register', (req, res) => {
     res.render('register.ejs', {});
 });
+
 router.post('/register', (req, res) => {
     let body = req.body;
     var regId = body.id;
@@ -59,10 +61,9 @@ router.post('/register', (req, res) => {
                 existId: regId
             });
         } else {
-            res.redirect('/login');
+            res.redirect('/user/login');
         }
     });
 });
-
 
 module.exports = router;
