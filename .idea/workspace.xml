@@ -3,12 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="10888e21-efb6-440b-9ff1-971f17da4521" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/pseek/lib/db.js" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/lib/db.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/public/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/public/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/routes/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/routes/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/routes/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/routes/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/views/artwork.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/views/artwork.ejs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pseek/views/myPage.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/pseek/views/myPage.ejs" afterDir="false" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,7 +26,11 @@
     <session id="1932255229">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+<<<<<<< HEAD
+          <entry key="project.closed" value="18" />
+=======
           <entry key="project.closed" value="19" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.15" value="2" />
@@ -111,6 +118,9 @@
     </session>
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+=======
     <splitter split-orientation="horizontal" split-proportion="0.31997642">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -154,6 +164,7 @@
         </leaf>
       </split-second>
     </splitter>
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -273,17 +284,23 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+<<<<<<< HEAD
+    <option name="x" value="456" />
+    <option name="y" value="-24" />
+    <option name="width" value="1440" />
+    <option name="height" value="765" />
+=======
     <option name="x" value="-1493" />
     <option name="y" value="-8" />
     <option name="width" value="1152" />
     <option name="height" value="612" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -300,6 +317,9 @@
               <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
               <item name="pseek" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+=======
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -320,6 +340,7 @@
               <item name="pseekWeb" type="462c0819:PsiDirectoryNode" />
               <item name="pseek" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
             </path>
             <path>
               <item name="pseekWeb" type="b2602c69:ProjectViewProjectNode" />
@@ -331,6 +352,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -729,7 +751,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="198738000" />
+=======
     <option name="totallyTimeSpent" value="206413000" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -742,14 +768,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="1" width="1936" height="1056" extended-state="6" />
+<<<<<<< HEAD
+=======
     <editor active="true" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49713194" visible="true" weight="0.10590095" />
       <window_info id="Structure" order="1" sideWeight="0.50286806" side_tool="true" weight="0.1269002" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
+<<<<<<< HEAD
+      <window_info anchor="bottom" id="Find" order="1" weight="0.26397514" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4990086" weight="0.2204142" />
+=======
       <window_info anchor="bottom" id="Find" order="1" weight="0.26331362" />
       <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4990086" visible="true" weight="0.16909294" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39940828" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -911,6 +945,18 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/pseek/views/artwork/surrealism.ejs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/views/artwork/pop.ejs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pseek/public/img/user/1.jpg" />
+    <entry file="file://$PROJECT_DIR$/pseek/views/myPage2.ejs" />
+    <entry file="file://$PROJECT_DIR$/pseek/sessions/d_pWgCvtO3jBNkV-Xu4b1l9jObjlU-hr.json" />
+    <entry file="file://$PROJECT_DIR$/pseek/app.js">
+=======
     <entry file="file://$PROJECT_DIR$/pseek/views/login.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -926,6 +972,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/public/css/login.css">
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
@@ -956,8 +1003,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/routes/login.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="207">
+          <caret line="77" column="43" selection-start-line="77" selection-start-column="43" selection-end-line="77" selection-end-column="43" />
+=======
         <state relative-caret-position="437">
           <caret line="67" selection-start-line="67" selection-end-line="67" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
         </state>
       </provider>
     </entry>
@@ -1002,8 +1054,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pseek/lib/db.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="172">
+          <caret line="164" column="36" selection-start-line="164" selection-start-column="36" selection-end-line="164" selection-end-column="36" />
+=======
         <state relative-caret-position="207">
           <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+>>>>>>> 8a3bd2ec17c360d242a672dba1b0b14ae4af1a6c
         </state>
       </provider>
     </entry>
