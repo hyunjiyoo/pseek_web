@@ -62,18 +62,18 @@
                 <% if (artistpick.length > 0) { %>
                     <% for (var j = 0; j < artistpick.length; j++) { %>
                         <% if (artistpick[j].user_id !== artistList[i].user_id) { %>
-                            <form method="post" action="/artist/like/<%= artistList[i].user_id %>" >
+                            <form method="post" action="/artist/artist/like/<%= artistList[i].user_id %>" >
                             <button type="submit" class="likeBox btn " id="heart" style="margin-top: -10px"><i class="fas fa-heart"></i></button>
                             </form>
                         <% } else { %>
                             <% artistpick.splice(j, 1); %>
-                                <form method="post" action="/artist/dislike/<%= artistList[i].user_id %>" >
+                                <form method="post" action="/artist/artist/dislike/<%= artistList[i].user_id %>" >
                                     <button type="submit" class="likeBox btn " id="dislike" style="margin-top: -10px"><i class="fas fa-heart"></i></button>
                                 </form>
                         <% } %>
                     <% } %>
                 <% } else { %>
-                    <form method="post" action="/artist/like/<%= artistList[i].user_id %>" >
+                    <form method="post" action="/artist/artist/like/<%= artistList[i].user_id %>" >
                         <button type="submit" class="likeBox btn " id="heart" style="margin-top: -10px"><i class="fas fa-heart"></i></button>
                     </form>
                 <% } %>
