@@ -60,6 +60,17 @@ router.get('/myPage', (req, res) => {
         });
     });
 });
+// 마이페이지에서 내작품 더보기 (plus icon)
+router.get('/myart', (req, res) => {
+    var sql = 'SELECT * FROM `art_tbl` WHERE `art_tbl`.artist_id = (SELECT `user_tbl`.user_id FROM `user_tbl` WHERE `user_tbl`.user_id = ?)';
+    console.log(req.session.userId);
+    db().query(sql, [req.session.userId], (err, results) => {
+        console.log(results);
+        res.render('myartList.ejs', {
+            artistWork: results
+        });
+    });
+});
 
 // 이용권 구매
 router.get('/payTicket', (req, res) => {
@@ -108,13 +119,11 @@ for (let i = 0; i < artGenre.length; i++) {
     });
 }
 
-
 // 작가페이지로 이동
 router.get('/artist', (req, res) => {
     var sql ='SELECT * FROM `user_tbl`';
     db().query(sql, (err, results) => {
         var artistList = results;
-        console.log(results.length);
         // 로그인된 user_id를 pick테이블에서 조회하여 해당 user테이블에 있는 값 모두 조회.
         var sql ='SELECT * FROM `user_tbl` WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
         db().query(sql, [req.session.userId], (err, results) => {
