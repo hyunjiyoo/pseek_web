@@ -1,168 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PSEEK:: My Page</title>
     <% include ./head/headIndex.ejs %>
     <style>
-      body {
-        padding-top: 54px;
-      }
-      @media (min-width: 992px) {
         body {
-          padding-top: 56px;
+            padding-top: 54px;
         }
-      }
-      .caption {
-        position: absolute;
-        width: 255px;
-        height: 35px;
-        bottom: 0px;
-        color: #ffffff;
-        background: #000000DD;
-        text-align:center;
-        font-family: Sans-serif;
+        @media (min-width: 992px) {
+            body {
+                padding-top: 56px;
+            }
+        }
+        .caption {
+            position: absolute;
+            width: 255px;
+            height: 35px;
+            bottom: 0px;
+            color: #ffffff;
+            background: #000000DD;
+            text-align:center;
+            font-family: Sans-serif;
 
-        opacity:0.7;
-      }
+            opacity:0.7;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="/">P-Seek :: <small>artists' playground</small></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
+        <a class="navbar-brand js-scroll-trigger" href="/">P-Seek :: <small>artists' playground</small></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
                 <span hidden>
-                <%= MyPageNav = ['pick_art', 'pick_artist'] %>
-                  <%= NavName = ['PICK ART', 'PICK ARTIST'] %>
+                <%= MyPageNav = ['pick_art', 'pick_artist', 'my_artwork'] %>
+                <%= NavName = ['PICK ART', 'PICK ARTIST', 'MY ARTWORK'] %>
                 </span>
-          <% MyPageNav.forEach((element, i) => { %>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#<%= element %>"><%= NavName[i] %></a>
-            </li>
-          <% }); %>
-          <li class="nav-item" style="margin-top: 13px;">
-            <% if (isLogined) { %>
-              <i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"><%= user %>&nbsp;&nbsp;</span></a>&nbsp;&nbsp;
-              <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/user/logout">Sign Out</a>
-
-
-            <% } else { %>
-              <i class="fas fa-user-circle" style="color: #ADADAD"></i>&nbsp;
-              <span id="user" style="color: #fed136">Guest</span>
-            <% } %>
-          </li>
-        </ul>
-      </div>
+                <% MyPageNav.forEach((element, i) => { %>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="#<%= element %>"><%= NavName[i] %></a>
+                    </li>
+                <% }); %>
+                <li class="nav-item" style="margin-top: 13px;">
+                    <% if (isLogined) { %>
+                        <i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"> <%= user %>&nbsp;&nbsp;</span></a>&nbsp;&nbsp;
+                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/user/logout">Sign Out</a>
+                    <% } else { %>
+                        <i class="fas fa-user-circle" style="color: #ADADAD"></i>&nbsp;
+                        <span id="user" style="color: #fed136">Guest</span>
+                    <% } %>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
-    <!-- Contents -->
-    <div class="container">
+<!-- Contents -->
+<div class="container">
 
-      <!-- Profile -->
-      <div class="row" style="margin-top: 50px">
+    <!-- Profile -->
+    <div class="row" style="margin-top: 50px">
         <div class="col-md-8">
-          <img class="img-fluid" src="./img/mypage-bg.jpg" alt="">
+            <img class="img-fluid" src="./img/mypage-bg.jpg" alt="">
         </div>
         <div class="col-md-4" style="background-color: #E6E6E677">
-          <div><img src="./img/user/user_001.jpg" style=" margin-top: 10px; height: 10rem" /></div>
-          <span style="color: #E84600; font-weight: bold; font-size: 2rem; font-family: Sans-serif;"> MY PROFILE </span>
-          <i class="fas fa-cog" id="edit_profile" style="color:#636363; font-size: 1.3rem;" onclick="alert('You can edit profile contents.');"></i>
-          <ul style="list-style: none; padding:0">
-            <li><b>NAME ㅡ</b> <%= username %></li>
-            <li><b>EMAIL ㅡ</b> <%= user %>@pseek.com </li>
-            <li><b>PHONE ㅡ</b> <%= userphone %></li>
-            <li style="padding-top: 10px;">
-              <form action="./payTicket">
-                <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold; "/>
-              </form>
-            </li>
-          </ul>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, assumenda beatae dolor dolorum,</p>
+            <div><img src="./img/user/user_001.jpg" style=" margin-top: 10px; height: 10rem" /></div>
+            <span style="color: #E84600; font-weight: bold; font-size: 2rem; font-family: Sans-serif;"> MY PROFILE </span>
+            <i class="fas fa-cog" id="edit_profile" style="color:#636363; font-size: 1.3rem;" onclick="alert('You can edit profile contents.');"></i>
+            <ul style="list-style: none; padding:0">
+                <li><b>NAME ㅡ</b> <%= username %></li>
+                <li><b>EMAIL ㅡ</b> <%= user %>@pseek.com </li>
+                <li><b>PHONE ㅡ</b> <%= userphone %></li>
+                <li style="padding-top: 10px;">
+                    <form action="./payTicket">
+                        <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold; "/>
+                    </form>
+                </li>
+            </ul>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, assumenda beatae dolor dolorum,</p>
         </div>
-      </div>
+    </div>
 
-      <!-- My Pick Art -->
-      <h3 class="my-4" id="pick_art">PICK ART</h3>
-      <div class="row">
+    <!-- My Pick Art -->
+    <h3 class="my-4" id="pick_art">PICK ART</h3>
+    <div class="row">
         <% if (pickArt.length === 0) { %>
-          <% for(let i = 0; i < 4; i++) { %>
-          <div class="col-md-3 col-sm-6 mb-4">
-            <a href="#" value="hello"><img class="img-fluid" src="http://placehold.it/500x300" alt=""></a>
-          </div>
-          <% } %>
+            <% for(let i = 0; i < 4; i++) { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello"><img class="img-fluid" src="http://placehold.it/500x300" alt=""></a>
+                </div>
+            <% } %>
         <% } else if (pickArt.length < 9) { %>
-          <% for(let i = pickArt.length - 1; i >= 0; i--) { %>
-            <div class="col-md-3 col-sm-6 mb-4">
-              <a href="#" value="hello">
-                <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
-                <div class="caption"><%= pickArt[i].art_title %></div>
-              </a>
-            </div>
-          <% } %>
+            <% for(let i = pickArt.length - 1; i >= 0; i--) { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello">
+                        <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                        <div class="caption"><%= pickArt[i].art_title %></div>
+                    </a>
+                </div>
+            <% } %>
         <% } else { %>
             <% for(let i = pickArt.length - 1; i > pickArt.length - 9; i--) { %>
-              <div class="col-md-3 col-sm-6 mb-4">
-                <a href="#" value="hello">
-                  <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
-                  <div class="caption"><%= pickArt[i].art_title %></div>
-                </a>
-              </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello">
+                        <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                        <div class="caption"><%= pickArt[i].art_title %></div>
+                    </a>
+                </div>
             <% } %>
         <% } %>
-      </div>
+    </div>
 
-      <!-- My Pick Artist -->
-      <h3 class="my-4" id="pick_artist">PICK ARTIST</h3>
-      <div class="row">
+    <!-- My Pick Artist -->
+    <h3 class="my-4" id="pick_artist">PICK ARTIST</h3>
+    <div class="row">
 
         <% if (pickArtist.length === 0) { %>
-          <% for(let i = 0; i < 4; i++) { %>
-            <div class="col-md-3 col-sm-6 mb-4">
-              <a href="#" value="hello"><img class="img-fluid" src="http://placehold.it/500x300" alt=""></a>
-            </div>
-          <% } %>
+            <% for(let i = 0; i < 4; i++) { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello"><img class="img-fluid" src="http://placehold.it/500x300" alt=""></a>
+                </div>
+            <% } %>
         <% } else if (pickArtist.length < 9) { %>
-          <% for(let i = pickArtist.length - 1; i >= 0; i--) { %>
-            <div class="col-md-3 col-sm-6 mb-4">
-              <a href="#" value="hello">
-                <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
-                <div class="caption"><%= pickArtist[i].user_name %></div>
-              </a>
-            </div>
-          <% } %>
+            <% for(let i = pickArtist.length - 1; i >= 0; i--) { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello">
+                        <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                        <div class="caption"><%= pickArtist[i].user_name %></div>
+                    </a>
+                </div>
+            <% } %>
         <% } else { %>
-          <% for(let i = pickArtist.length - 1; i > pickArtist.length - 9; i--) { %>
-            <div class="col-md-3 col-sm-6 mb-4">
-              <a href="#" value="hello">
-                <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
-                <div class="caption"><%= pickArtist[i].user_name %></div>
-              </a>
-            </div>
-          <% } %>
+            <% for(let i = pickArtist.length - 1; i > pickArtist.length - 9; i--) { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello">
+                        <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                        <div class="caption"><%= pickArtist[i].user_name %></div>
+                    </a>
+                </div>
+            <% } %>
         <% } %>
     </div>
+
+    <!-- My ART -->
+    <h3 class="my-4" id="my_artwork">MY ARTWORK<a href="/myPage" style="color: #000 !important;"><i class="fas fa-plus-square" style="float: right"></i></a></h3>
+    <div class="row">
+        <% if (myArt.length === 0) { %>
+            <% for(let i = 0; i < 4; i++) { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello"><img class="img-fluid" src="http://placehold.it/500x300" alt=""></a>
+                </div>
+            <% } %>
+        <% } else if (myArt.length < 9) { %>
+            <% for(let i = myArt.length - 1; i >= 0; i--) { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello">
+                        <img class="img-fluid" src="<%= myArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                        <div class="caption"><%= myArt[i].art_title %></div>
+                    </a>
+                </div>
+            <% } %>
+        <% } else { %>
+            <% for(let i = myArt.length - 1; i > myArt.length - 9; i--) { %>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#" value="hello">
+                        <img class="img-fluid" src="<%= myArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                        <div class="caption"><%= myArt[i].art_title %></div>
+                    </a>
+                </div>
+            <% } %>
+        <% } %>
     </div>
 
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
+</div>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; P-SEEK.com 2019</p>
+        <p class="m-0 text-center text-white">Copyright &copy; P-SEEK.com 2019</p>
     </div>
-  </footer>
+</footer>
 
-  <% include ./head/footerIndex.ejs %>
-  </body>
-
+<% include ./head/footerIndex.ejs %>
+</body>
 </html>

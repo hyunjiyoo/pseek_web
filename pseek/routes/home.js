@@ -1,5 +1,4 @@
 var express = require('express');
-var fs = require('fs');
 var router = express.Router();
 var db = require('../lib/db.js');
 
@@ -27,21 +26,39 @@ router.get('/', (req, res) => {
 });
 
 // 마이페이지로 이동
+// router.get('/myPage', (req, res) => {
+//     // pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
+//     var sql = 'SELECT * FROM `art_tbl` WHERE `art_tbl`.art_id IN (SELECT `pick_tbl`.art_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
+//     db().query(sql, [req.session.userId], (err, results) => {
+//         var pickArt = results;
+//         // pick테이블에서 현재 로그인된 user_id에 해당하는 pick 아티스트를 artist_id로 조회하여 art테이블에서 아티스트이미지와 이름 조회.
+//         var sql = 'SELECT * FROM `user_tbl` WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
+//         db().query(sql, [req.session.userId], (err, results) => {
+//             res.render("myPage.ejs",{
+//                 pickArt: pickArt,
+//                 pickArtist: results
+//             });
+//         });
+//     });
+// });
+
+// 마이페이지
 router.get('/myPage', (req, res) => {
-    // pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
-    var sql = 'SELECT art_id, art_imgsrc, art_title FROM `art_tbl` WHERE `art_tbl`.art_id IN (SELECT `pick_tbl`.art_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
-    db().query(sql, [req.session.userId], (err, results) => {
-        var pickArt = results;
-        // pick테이블에서 현재 로그인된 user_id에 해당하는 pick 아티스트를 artist_id로 조회하여 art테이블에서 아티스트이미지와 이름 조회.
-        var sql = 'SELECT user_imgsrc, user_name FROM user_tbl WHERE user_tbl.user_id IN (SELECT pick_tbl.artist_id FROM pick_tbl WHERE pick_tbl.user_id = ?)';
-        db().query(sql, [req.session.userId], (err, results) => {
-            res.render("myPage.ejs",{
-                pickArt: pickArt,
-                pickArtist: results
-            });
+    /*  sql[0]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
+        sql[1]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 아티스트를 artist_id로 조회하여 art테이블에서 아티스트이미지와 이름 조회.
+        sql[2]: user테이블에서 현재 로그인된 user_id에 해당하는 user를 art테이블에서 가져와서 작품 조회.
+    */
+    var sql = 'SELECT * FROM `art_tbl` WHERE `art_tbl`.art_id IN (SELECT `pick_tbl`.art_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?);' +
+        'SELECT * FROM `user_tbl` WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?); ' +
+        'SELECT * FROM art_tbl WHERE art_tbl.artist_id = (SELECT user_tbl.user_id FROM user_tbl WHERE user_id = ?)';
+    var loggedinId = req.session.userId;
+    db().query(sql, [loggedinId, loggedinId, loggedinId], (err, results) => {
+        res.render("myPage.ejs",{
+            pickArt: results[0],
+            pickArtist: results[1],
+            myArt: results[2]
         });
     });
-
 });
 
 // 이용권 구매
