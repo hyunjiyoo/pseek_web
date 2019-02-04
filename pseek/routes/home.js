@@ -153,4 +153,8 @@ router.post('/artist/dislike/:id', (req,res) => {
 });
 
 
+router.get('/museum', (req, res) => {
+   res.render('museum.ejs', {});
+});
+
 module.exports = router;
