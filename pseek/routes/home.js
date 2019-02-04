@@ -25,23 +25,6 @@ router.get('/', (req, res) => {
     });
 });
 
-// 마이페이지로 이동
-// router.get('/myPage', (req, res) => {
-//     // pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
-//     var sql = 'SELECT * FROM `art_tbl` WHERE `art_tbl`.art_id IN (SELECT `pick_tbl`.art_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
-//     db().query(sql, [req.session.userId], (err, results) => {
-//         var pickArt = results;
-//         // pick테이블에서 현재 로그인된 user_id에 해당하는 pick 아티스트를 artist_id로 조회하여 art테이블에서 아티스트이미지와 이름 조회.
-//         var sql = 'SELECT * FROM `user_tbl` WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
-//         db().query(sql, [req.session.userId], (err, results) => {
-//             res.render("myPage.ejs",{
-//                 pickArt: pickArt,
-//                 pickArtist: results
-//             });
-//         });
-//     });
-// });
-
 // 마이페이지
 router.get('/myPage', (req, res) => {
     /*  sql[0]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
@@ -152,7 +135,7 @@ router.post('/artist/dislike/:id', (req,res) => {
     });
 });
 
-
+// museum 이동
 router.get('/museum', (req, res) => {
    res.render('museum.ejs', {});
 });
