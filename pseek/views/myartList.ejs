@@ -56,7 +56,7 @@
     <h2 class="my-4 text-center text-md-left" style="text-transform: uppercase; padding-top: 20px">
         <%= user %><small>  Gallery</small>
         <!-- register Modal 로 Link -->
-        <a href="#artRegister" data-toggle="modal" style="color: #000 !important;"><i class="fas fa-plus-square" style="float: right"></i></a>
+        <a href="#artAdd" data-toggle="modal" style="color: #000 !important;"><i class="fas fa-plus-square" style="float: right"></i></a>
     </h2>
     <div class="row text-center text-lg-left">
         <% if ( artistWork.length > 0) { %>
@@ -87,7 +87,7 @@
 </footer>
 
 <!-- Art Work Add Modal -->
-<div class="modal fade" id="artRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="artAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -99,7 +99,7 @@
             <div class="modal-body">
                 <!-- Modal Contents -->
                 <img class="addImg" src="http://placehold.it/500x300" width="100%" style="margin-bottom: 15px"/>
-                <span style="font-weight: bold">Title: <input type="text" class="addTitle" name="addTitle" value="" placeholder="Write Title" style="width: 80%"/></span><br/><br/>
+                <span style="font-weight: bold">Title: <input type="text" class="addTitle" name="addTitle" value="" placeholder="title" style="width: 80%"/></span><br/><br/>
                 <span style="font-weight: bold">File: &nbsp&nbsp<input type="file" name="addImg" class="addImg" value="" style="color: #fff"/></span><br/><br/>
                 <span style="font-weight: bold">Genre: &nbsp&nbsp<select type="text" name="addGenre" value="">
                         <option value="abstract">Abstract</option>
