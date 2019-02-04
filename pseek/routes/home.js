@@ -63,9 +63,7 @@ router.get('/myPage', (req, res) => {
 // 마이페이지에서 내작품 더보기 (plus icon)
 router.get('/myart', (req, res) => {
     var sql = 'SELECT * FROM `art_tbl` WHERE `art_tbl`.artist_id = (SELECT `user_tbl`.user_id FROM `user_tbl` WHERE `user_tbl`.user_id = ?)';
-    console.log(req.session.userId);
     db().query(sql, [req.session.userId], (err, results) => {
-        console.log(results);
         res.render('myartList.ejs', {
             artistWork: results
         });
@@ -154,5 +152,9 @@ router.post('/artist/dislike/:id', (req,res) => {
     });
 });
 
+
+router.get('/museum', (req, res) => {
+   res.render('museum.ejs', {});
+});
 
 module.exports = router;
