@@ -46,8 +46,10 @@ app.use(function(req, res, next) {
     res.locals.existId = null;
     next();
 });
-app.use('/', require("./routes/home"));
+app.use('/', require("./routes/index"));
 app.use('/user', require("./routes/user"));
+app.use('/myart', require("./routes/myart"));
+app.use('/artist', require("./routes/artist"));
 
 app.listen(30010, () => {
     console.log('server running at http://pseek.iptime.org:30001');
