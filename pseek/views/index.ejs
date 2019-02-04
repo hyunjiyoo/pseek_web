@@ -30,9 +30,9 @@
                 <li class="nav-item" style="margin-top: 10px;">
                     <% if (isLogined) { %>
                         <i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/myPage">MYPAGE</a></span></a>&nbsp;&nbsp;
-                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/logout">Sign Out</a>
+                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/user/logout">Sign Out</a>
                     <% } else { %>
-                        &nbsp;&nbsp;<a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/login"> Sign In</a>
+                        &nbsp;&nbsp;<a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/user/login"> Sign In</a>
                     <% } %>
                 </li>
             </ul>
@@ -97,6 +97,7 @@
             </span>
             <% for (let i in artGenre) { %>
                 <div class="col-md-4 col-sm-6 portfolio-item">
+                    <!-- 로그인 되었을 때 작품페이지 접근 가능 -->
                     <% if(isLogined) { %>
                     <a class="portfolio-link" href="./<%= artGenre[i] %>">
                     <% } else { %>
@@ -134,9 +135,8 @@
                     <% artistNames.forEach((element, i) => { %>
                         <!-- index가 홀수이면 오른쪽 정렬 -->
                         <li<% if(i%2===1) { %> class="timeline-inverted" <% } else { %> class="" <% } %>>
-                            <div class="timeline-image hovereffect">
+                            <div class="timeline-image">
                                 <img class="rounded-circle img-fluid" src="img/user/user_00<%= i+1 %>.jpg" alt="">
-                                <img class="img-responsive" src="img/user/user_00<%= i+1 %>.jpg">
                                 <a href="#"><div class="overlay"></div></a>
                             </div>
                             <div class="timeline-panel">
@@ -151,7 +151,12 @@
                         </li>
                     <% }); %>
                     <li class="timeline-inverted">
+                        <!-- 로그인 되었을 때 작품페이지 접근 가능 -->
+                        <% if (isLogined) { %>
                         <a href="/artist">
+                        <% } else { %>
+                        <a href="./" onclick="alert('Please Log in')">
+                        <% } %>
                             <div class="timeline-image">
                                 <h4>Go to
                                     <br>Show more
