@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../lib/db.js');
+var fileUpload = require('express-fileupload');
+var makeDir = require('make-dir');
 
 // 로그인
 router.get('/login', (req, res) => {
@@ -23,6 +25,7 @@ router.post('/login', (req, res) => {
                 req.session.userId = userid;
                 req.session.username = results[0].user_name;
                 req.session.userphone = results[0].user_tel;
+                req.session.userImg = results[0].user_imgsrc;
                 res.redirect('/');
             }
         } else {
@@ -51,19 +54,26 @@ router.post('/register', (req, res) => {
     var regname = body.name;
     var regPwd = body.password;
     var regPhone = body.phone_number;
-
     var sql = 'INSERT INTO `user_tbl` (user_id, user_name, user_password, user_tel) VALUES (?,?,?,?)';
-    db().query(sql, [regId, regname, regPwd, regPhone], (err, results) => {
-        if (err) {
-            // INSERT시 user_id가 PK이므로 중복값 존재 X
-            // 따라서, err발생 => 동일아이디가 존재한다는 의미. (DB자체에서 수행)
-            res.render('register.ejs', {
-                existId: regId
-            });
-        } else {
-            res.redirect('/user/login');
-        }
-    });
+
+    (async () => {
+        await Promise.all([
+            makeDir('./uploads/user/' + req.body.id + '/art'),
+            makeDir('./uploads/user/' + req.body.id + '/profile')
+        ]);
+
+        await db().query(sql, [regId, regname, regPwd, regPhone], (err, results) => {
+            if (err) {
+                // INSERT시 user_id가 PK이므로 중복값 존재 X
+                // 따라서, err발생 => 동일아이디가 존재한다는 의미. (DB자체에서 수행)
+                res.render('register.ejs', {
+                    existId: regId
+                });
+            } else {
+                res.redirect('/user/login');
+            }
+        });
+    })();
 });
 
 module.exports = router;

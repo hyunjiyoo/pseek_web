@@ -56,17 +56,17 @@
     <h2 class="my-4 text-center text-md-left" style="text-transform: uppercase; padding-top: 20px">
         <%= user %><small>  Gallery</small>
         <!-- register Modal 로 Link -->
-        <a href="#artRegister" data-toggle="modal" style="color: #000 !important;"><i class="fas fa-plus-square" style="float: right"></i></a>
+        <a href="#artAdd" data-toggle="modal" style="color: #000 !important;"><i class="fas fa-plus-square" style="float: right"></i></a>
     </h2>
     <div class="row text-center text-lg-left">
         <% if ( artistWork.length > 0) { %>
             <% for(var i in artistWork) { %>
-            <div class="col-lg-3 col-md-4 col-xs-6">
-                <a href="#artEdit" onclick="modalImg('<%= artistWork[i].art_imgsrc %>', '<%= artistWork[i].art_title %>')" data-toggle="modal" class="d-block mb-4 h-100">
-                    <img id="a" class="img-fluid img-thumbnail" src="<%= artistWork[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
-                    <div class="caption"><%= artistWork[i].art_title %></div>
-                </a>
-            </div>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <a href="#artEdit" onclick="modalImg('<%= artistWork[i].art_imgsrc %>', '<%= artistWork[i].art_title %>', '<%= artistWork[i].art_genre %>', '<%= artistWork[i].art_des %>', '<%= artistWork[i].art_loc %>')" data-toggle="modal" class="d-block mb-4 h-100">
+                        <img id="a" class="img-fluid img-thumbnail" src="<%= artistWork[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                        <div class="caption"><%= artistWork[i].art_title %></div>
+                    </a>
+                </div>
             <% } %>
         <% } else { %>
             <div class="col-lg-3 col-md-4 col-xs-6">
@@ -87,7 +87,7 @@
 </footer>
 
 <!-- Art Work Add Modal -->
-<div class="modal fade" id="artRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="artAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -97,7 +97,22 @@
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <!-- Modal Contents -->
+                <img class="addImg" src="http://placehold.it/500x300" width="100%" style="margin-bottom: 15px"/>
+                <span style="font-weight: bold">Title: <input type="text" class="addTitle" name="addTitle" value="" placeholder="title" style="width: 80%"/></span><br/><br/>
+                <span style="font-weight: bold">File: &nbsp&nbsp<input type="file" name="addImg" class="addImg" value="" style="color: #fff"/></span><br/><br/>
+                <span style="font-weight: bold">Genre: &nbsp&nbsp<select type="text" name="addGenre" value="">
+                        <option value="abstract">Abstract</option>
+                        <option value="contemporary">contemporary</option>
+                        <option value="modern">modern</option>
+                        <option value="pop">pop</option>
+                        <option value="stillLife">stillLife</option>
+                        <option value="surrealism">surrealism</option>
+                    </select></span><br/><br/>
+                <span style="font-weight: bold">Description<br/>
+                    <textarea name="addDes" class="addDes" rows="5" style="width: 100%"></textarea></span><br/><br/>
+                <span style="font-weight: bold">Location<br/>
+                    <textarea name="addLoc" class="addLoc" rows="2" style="width: 100%"></textarea></span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -119,23 +134,41 @@
             </div>
             <div class="modal-body">
                 <img id="editImg" src="" width="100%" style="margin-bottom: 15px"/>
-                <span style="font-weight: bold">Title: <input type="text" id="editTitle" value="" /></span><br/><br/>
-                <span style="font-weight: bold">File: &nbsp&nbsp<input type="file" id="chgImg" value="" style="color: #fff"/></span>
+                <span style="font-weight: bold">Title: <input type="text" name="editTitle" id="editTitle" value="" /></span><br/><br/>
+                <span style="font-weight: bold">File: &nbsp&nbsp<input type="file" name="editImg" id="chgImg" value="" style="color: #fff"/></span><br/><Br/>
+                <span style="font-weight: bold">Genre: &nbsp&nbsp<select type="text" name="editGenre" id="editGenre" value="">
+                        <option value="abstract">Abstract</option>
+                        <option value="contemporary">contemporary</option>
+                        <option value="modern">modern</option>
+                        <option value="pop">pop</option>
+                        <option value="stillLife">stillLife</option>
+                        <option value="surrealism">surrealism</option>
+                    </select></span><br/><br/>
+                <span style="font-weight: bold">Description<br/>
+                    <textarea name="editDes" id="editDes" class="editDes" rows="5" style="width: 100%"></textarea></span><br/><br/>
+                <span style="font-weight: bold">Location<br/>
+                    <textarea name="editLoc" id="editLoc" class="editLoc" rows="2" style="width: 100%"></textarea></span>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="changeImg(input)">Save changes</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
     // Modal Initialization
-    function modalImg(imgSrc, title) {
+    function modalImg(imgSrc, title, genre, des, loc) {
         var editImg = document.getElementById('editImg');
         var editTitle = document.getElementById('editTitle');
+        var editGenre = document.getElementById('editGenre');
+        var editDes = document.getElementById('editDes');
+        var editLoc = document.getElementById('editLoc');
         editImg.src = imgSrc;
         editTitle.value = title;
+        editGenre.value = genre;
+        editDes.value = des;
+        editLoc.value = loc;
     }
     // Img Change
     $(document).ready(function () {
@@ -151,6 +184,21 @@
         // 파일태그에서 선택한 이미지로 바뀜
         $('#chgImg').on('change', function () {
             readURL(this);
+        })
+
+        // add Modal
+        var readURL2 = function(input) {
+            if(input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (element) {
+                    $('.addImg').attr('src', element.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        // 파일태그에서 선택한 이미지로 바뀜
+        $('.addImg').on('change', function () {
+            readURL2(this);
         })
     });
 </script>
