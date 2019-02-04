@@ -4,13 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PSEEK:: MUSEUM</title>
-    <% include ./head/head.ejs %>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <link href="./css/grayscale.min.css" rel="stylesheet">
-    <link href="./css/custom.css" rel="stylesheet">
+    <% include ./head/museum.ejs %>
 </head>
 
 <body id="page-top">
@@ -25,7 +19,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
-                <span style="color: #DBDBDB; margin-top: 12px"><small><i>PLEASE  PICK  THE  ARTISTS  THAT  YOU  LIKE.&nbsp&nbsp&nbsp&nbsp</i></small></span>
+                <span style="color: #DBDBDB; margin-top: 12px"><small><i>Welcome   to   Louvre   Museum.&nbsp&nbsp&nbsp&nbsp</i></small></span>
                 <li class="nav-item" style="margin-top: 13px;">
                     <% if (isLogined) { %>
                         <i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/myPage">MYPAGE</a></span></a>&nbsp;&nbsp;
@@ -44,9 +38,9 @@
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center">
-            <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
-            <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-            <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+            <h1 class="mx-auto my-5 text-uppercase">Louvre Museum</h1>
+            <h2 class="text-white-50 mx-auto mt-2 mb-5">Welcome to Louvre Museum. We offer you our on-line art service. Enjoy your exhibition.</h2>
+            <!--<a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>-->
         </div>
     </div>
 </header>
@@ -56,12 +50,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
+                <h2 class="text-white mb-4">LET'S ENJOY YOUR EXHIBITION!</h2>
                 <p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
                     <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
             </div>
         </div>
-        <img src="./img/museum/museum01/ipad.png" class="img-fluid" alt="">
+        <img src="./img/museum/museum01/m_001.png" class="img-fluid" alt="">
     </div>
 </section>
 
