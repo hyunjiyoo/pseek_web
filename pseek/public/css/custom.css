@@ -76,3 +76,7 @@
 #artTitle:hover {
     color: #e84600;
 }
+
+.img-fluid {
+    height: 100%;
+}

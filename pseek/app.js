@@ -53,6 +53,6 @@ app.use('/myart', require("./routes/myart"));
 app.use('/artist', require("./routes/artist"));
 app.use('/myPick', require("./routes/myPick"));
 
-app.listen(30010, () => {
+app.listen(30000, () => {
     console.log('server running at http://pseek.iptime.org:30001');
 });

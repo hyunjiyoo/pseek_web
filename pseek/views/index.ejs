@@ -136,7 +136,7 @@
                         <!-- index가 홀수이면 오른쪽 정렬 -->
                         <li<% if(i%2===1) { %> class="timeline-inverted" <% } else { %> class="" <% } %>>
                             <div class="timeline-image">
-                                <img class="rounded-circle img-fluid" src="img/user/user_00<%= i+1 %>.jpg" alt="">
+                                <img class="rounded-circle img-fluid" src="<%= artistNames[i].user_imgsrc %>" alt="">
                                 <a href="#"><div class="overlay"></div></a>
                             </div>
                             <div class="timeline-panel">
@@ -155,7 +155,7 @@
                         <% if (isLogined) { %>
                         <a href="/artist">
                         <% } else { %>
-                        <a href="/artist" onclick="alert('Please Log in')">
+                        <a href="/" onclick="alert('Please Log in')">
                         <% } %>
                             <div class="timeline-image">
                                 <h4>Go to
