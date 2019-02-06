@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PSEEK:: My Pick Art</title>
+    <% include ./head/headIndex.ejs %>
+
+    <!-- Viewer css -->
+    <link href="/css/viewer.css" rel="stylesheet">
+    <link href="/css/viewer_main.css" rel="stylesheet">
+
+    <style>
+        body { padding-top: 54px; }
+        @media (min-width: 992px) {
+            body {
+                padding-top: 56px;
+            }
+        }
+        .caption {
+            position: absolute;
+            width: 245px;
+            height: 35px;
+            bottom: 5px;
+            left: 20px;
+            color: #ffffff;
+            background: #000000DD;
+            text-align:center;
+            font-family: Sans-serif;
+            opacity:0.7;
+        }
+        .caption:hover {
+            color: #E84600;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">P-Seek :: <small>artists' playground</small></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item" style="margin-top: 13px;">
+                    <% if (isLogined) { %>
+                        <i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"> <%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/myPage">MYPAGE</a></span></a>&nbsp;&nbsp;
+                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747" href="/user/logout">Sign Out</a>
+                    <% } else { %>
+                        <i class="fas fa-user-circle" style="color: #ADADAD"></i>&nbsp;
+                        <span id="user" style="color: #fed136">Guest</span>
+                    <% } %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container" style="margin-bottom: 270px;">
+    <h2 class="my-4 text-center text-md-left" style="text-transform: uppercase; padding-top: 20px">
+        <%= user %><small> PICK ART</small>
+    </h2>
+    <div class="row text-center text-lg-left">
+        <% if (pickArt.length > 0) { %>
+            <% for(var i in pickArt) { %>
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                        <img id="a" class="img-fluid img-thumbnail" src="<%= pickArt[i].art_imgsrc %>"  style="width: 100%; height: 180px;" onclick="
+                                var selectImg = document.getElementById('clickImg<%= i %>');
+                                selectImg.click();">
+
+                        <a href="#artDetail" onclick="modalImg('<%= pickArt[i].art_imgsrc %>', '<%= pickArt[i].art_title %>', '<%= pickArt[i].art_genre %>', '<%= pickArt[i].art_des %>', '<%= pickArt[i].art_loc %>')" data-toggle="modal" style="text-decoration: none; color: #000;">
+                            <div class="caption">
+                                <%= pickArt[i].art_title %>
+                            </div>
+                        </a>
+                </div>
+            <% } %>
+        <% } else { %>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="http://placehold.it/400x300" alt="PLEASE  PUT  YOUR  ART  WORK">
+                </a>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+
+<!-- Viewer Image -->
+<div hidden class="docs-galley">
+    <ul class="docs-pictures clearfix">
+        <% for (var k = pickArt.length - 1; k >= 0; k--) {%>
+            <li><img id ="clickImg<%= k %>"  data-original="<%= pickArt[k].art_imgsrc %>" src="<%= pickArt[k].art_imgsrc %>" /></li>
+        <% } %>
+    </ul>
+</div>
+
+<!-- 상세 설명 페이지 -->
+<div class="modal fade" id="artDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><span style="color: #E84600">Detail</span> ART</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="detailImg" src="" width="100%" style="margin-bottom: 15px"/>
+                <table border="1" style="border-color: #636363">
+                    <tr>
+                        <td><span style="font-weight: bold">Title </span></td>
+                        <td><span id="detailTitle"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold">Genre </span></td>
+                        <td><span id="detailGenre"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold">Description </span></td>
+                        <td style="width: 100%"><span id="detailDes"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold">Location </span></td>
+                        <td><span id="detailLoc"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: right">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; P-SEEK.com 2019</p>
+    </div>
+</footer>
+
+<script type="text/javascript">
+    // Modal Initialization
+    function modalImg(imgSrc, title, genre, des, loc) {
+        var detailImg = document.getElementById('detailImg');
+        var detailTitle = document.getElementById('detailTitle');
+        var detailGenre = document.getElementById('detailGenre');
+        var detailDes = document.getElementById('detailDes');
+        var detailLoc = document.getElementById('detailLoc');
+
+        detailImg.src = imgSrc;
+        detailTitle.innerText = title;
+        detailGenre.innerText = genre;
+        detailDes.innerText = des;
+        detailLoc.innerText = loc;
+    }
+</script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/jquery/jquery.slim.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Viewer scripts -->
+<% include ./head/footerViewer.ejs %>
+
+<% include ./head/footerIndex.ejs %>
+</body>
+</html>

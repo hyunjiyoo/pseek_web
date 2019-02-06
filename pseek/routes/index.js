@@ -53,7 +53,7 @@ router.post('/myPage/edit', (req, res) => {
         // 파일객체에서 변경된 프로필이미지 가져와서 'session.userId.jpg' 파일이름으로 업로드 후 이미지 업데이트
         editProFile.mv('./public/uploads/user/'+ req.session.userId + '/profile/' + req.session.userId + '.jpg', () => {
             var sql = 'UPDATE `user_tbl` SET user_name = ?, user_tel = ?, user_imgsrc = ? WHERE user_id = ?';
-            var imgsrc = './uploads/user/' + req.session.userId + '/profile/' + req.session.userId + '.jpg';
+            var imgsrc = '/uploads/user/' + req.session.userId + '/profile/' + req.session.userId + '.jpg';
             db().query(sql, [req.body.editProName, req.body.editProTel, imgsrc, req.session.userId], (err, results) => {
                 if(err) throw err;
                 // edit한 프로필 정보를 session값에 있는 프로필 정보를 변경함으로써 수정.
@@ -95,7 +95,7 @@ for (let i = 0; i < artGenre.length; i++) {
                 var selectSql = 'SELECT art_id FROM `pick_tbl` WHERE user_id = ?';
                 db().query(selectSql, [req.session.userId], (err, results) => {
                     // 작품 상세페이지에 작품리스트와 LIKE한 작품 전달.
-                    res.render(`./artwork.ejs`, {
+                    res.render("artwork.ejs", {
                         artwork: artwork,
                         userpick: results
                     });
