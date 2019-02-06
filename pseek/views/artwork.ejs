@@ -6,20 +6,22 @@
     <title>P-SEEK:: abstract</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="./css/agency.min.css" rel="stylesheet">
-    <link href="./css/artwork.css" rel="stylesheet">
-    <link href="./css/custom.css" rel="stylesheet">
-    <link href="./css/viewer.css" rel="stylesheet">
-    <link href="./css/viewer_main.css" rel="stylesheet">
+    <link href="/css/agency.min.css" rel="stylesheet">
+    <link href="/css/artwork.css" rel="stylesheet">
+    <link href="/css/custom.css" rel="stylesheet">
+
+    <!-- Viewer css -->
+    <link href="/css/viewer.css" rel="stylesheet">
+    <link href="/css/viewer_main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -128,9 +130,7 @@
                             <td><span id="detailLoc"></span></td>
                         </tr>
                     </table>
-
                 </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: right">Close</button>
             </div>
@@ -140,30 +140,18 @@
 
 
 <!-- Bootstrap core JavaScript -->
-<script src="./vendor/jquery/jquery.min.js"></script>
-<script src="./vendor/jquery/jquery.slim.min.js"></script>
-<script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/jquery/jquery.slim.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Plugin JavaScript -->
-<script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for this template -->
-<script src="./js/agency.min.js"></script>
+<script src="/js/agency.min.js"></script>
 
 <!-- Viewer scripts -->
-<script src="./js/viewer.js"></script>
-<script src="./js/viewer_main.js"></script>
-<script>
-    (function() {
-        var script = document.createElement('script');
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-48260255-1';
-        document.head.appendChild(script);
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-48260255-1');
-    })();
-</script>
+<% include ./head/footerViewer.ejs %>
 
 <!-- Detail Scripts -->
 <script type="text/javascript">

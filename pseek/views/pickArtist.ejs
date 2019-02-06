@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PSEEK:: My Pick Art</title>
     <% include ./head/headIndex.ejs %>
+
+    <!-- Viewer css -->
+    <link href="/css/viewer.css" rel="stylesheet">
+    <link href="/css/viewer_main.css" rel="stylesheet">
+
     <style>
         body { padding-top: 54px; }
         @media (min-width: 992px) {
@@ -16,7 +21,7 @@
             position: absolute;
             width: 245px;
             height: 35px;
-            bottom: 30px;
+            bottom: 5px;
             left: 20px;
             color: #ffffff;
             background: #000000DD;
@@ -52,20 +57,18 @@
 </nav>
 
 <!-- Page Content -->
-<div class="container" >
+<div class="container" style="margin-bottom: 270px;">
     <h2 class="my-4 text-center text-md-left" style="text-transform: uppercase; padding-top: 20px">
-        <%= user %><small> Gallery</small>
-        <!-- register Modal 로 Link -->
-        <a href="#artAdd" data-toggle="modal" style="color: #000 !important;"><i class="fas fa-plus-square" style="float: right"></i></a>
+        <%= user %><small> PICK ART</small>
     </h2>
     <div class="row text-center text-lg-left">
-        <% if (artistWork.length > 0) { %>
-            <% for(var i in artistWork) { %>
+        <% if (pickArtist.length > 0) { %>
+            <% for(var i in pickArtist) { %>
                 <div class="col-lg-3 col-md-4 col-xs-6">
-                    <a href="#artEdit" onclick="modalImg('<%= artistWork[i].art_imgsrc %>', '<%= artistWork[i].art_title %>', '<%= artistWork[i].art_genre %>', '<%= artistWork[i].art_des %>', '<%= artistWork[i].art_loc %>', '<%= artistWork[i].art_id %>')" data-toggle="modal" class="d-block mb-4 h-100">
-                        <img id="a" class="img-fluid img-thumbnail" src="<%= artistWork[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
-                        <div class="caption"><%= artistWork[i].art_title %></div>
-                    </a>
+                    <img class="img-fluid img-thumbnail" src="<%= pickArtist[i].user_imgsrc %>"  style="width: 100%; height: 180px;">
+                    <div class="caption">
+                        <%= pickArtist[i].user_name %>
+                    </div>
                 </div>
             <% } %>
         <% } else { %>
@@ -85,139 +88,14 @@
     </div>
 </footer>
 
-<!-- Art Work Add Modal -->
-<div class="modal fade" id="artAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><span style="color: #E84600">ADD</span> ART WORK</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action='/myart/upload' method='post' encType="multipart/form-data">
-                <div class="modal-body">
-                    <!-- Modal Contents -->
-                    <img class="addImg" src="http://placehold.it/500x300" width="100%" style="margin-bottom: 15px"/>
-                    <span style="font-weight: bold">Title: <input type="text" class="addTitle" name="addTitle" value="" placeholder="write down title" style="width: 80%"/></span><br/><br/>
-                    <span style="font-weight: bold">File: &nbsp&nbsp<input type="file" name="addImg" class="addImg" value="" style="color: #fff"/></span><br/><br/>
-                    <span style="font-weight: bold">Genre: &nbsp&nbsp<select type="text" name="addGenre" value="">
-                                <option value="abstract">Abstract</option>
-                                <option value="contemporary">contemporary</option>
-                                <option value="modern">modern</option>
-                                <option value="pop">pop</option>
-                                <option value="stillLife">stillLife</option>
-                                <option value="surrealism">surrealism</option>
-                            </select></span><br/><br/>
-                    <span style="font-weight: bold">Description<br/>
-                            <textarea name="addDes" class="addDes" rows="5" style="width: 100%"></textarea></span><br/><br/>
-                    <span style="font-weight: bold">Location<br/>
-                            <textarea name="addLoc" class="addLoc" rows="2" style="width: 100%"></textarea></span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
-<!-- Art Work Edit Modal -->
-<div class="modal fade" id="artEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><span style="color: #E84600">EDIT</span> ART</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form id="editForm" action='/myart/edit' method='post' encType="multipart/form-data">
-                <div class="modal-body">
-                    <input hidden id="editId" name="editId" value=""/>
-                    <img id="editImg" src="" width="100%" style="margin-bottom: 15px"/>
-                    <span style="font-weight: bold">Title: <input type="text" name="editTitle" id="editTitle" value="" /></span><br/><br/>
-                    <span style="font-weight: bold">File: &nbsp&nbsp<input type="file" name="editImg" id="chgImg" value="" style="color: #fff"/></span><br/><Br/>
-                    <span style="font-weight: bold">Genre: &nbsp&nbsp<select type="text" name="editGenre" id="editGenre" value="">
-                            <option value="abstract">Abstract</option>
-                            <option value="contemporary">contemporary</option>
-                            <option value="modern">modern</option>
-                            <option value="pop">pop</option>
-                            <option value="stillLife">stillLife</option>
-                            <option value="surrealism">surrealism</option>
-                        </select></span><br/><br/>
-                    <span style="font-weight: bold">Description<br/>
-                        <textarea name="editDes" id="editDes" class="editDes" rows="5" style="width: 100%"></textarea></span><br/><br/>
-                    <span style="font-weight: bold">Location<br/>
-                        <textarea name="editLoc" id="editLoc" class="editLoc" rows="2" style="width: 100%"></textarea></span>
-                </div>
-            </form>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: right">Close</button>
-                <form id="deleteForm" action="/myart/delete" method="post">
-                    <input hidden id="deleteId" name="editId" value=""/>
-                    <button form="deleteForm" type="submit" class="btn btn-danger">DELETE</button>
-                </form>
-                <button form="editForm" type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-            <!--</form>-->
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
-    // Modal Initialization
-    function modalImg(imgSrc, title, genre, des, loc, artId) {
-        var editImg = document.getElementById('editImg');
-        var editTitle = document.getElementById('editTitle');
-        var editGenre = document.getElementById('editGenre');
-        var editDes = document.getElementById('editDes');
-        var editLoc = document.getElementById('editLoc');
-        var editId = document.getElementById('editId');
-        var deleteId = document.getElementById('deleteId');
-        editImg.src = imgSrc;
-        editTitle.value = title;
-        editGenre.value = genre;
-        editDes.value = des;
-        editLoc.value = loc;
-        editId.value = artId;
-        deleteId.value = artId;
-    }
-    // Img Change
-    $(document).ready(function () {
-        var readURL = function(input) {
-            // input 에서 가져온 파일 하나가 있으면
-            if(input.files[0]) {
-                // FileReader 객체를 만들고
-                var reader = new FileReader();
-                // 객체를 로드하여 editImg의 src 속성값을 변경해줌
-                reader.onload = function (element) {
-                    $('#editImg').attr('src', element.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        // 파일태그에서 선택한 이미지로 바뀜
-        $('#chgImg').on('change', function () {
-            readURL(this);
-        })
+<!--&lt;!&ndash; Bootstrap core JavaScript &ndash;&gt;-->
+<!--<script src="/vendor/jquery/jquery.min.js"></script>-->
+<!--<script src="/vendor/jquery/jquery.slim.min.js"></script>-->
+<!--<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
 
-        // add Modal
-        var readURL2 = function(input) {
-            if(input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (element) {
-                    $('.addImg').attr('src', element.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-        // 파일태그에서 선택한 이미지로 바뀜
-        $('.addImg').on('change', function () {
-            readURL2(this);
-        })
-    });
-</script>
+<!--&lt;!&ndash; Plugin JavaScript &ndash;&gt;-->
+<!--<script src="/vendor/jquery-easing/jquery.easing.min.js"></script>-->
 
 <% include ./head/footerIndex.ejs %>
 </body>
