@@ -5,8 +5,8 @@ var db = require('../lib/db.js');
 // home으로 이동
 router.get('/', (req, res) => {
     // 아티스트 4명만 가져옴
-    var sql = 'SELECT user_name, user_id FROM `user_tbl` LIMIT 4';
-    db().query(sql, (err, results) => {
+    var sql = 'SELECT * FROM `user_tbl` WHERE user_id = ? OR user_id = ? OR user_id = ? OR user_id = ?';
+    db().query(sql, ['goah', 'georgia', 'wassily', 'vladi'], (err, results) => {
         if(!err) {
             if(req.session.is_Logined){
                 res.render("index.ejs",{
