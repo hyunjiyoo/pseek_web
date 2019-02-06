@@ -199,18 +199,20 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <!-- Modal Contents -->
-                <img id="editProImg" src="<%= userImg %>" width="100%" style="margin-bottom: 15px"/>
-                <span style="font-weight: bold">IMG: &nbsp&nbsp<input type="file" name="editProFile" id="editProFile" value="" style="color: #fff"/></span><br/><br/>
-                <span style="font-weight: bold">NAME: <input type="text" class="editProName" name="editProName" value="<%= username %>" style="width: 80%"/></span><br/><br/>
-                <span style="font-weight: bold">EMAIL: &nbsp&nbsp<input type="text" value="<%= user %>@pseek.com"/></span><br/><br/>
-                <span style="font-weight: bold">PHONE: &nbsp&nbsp<input type="text" value="<%= userphone %>"/></span><br/><br/>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <form action='/myPage/edit' method='post' encType="multipart/form-data">
+                <div class="modal-body">
+                    <!-- Modal Contents -->
+                    <img name="ediProImg" id="editProImg" src="<%= userImg %>" width="100%" style="margin-bottom: 15px"/>
+                    <span style="font-weight: bold">IMG: &nbsp&nbsp<input type="file" name="editProFile" id="editProFile" value="" style="color: #fff"/></span><br/><br/>
+                    <span style="font-weight: bold">NAME: <input type="text" class="editProName" name="editProName" value="<%= username %>" style="width: 80%"/></span><br/><br/>
+                    <span style="font-weight: bold">EMAIL: &nbsp&nbsp</span><span><%= user %>@pseek.com"</span><br/><br/>
+                    <span style="font-weight: bold">PHONE: &nbsp&nbsp<input type="text" name="editProTel" value="<%= userphone %>"/></span><br/><br/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

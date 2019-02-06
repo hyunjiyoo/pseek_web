@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
         });
     });
 });
+// 작품 업로드
 router.post('/upload', (req, res) => {
     // input file타입의 addImg 객체 가져옴
     let addImg = req.files.addImg;
