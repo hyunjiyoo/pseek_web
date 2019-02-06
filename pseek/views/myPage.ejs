@@ -73,7 +73,7 @@
         <div class="col-md-4" style="background-color: #E6E6E677">
             <div><img src="<%= userImg %>" style=" margin-top: 10px; height: 10rem" /></div>
             <span style="color: #E84600; font-weight: bold; font-size: 2rem; font-family: Sans-serif;"> MY PROFILE </span>
-            <i class="fas fa-cog" id="edit_profile" style="color:#636363; font-size: 1.3rem;" onclick="alert('You can edit profile contents.');"></i>
+            <a href="#editPro" data-toggle="modal" ><i class="fas fa-cog" id="edit_profile" style="color:#636363; font-size: 1.3rem;"></i></a>
             <ul style="list-style: none; padding:0">
                 <li><b>NAME ㅡ</b> <%= username %></li>
                 <li><b>EMAIL ㅡ</b> <%= user %>@pseek.com </li>
@@ -188,6 +188,56 @@
         <p class="m-0 text-center text-white">Copyright &copy; P-SEEK.com 2019</p>
     </div>
 </footer>
+
+<!-- Art Work Add Modal -->
+<div class="modal fade" id="editPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><span style="color: #E84600">EDIT</span> MY PROFILE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action='/myPage/edit' method='post' encType="multipart/form-data">
+                <div class="modal-body">
+                    <!-- Modal Contents -->
+                    <img name="ediProImg" id="editProImg" src="<%= userImg %>" width="100%" style="margin-bottom: 15px"/>
+                    <span style="font-weight: bold">IMG: &nbsp&nbsp<input type="file" name="editProFile" id="editProFile" value="" style="color: #fff"/></span><br/><br/>
+                    <span style="font-weight: bold">NAME: <input type="text" class="editProName" name="editProName" value="<%= username %>" style="width: 80%"/></span><br/><br/>
+                    <span style="font-weight: bold">EMAIL: &nbsp&nbsp</span><span><%= user %>@pseek.com"</span><br/><br/>
+                    <span style="font-weight: bold">PHONE: &nbsp&nbsp<input type="text" name="editProTel" value="<%= userphone %>"/></span><br/><br/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var readURL3 = function(input) {
+            if(input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (element) {
+                    $('#editProImg').attr('src', element.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        // 파일태그에서 선택한 이미지로 바뀜
+        $('#editProFile').on('change', function (input) {
+            readURL3(this);
+        })
+
+
+    });
+</script>
+
+
 
 <% include ./head/footerIndex.ejs %>
 </body>

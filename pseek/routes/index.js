@@ -44,6 +44,38 @@ router.get('/myPage', (req, res) => {
     });
 });
 
+// 프로필 edit
+router.post('/myPage/edit', (req, res) => {
+    let editProFile = req.files.editProFile;
+
+    // 프로필 이미지 및 다른 정보 모두 변경시
+    if (editProFile.name !== '') {
+        // 파일객체에서 변경된 프로필이미지 가져와서 'session.userId.jpg' 파일이름으로 업로드 후 이미지 업데이트
+        editProFile.mv('./public/uploads/user/'+ req.session.userId + '/profile/' + req.session.userId + '.jpg', () => {
+            var sql = 'UPDATE `user_tbl` SET user_name = ?, user_tel = ?, user_imgsrc = ? WHERE user_id = ?';
+            var imgsrc = './uploads/user/' + req.session.userId + '/profile/' + req.session.userId + '.jpg';
+            db().query(sql, [req.body.editProName, req.body.editProTel, imgsrc, req.session.userId], (err, results) => {
+                if(err) throw err;
+                // edit한 프로필 정보를 session값에 있는 프로필 정보를 변경함으로써 수정.
+                req.session.username = req.body.editProName;
+                req.session.userphone = req.body.editProTel;
+                req.session.userImg = imgsrc;
+                res.redirect('/myPage');
+            });
+        });
+    } else {
+        // 이미지 변경없이 다른 프로필 정보 변경할때
+        var sql = 'UPDATE `user_tbl` SET user_name = ?, user_tel = ? WHERE user_id = ?';
+        db().query(sql, [req.body.editProName, req.body.editProTel, req.session.userId], (err, results) => {
+            if(err) throw err;
+            // edit한 프로필 정보를 session값에 있는 프로필 정보를 변경함으로써 수정.
+            req.session.username = req.body.editProName;
+            req.session.userphone = req.body.editProTel;
+            res.redirect('/myPage');
+        });
+    }
+});
+
 // 이용권 구매
 router.get('/payTicket', (req, res) => {
     res.render("payTicket.ejs", {});
