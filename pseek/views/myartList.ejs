@@ -59,7 +59,7 @@
         <a href="#artAdd" data-toggle="modal" style="color: #000 !important;"><i class="fas fa-plus-square" style="float: right"></i></a>
     </h2>
     <div class="row text-center text-lg-left">
-        <% if ( artistWork.length > 0) { %>
+        <% if (artistWork.length > 0) { %>
             <% for(var i in artistWork) { %>
                 <div class="col-lg-3 col-md-4 col-xs-6">
                     <a href="#artEdit" onclick="modalImg('<%= artistWork[i].art_imgsrc %>', '<%= artistWork[i].art_title %>', '<%= artistWork[i].art_genre %>', '<%= artistWork[i].art_des %>', '<%= artistWork[i].art_loc %>', '<%= artistWork[i].art_id %>')" data-toggle="modal" class="d-block mb-4 h-100">
@@ -75,7 +75,6 @@
                 </a>
             </div>
         <% } %>
-
     </div>
 </div>
 
@@ -134,7 +133,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action='/myart/edit' method='post' encType="multipart/form-data">
+            <form id="editForm" action='/myart/edit' method='post' encType="multipart/form-data">
                 <div class="modal-body">
                     <input hidden id="editId" name="editId" value=""/>
                     <img id="editImg" src="" width="100%" style="margin-bottom: 15px"/>
@@ -153,11 +152,16 @@
                     <span style="font-weight: bold">Location<br/>
                         <textarea name="editLoc" id="editLoc" class="editLoc" rows="2" style="width: 100%"></textarea></span>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
             </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: right">Close</button>
+                    <form id="deleteForm" action="/myart/delete" method="post">
+                        <input hidden id="deleteId" name="editId" value=""/>
+                        <button form="deleteForm" type="submit" class="btn btn-danger">DELETE</button>
+                    </form>
+                    <button form="editForm" type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            <!--</form>-->
         </div>
     </div>
 </div>
@@ -170,12 +174,14 @@
         var editDes = document.getElementById('editDes');
         var editLoc = document.getElementById('editLoc');
         var editId = document.getElementById('editId');
+        var deleteId = document.getElementById('deleteId');
         editImg.src = imgSrc;
         editTitle.value = title;
         editGenre.value = genre;
         editDes.value = des;
         editLoc.value = loc;
         editId.value = artId;
+        deleteId.value = artId;
     }
     // Img Change
     $(document).ready(function () {

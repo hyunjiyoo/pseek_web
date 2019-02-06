@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
         });
     });
 });
+
 // 작품 업로드
 router.post('/upload', (req, res) => {
     // input file타입의 addImg 객체 가져옴
@@ -48,6 +49,16 @@ router.post('/edit', (req, res) => {
         });
 
     }
+});
+
+// 작품 삭제
+router.post('/delete', (req, res) => {
+    var sql = 'DELETE FROM `art_tbl` WHERE art_id = ?';
+    db().query(sql, [req.body.editId], (err, results) => {
+       if(err) throw err;
+        console.log(req.body.editId);
+       res.redirect('/myart');
+    });
 });
 
 module.exports = router;
