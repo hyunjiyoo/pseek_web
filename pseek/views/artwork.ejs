@@ -82,21 +82,61 @@
                 <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
             </form>
         <% } %>
-        <figcaption style="text-align: center"><b><%= artwork[i].art_title %></b></figcaption>
+        <a href="#artDetail" onclick="modalImg('<%= artwork[i].art_imgsrc %>', '<%= artwork[i].art_title %>', '<%= artwork[i].art_genre %>', '<%= artwork[i].art_des %>', '<%= artwork[i].art_loc %>')" data-toggle="modal" style="text-decoration: none; color: #000;">
+            <figcaption style="text-align: center"><b id="artTitle"><%= artwork[i].art_title %></b></figcaption>
+        </a>
     </figure>
     <% } %>
 </div>
 
+<!-- Viewer Image -->
 <div hidden class="docs-galley">
     <ul class="docs-pictures clearfix">
         <% for (var k = artwork.length - 1; k >= 0; k--) {%>
-            <li>
-                <img id ="clickImg<%= k %>"  data-original="<%= artwork[k].art_imgsrc %>" src="<%= artwork[k].art_imgsrc %>" />
-            </li>
+            <li><img id ="clickImg<%= k %>"  data-original="<%= artwork[k].art_imgsrc %>" src="<%= artwork[k].art_imgsrc %>" /></li>
         <% } %>
     </ul>
 </div>
 
+<!-- 상세 설명 페이지 -->
+<div class="modal fade" id="artDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"><span style="color: #E84600">Detail</span> ART</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body">
+                    <img id="detailImg" src="" width="100%" style="margin-bottom: 15px"/>
+                    <table border="1" style="border-color: #636363">
+                        <tr>
+                            <td><span style="font-weight: bold">Title </span></td>
+                            <td><span id="detailTitle"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight: bold">Genre </span></td>
+                            <td><span id="detailGenre"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight: bold">Description </span></td>
+                            <td style="width: 100%"><span id="detailDes"></span></td>
+                        </tr>
+                        <tr>
+                            <td><span style="font-weight: bold">Location </span></td>
+                            <td><span id="detailLoc"></span></td>
+                        </tr>
+                    </table>
+
+                </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: right">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- Bootstrap core JavaScript -->
@@ -109,6 +149,8 @@
 
 <!-- Custom scripts for this template -->
 <script src="./js/agency.min.js"></script>
+
+<!-- Viewer scripts -->
 <script src="./js/viewer.js"></script>
 <script src="./js/viewer_main.js"></script>
 <script>
@@ -122,6 +164,25 @@
         gtag('config', 'UA-48260255-1');
     })();
 </script>
+
+<!-- Detail Scripts -->
+<script type="text/javascript">
+    // Modal Initialization
+    function modalImg(imgSrc, title, genre, des, loc) {
+        var detailImg = document.getElementById('detailImg');
+        var detailTitle = document.getElementById('detailTitle');
+        var detailGenre = document.getElementById('detailGenre');
+        var detailDes = document.getElementById('detailDes');
+        var detailLoc = document.getElementById('detailLoc');
+
+        detailImg.src = imgSrc;
+        detailTitle.innerText = title;
+        detailGenre.innerText = genre;
+        detailDes.innerText = des;
+        detailLoc.innerText = loc;
+    }
+</script>
+
 
 </body>
 </html>
