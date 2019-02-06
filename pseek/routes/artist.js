@@ -37,6 +37,4 @@ router.post('/artist/dislike/:id', (req,res) => {
     });
 });
 
-
-
 module.exports = router;
