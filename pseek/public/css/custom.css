@@ -71,3 +71,8 @@
 .fa-plus-square:hover {
     color: #FEC810;
 }
+
+/* artwork의 타이틀 hover 효과 */
+#artTitle:hover {
+    color: #e84600;
+}
