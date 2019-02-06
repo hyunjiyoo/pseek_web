@@ -58,8 +58,8 @@ router.post('/register', (req, res) => {
 
     (async () => {
         await Promise.all([
-            makeDir('./uploads/user/' + req.body.id + '/art'),
-            makeDir('./uploads/user/' + req.body.id + '/profile')
+            makeDir('./public/uploads/user/' + req.body.id + '/art'),
+            makeDir('./public/uploads/user/' + req.body.id + '/profile')
         ]);
 
         await db().query(sql, [regId, regname, regPwd, regPhone], (err, results) => {
