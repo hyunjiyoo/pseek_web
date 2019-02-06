@@ -309,7 +309,8 @@
 
 .viewer-title {
   color: #ccc;
-  display: inline-block;
+  /* [default] display: inline-block */
+  display: none;
   font-size: 12px;
   line-height: 1;
   margin: 0 5% 5px;
