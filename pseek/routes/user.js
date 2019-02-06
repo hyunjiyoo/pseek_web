@@ -58,6 +58,7 @@ router.post('/register', (req, res) => {
 
     (async () => {
         await Promise.all([
+            // 디렉토리 경로는 앞에 현재경로인 .을 명시해주어야 함.
             makeDir('./public/uploads/user/' + req.body.id + '/art'),
             makeDir('./public/uploads/user/' + req.body.id + '/profile')
         ]);

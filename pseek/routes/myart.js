@@ -18,7 +18,7 @@ router.post('/upload', (req, res) => {
     let addImg = req.files.addImg;
     addImg.mv('./public/uploads/user/'+ req.session.userId + '/art/' + req.body.addTitle + '.jpg', () => {
         var sql = 'INSERT INTO art_tbl VALUES (NULL, (SELECT user_id FROM user_tbl WHERE user_id =?), ?, ?, ?, ?, ?)';
-        var imgsrc = './uploads/user/'+ req.session.userId + '/art/' + req.body.addTitle + '.jpg';
+        var imgsrc = '/uploads/user/'+ req.session.userId + '/art/' + req.body.addTitle + '.jpg';
         db().query(sql, [req.session.userId, req.body.addTitle, req.body.addDes, req.body.addGenre, imgsrc, req.body.addLoc ], (err, results) => {
             if(err) throw err;
             res.redirect('/myart');
@@ -35,7 +35,7 @@ router.post('/edit', (req, res) => {
     if (editImg.name !== '') {
         editImg.mv('./public/uploads/user/'+ req.session.userId + '/art/' + req.body.editTitle + '.jpg', () => {
             var sql = 'UPDATE `art_tbl` SET art_title = ?, art_des = ?, art_genre = ?, art_imgsrc = ?, art_loc = ? WHERE artist_id = ? AND art_id = ?';
-            var imgsrc = './uploads/user/'+ req.session.userId + '/art/' + req.body.editTitle + '.jpg';
+            var imgsrc = '/uploads/user/'+ req.session.userId + '/art/' + req.body.editTitle + '.jpg';
             db().query(sql, [req.body.editTitle, req.body.editDes, req.body.editGenre, imgsrc, req.body.editLoc, req.session.userId, req.body.editId], (err, results) => {
                 if(err) throw err;
                 res.redirect('/myart');
