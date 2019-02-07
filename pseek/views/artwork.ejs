@@ -34,7 +34,7 @@
             <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase ml-auto">
+            <ul class="navbar-nav ml-auto">
                 <span hidden>
                 <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
                 <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
@@ -62,32 +62,23 @@
 
 <div id="columns">
     <% for(var i = artwork.length - 1; i >= 0; i--) { %>
-    <figure class="likeBox">
-        <img src="<%= artwork[i].art_imgsrc %>" onclick="
-            var selectImg = document.getElementById('clickImg<%= i %>');
-            selectImg.click();" />
-        <% if (userpick.length > 0) { %>
-            <% for (var j = 0; j < userpick.length; j++) { %>
-                <% if (userpick[j].art_id !== artwork[i].art_id) { %>
-                    <form method="post" action="/<%= artwork[i].art_genre %>/like/<%= artwork[i].art_id %>">
-                        <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
-                    </form>
-                <% } else { %>
-                    <% userpick.splice(j, 1); %>
-                    <form method="post" action="/<%= artwork[i].art_genre %>/dislike/<%= artwork[i].art_id %>">
-                        <button type="submit" class="likeBox btn " id="dislike" ><i class="fas fa-heart"></i></button>
-                    </form>
-                <% } %>
+        <figure class="likeBox">
+            <img src="<%= artwork[i].art_imgsrc %>" onclick="
+                    var selectImg = document.getElementById('clickImg<%= i %>');
+                    selectImg.click();" />
+            <% if (artwork[i].LIKEYN === 'N') { %>
+                <form method="post" action="/<%= artwork[i].art_genre %>/like/<%= artwork[i].art_id %>">
+                    <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
+                </form>
+            <% } else { %>
+                <form method="post" action="/<%= artwork[i].art_genre %>/dislike/<%= artwork[i].art_id %>">
+                    <button type="submit" class="likeBox btn " id="dislike" ><i class="fas fa-heart"></i></button>
+                </form>
             <% } %>
-        <% } else { %>
-            <form method="post" action="/<%= artwork[i].art_genre %>/like/<%= artwork[i].art_id %>">
-                <button type="submit" class="likeBox btn " id="heart" ><i class="fas fa-heart"></i></button>
-            </form>
-        <% } %>
-        <a href="#artDetail" onclick="modalImg('<%= artwork[i].art_imgsrc %>', '<%= artwork[i].art_title %>', '<%= artwork[i].art_genre %>', '<%= artwork[i].art_des %>', '<%= artwork[i].art_loc %>')" data-toggle="modal" style="text-decoration: none; color: #000;">
-            <figcaption style="text-align: center"><b id="artTitle"><%= artwork[i].art_title %></b></figcaption>
-        </a>
-    </figure>
+            <a href="#artDetail" onclick="modalImg('<%= artwork[i].art_imgsrc %>', '<%= artwork[i].art_title %>', '<%= artwork[i].artist_id %>', '<%= artwork[i].art_genre %>', '<%= artwork[i].art_des %>', '<%= artwork[i].art_loc %>')" data-toggle="modal" style="text-decoration: none; color: #000;">
+                <figcaption style="text-align: center"><b id="artTitle"><%= artwork[i].art_title %></b></figcaption>
+            </a>
+        </figure>
     <% } %>
 </div>
 
@@ -110,27 +101,32 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-                <div class="modal-body">
-                    <img id="detailImg" src="" width="100%" style="margin-bottom: 15px"/>
-                    <table border="1" style="border-color: #636363">
-                        <tr>
-                            <td><span style="font-weight: bold">Title </span></td>
-                            <td><span id="detailTitle"></span></td>
-                        </tr>
-                        <tr>
-                            <td><span style="font-weight: bold">Genre </span></td>
-                            <td><span id="detailGenre"></span></td>
-                        </tr>
-                        <tr>
-                            <td><span style="font-weight: bold">Description </span></td>
-                            <td style="width: 100%"><span id="detailDes"></span></td>
-                        </tr>
-                        <tr>
-                            <td><span style="font-weight: bold">Location </span></td>
-                            <td><span id="detailLoc"></span></td>
-                        </tr>
-                    </table>
-                </div>
+            <div class="modal-body">
+                <img id="detailImg" src="" width="100%" style="margin-bottom: 15px"/>
+                <table border="1" style="border-color: #636363">
+                    <tr>
+                        <td><span style="font-weight: bold">Title </span></td>
+                        <td><span id="detailTitle"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold">Artist </span></td>
+                        <td><span id="detailAtist"></span></td>
+                    </tr>
+
+                    <tr>
+                        <td><span style="font-weight: bold">Genre </span></td>
+                        <td><span id="detailGenre"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold">Description </span></td>
+                        <td style="width: 100%"><span id="detailDes"></span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="font-weight: bold">Location </span></td>
+                        <td><span id="detailLoc"></span></td>
+                    </tr>
+                </table>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="float: right">Close</button>
             </div>
@@ -156,15 +152,17 @@
 <!-- Detail Scripts -->
 <script type="text/javascript">
     // Modal Initialization
-    function modalImg(imgSrc, title, genre, des, loc) {
+    function modalImg(imgSrc, title, artist, genre, des, loc) {
         var detailImg = document.getElementById('detailImg');
         var detailTitle = document.getElementById('detailTitle');
+        var detailAtist = document.getElementById('detailAtist');
         var detailGenre = document.getElementById('detailGenre');
         var detailDes = document.getElementById('detailDes');
         var detailLoc = document.getElementById('detailLoc');
 
         detailImg.src = imgSrc;
         detailTitle.innerText = title;
+        detailAtist.innerText = artist;
         detailGenre.innerText = genre;
         detailDes.innerText = des;
         detailLoc.innerText = loc;

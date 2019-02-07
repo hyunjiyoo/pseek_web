@@ -4,16 +4,19 @@ var db = require('../lib/db.js');
 
 // 아티스트 페이지로 이동
 router.get('/', (req, res) => {
-    var sql ='SELECT * FROM `user_tbl`';
-    db().query(sql, (err, results) => {
-        var artistList = results;
-        // 로그인된 user_id를 pick테이블에서 조회하여 해당 user테이블에 있는 값 모두 조회.
-        var sql ='SELECT * FROM `user_tbl` WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
-        db().query(sql, [req.session.userId], (err, results) => {
-            res.render('artist.ejs', {
-                artistList: artistList,
-                artistpick: results
-            });
+    var sql ='SELECT A.*, IF(B.PICK_ID IS NULL, \'N\', \'Y\') AS LIKEYN\n' +
+        'FROM USER_TBL A\n' +
+        'LEFT OUTER JOIN (\n' +
+        'SELECT B.*\n' +
+        'FROM USER_TBL A, PICK_TBL B\n' +
+        'WHERE a.USER_ID = B.USER_ID\n' +
+        '\tAND B.USER_ID =?\n' +
+        ') B\n' +
+        'ON A.USER_ID=B.ARTIST_ID';
+    db().query(sql, [req.session.userId], (err, results) => {
+        console.log(results);
+        res.render('artist.ejs', {
+            artistList: results
         });
     });
 });
