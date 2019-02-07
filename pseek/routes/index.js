@@ -86,19 +86,22 @@ var artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surre
 for (let i = 0; i < artGenre.length; i++) {
     router.get(`/${artGenre[i]}`, (req, res) => {
         // 장르별로 art테이블 컬럼값 가져오는 쿼리문.
-        var sql = 'SELECT * FROM `art_tbl` WHERE art_genre = ?';
-        db().query(sql, [`${artGenre[i]}`], (err, results) => {
+        var sql = 'SELECT A.*, IF(B.PICK_ID IS NULL, \'N\', \'Y\') AS LIKEYN\n' +
+            'FROM ART_TBL A\n' +
+            'LEFT OUTER JOIN (\n' +
+            'SELECT B.*\n' +
+            'FROM ART_TBL A, PICK_TBL B\n' +
+            'WHERE a.ART_ID = B.ART_ID\n' +
+            '\tAND B.USER_ID = ?\n' +
+            ') B\n' +
+            'ON A.ART_ID=B.ART_ID\n' +
+            'WHERE A.ART_GENRE = ?\n' +
+            ';';
+        db().query(sql, [req.session.userId ,`${artGenre[i]}`], (err, results) => {
             if (!err) {
-                // artwork = 장르별 art테이블에서 전체 데이터 가져오는 값을 변수에 저장.
-                var artwork = results;
-                // 로그인된 user_id에 해당하는 art_id를 pick테이블에서 SELECT 수행.
-                var selectSql = 'SELECT art_id FROM `pick_tbl` WHERE user_id = ?';
-                db().query(selectSql, [req.session.userId], (err, results) => {
-                    // 작품 상세페이지에 작품리스트와 LIKE한 작품 전달.
-                    res.render("artwork.ejs", {
-                        artwork: artwork,
-                        userpick: results
-                    });
+                // 작품 상세페이지에 작품리스트와 LIKE한 작품 전달.
+                res.render("artwork.ejs", {
+                    artwork: results
                 });
             }
         });
@@ -122,40 +125,6 @@ for (let i = 0; i < artGenre.length; i++) {
         });
     });
 }
-
-// 작가페이지로 이동
-// router.get('/artist', (req, res) => {
-//     var sql ='SELECT * FROM `user_tbl`';
-//     db().query(sql, (err, results) => {
-//         var artistList = results;
-//         // 로그인된 user_id를 pick테이블에서 조회하여 해당 user테이블에 있는 값 모두 조회.
-//         var sql ='SELECT * FROM `user_tbl` WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?)';
-//         db().query(sql, [req.session.userId], (err, results) => {
-//             res.render('artist.ejs', {
-//                 artistList: artistList,
-//                 artistpick: results
-//             });
-//         });
-//     });
-// });
-// // LIKE 버튼 눌렀을 때 pick_tbl에 픽아티스트 데이터 INSERT
-// router.post('/artist/like/:id', (req,res) => {
-//     // req.params객체로 user_id를 가져와서 user테이블에서 해당 값에 대한 데이터를 pick테이블에 INSERT 수행.
-//     var sql = 'INSERT INTO pick_tbl VALUES (NULL, ?, NULL, (SELECT user_id FROM user_tbl WHERE user_id = ?))';
-//     db().query(sql, [req.session.userId, req.params.id], (err, results) => {
-//         if(err) throw err;
-//         res.redirect('/artist');
-//     });
-// });
-// // DISLIKE 버튼 눌렀을 때 pick_tbl에서 픽아티스트 데이터 DELETE
-// router.post('/artist/dislike/:id', (req,res) => {
-//     // req.params객체로 삭제할 user_id를 가져와서 pick테이블에서 DELETE 수행.
-//     var sql = 'DELETE FROM `pick_tbl` WHERE `pick_tbl`.artist_id = (SELECT `user_tbl`.user_id FROM `user_tbl` WHERE `user_tbl`.user_id = ?)';
-//     db().query(sql, [req.params.id], (err, results) => {
-//         if(err) throw err;
-//         res.redirect('/artist');
-//     });
-// });
 
 // museum 이동
 router.get('/museum', (req, res) => {

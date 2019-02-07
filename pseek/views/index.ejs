@@ -141,7 +141,7 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>:: <%= element["user_id"] %></h4>
+                                    <h4 style="text-transform: uppercase">:: <%= element["user_id"] %></h4>
                                     <h4 class="subheading"><%= element["user_name"] %></h4>
                                 </div>
                                 <div class="timeline-body">
@@ -157,10 +157,10 @@
                         <% } else { %>
                         <a href="/" onclick="alert('Please Log in')">
                         <% } %>
-                            <div class="timeline-image">
-                                <h4>Go to
-                                    <br>Show more
-                                    <br>Artists!</h4>
+                            <div id="moreAritst" class="timeline-image">
+                                <h4 style="color: #fff">GO TO<br>
+                                    MORE<br>
+                                    ARTIST</h4>
                             </div>
                         </a>
                     </li>
@@ -360,6 +360,8 @@
     </div>
 </div>
 
+<!-- Modal 7 -->
+<div hidden>
 <!-- Modal 7 = sample images -->
 <!--<div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true" style="overflow:auto;">-->
 <!--<div class="modal-dialog">-->
@@ -455,6 +457,7 @@
 <!--</div>-->
 <!--</div>-->
 <!--</div>-->
+</div>
 
 <% include ./head/footerIndex.ejs %>
 </body>

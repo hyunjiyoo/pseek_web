@@ -1,7 +1,8 @@
 /* hover css */
-.timeline-image h4:hover {
-    color: #8c8988;
+#moreAritst:hover {
+    background-color: #636363;
 }
+
 .btn-basic {
     background-color: #636363;
     color: #DBDBDB;
