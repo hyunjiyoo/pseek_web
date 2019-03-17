@@ -44,6 +44,7 @@ app.use(function(req, res, next) {
     res.locals.userImg = req.session.userImg;
     res.locals.userpick = {};
     res.locals.existId = null;
+    res.locals.ticket = req.session.ticket;
     next();
 });
 
@@ -52,6 +53,7 @@ app.use('/user', require("./routes/user"));
 app.use('/myart', require("./routes/myart"));
 app.use('/artist', require("./routes/artist"));
 app.use('/myPick', require("./routes/myPick"));
+app.use('/ticket', require("./routes/ticket"));
 
 app.listen(30010, () => {
     console.log('server running');

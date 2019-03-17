@@ -76,11 +76,6 @@ router.post('/myPage/edit', (req, res) => {
     }
 });
 
-// 이용권 구매
-router.get('/payTicket', (req, res) => {
-    res.render("payTicket.ejs", {});
-});
-
 // 장르별 작품페이지로 이동
 var artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism'];
 for (let i = 0; i < artGenre.length; i++) {
