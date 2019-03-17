@@ -26,6 +26,7 @@ router.post('/login', (req, res) => {
                 req.session.username = results[0].user_name;
                 req.session.userphone = results[0].user_tel;
                 req.session.userImg = results[0].user_imgsrc;
+                req.session.ticket = [];
                 res.redirect('/');
             }
         } else {

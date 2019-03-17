@@ -12,6 +12,7 @@ db();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: false}));
+
 // 세션 미들웨어 저장
 app.use(session({
     // 사용자가 js 입력못하게 보안
@@ -31,11 +32,9 @@ app.use(session({
 // file upload initialization
 app.use(fileUpload({
     limits: { fileSize: 50 * 1024 * 1024 },
-
     useTempFiles : true,
     tempFileDir : 'uploads'
 }));
-
 
 app.use(function(req, res, next) {
     res.locals.user = req.session.userId;
@@ -45,14 +44,17 @@ app.use(function(req, res, next) {
     res.locals.userImg = req.session.userImg;
     res.locals.userpick = {};
     res.locals.existId = null;
+    res.locals.ticket = req.session.ticket;
     next();
 });
+
 app.use('/', require("./routes/index"));
 app.use('/user', require("./routes/user"));
 app.use('/myart', require("./routes/myart"));
 app.use('/artist', require("./routes/artist"));
 app.use('/myPick', require("./routes/myPick"));
+app.use('/ticket', require("./routes/ticket"));
 
 app.listen(30010, () => {
-    console.log('server running at http://pseek.iptime.org:30001');
+    console.log('server running');
 });

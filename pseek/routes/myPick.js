@@ -12,7 +12,6 @@ router.get('/myPick/art', (req, res) => {
     });
 });
 
-
 // Pick Artist
 router.get('/myPick/artist', (req, res) => {
     var sql = 'SELECT * FROM user_tbl WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ? AND pick_tbl.artist_id IS NOT NULL)';

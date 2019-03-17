@@ -79,8 +79,15 @@
                 <li><b>EMAIL ㅡ</b> <%= user %>@pseek.com </li>
                 <li><b>PHONE ㅡ</b> <%= userphone %></li>
                 <li style="padding-top: 10px;">
-                    <form action="./payTicket">
+                    <form action="./ticket">
                         <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold; "/>
+                        <% if(ticket.length == 0) { %>
+                            <span>이용권을 구매해주세요.</span>
+                        <% } else { %>
+                            <% for (var i = 0; i < ticket[0].length; i++) { %>
+                            <span><%= ticket[0][i].type_title %></span>
+                            <% } %>
+                        <% } %>
                     </form>
                 </li>
             </ul>
@@ -133,7 +140,7 @@
                 </div>
             <% } %>
         <% } else { %>
-            <% for(let i = pickArtist.length - 1; i > pickArtist.length - 9; i--) { %>
+            <% for(let i = pickArtist.length    - 1; i > pickArtist.length - 9; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
                     <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArtist[i].user_name %></div>

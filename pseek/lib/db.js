@@ -6,7 +6,7 @@ db_init = function () {
         host: "localhost",
         user: "root",
         password: "pisa3333",
-        database: "pseekdb2",
+        database: "pseekdb",
         port: 3306,
         multipleStatements: true
     });
