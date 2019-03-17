@@ -13,20 +13,22 @@ router.post('/login', (req, res) => {
     var body = req.body;
     var userid = body.username;
     var password = body.password;
-    var sql = 'SELECT * FROM `user_tbl` WHERE user_id = ? AND user_password = ?';
-    db().query(sql, [userid, password], (err, results) => {
+    var sql = 'SELECT * FROM `user_tbl` WHERE user_id = ? AND user_password = ?;' +
+    'SELECT * FROM tck_tbl WHERE tck_id IN(SELECT tck_id FROM tckreg_tbl WHERE user_id = ?);';
+    db().query(sql, [userid, password, userid], (err, results) => {
         // results.length는 result 값에 값이 하나가 들어있음
         if(results.length > 0) {
-            if(userid === results[0].user_id && password === results[0].user_password) {
+            if(userid === results[0][0].user_id && password === results[0][0].user_password) {
                 // 로그인 성공
                 // 세션객체에 로그인여부확인 변수 생성
                 req.session.is_Logined = true;
                 // 세션객체에 userId 변수 생성
                 req.session.userId = userid;
-                req.session.username = results[0].user_name;
-                req.session.userphone = results[0].user_tel;
-                req.session.userImg = results[0].user_imgsrc;
+                req.session.username = results[0][0].user_name;
+                req.session.userphone = results[0][0].user_tel;
+                req.session.userImg = results[0][0].user_imgsrc;
                 req.session.ticket = [];
+                req.session.ticket.push(results[1]);
                 res.redirect('/');
             }
         } else {
