@@ -67,6 +67,7 @@
 
     <!-- Profile -->
     <div class="row" style="margin-top: 50px">
+        <!-- 추천서비스 들어갈 영역 -->
         <div class="col-md-8">
             <img class="img-fluid" src="./img/mypage-bg.jpg" alt="">
         </div>
@@ -81,12 +82,15 @@
                 <li style="padding-top: 10px;">
                     <form action="./ticket">
                         <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold; "/>
-                        <% if(ticket.length == 0) { %>
-                            <span>이용권을 구매해주세요.</span>
+                        <% if(ticket.length === 0) { %>
+                            <span style="background-color: #FFFFFF;">Please buy ticket..</span>
                         <% } else { %>
+                        <span style="background-color: #FFFFFF;">
+                            <span style="font-weight: bold"> My ticket : </span>
                             <% for (var i = 0; i < ticket[0].length; i++) { %>
                             <span><%= ticket[0][i].type_title %></span>
                             <% } %>
+                        </span>
                         <% } %>
                     </form>
                 </li>
