@@ -30,7 +30,6 @@ router.post('/login', (req, res) => {
                 req.session.ticket = [];
                 if(results[1].length !== 0) {
                     req.session.ticket.push(results[1]);
-                    console.log('e');
                 }
 
                 res.redirect('/');

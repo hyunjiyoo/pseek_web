@@ -66,12 +66,9 @@
 <div class="container">
 
     <!-- Profile -->
-    <div class="row" style="margin-top: 50px">
-        <!-- 추천서비스 들어갈 영역 -->
-        <div class="col-md-8">
-            <img class="img-fluid" src="./img/mypage-bg.jpg" alt="">
-        </div>
-        <div class="col-md-4" style="background-color: #E6E6E677">
+    <div class="row" style="margin-top: 50px;">
+
+        <div class="col-md-4 mb-4" style="background-color: #E6E6E677">
             <div><img src="<%= userImg %>" style=" margin-top: 10px; height: 10rem" /></div>
             <span style="color: #E84600; font-weight: bold; font-size: 2rem; font-family: Sans-serif;"> MY PROFILE </span>
             <a href="#editPro" data-toggle="modal" ><i class="fas fa-cog" id="edit_profile" style="color:#636363; font-size: 1.3rem;"></i></a>
@@ -85,12 +82,12 @@
                         <% if(ticket.length === 0) { %>
                             <span style="background-color: #FFFFFF;">Please buy ticket..</span>
                         <% } else { %>
-                        <span style="background-color: #FFFFFF;">
+                            <span style="background-color: #FFFFFF;">
                             <span style="font-weight: bold"> My ticket : </span>
-                            <% for (var i = 0; i < ticket[0].length; i++) { %>
-                            <span><%= ticket[0][i].type_title %></span>
-                            <% } %>
-                        </span>
+                                <% for (var i = 0; i < ticket[0].length; i++) { %>
+                                    <span><%= ticket[0][i].type_title %></span>
+                                <% } %>
+                            </span>
                         <% } %>
                     </form>
                 </li>
@@ -98,6 +95,35 @@
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, assumenda beatae dolor dolorum,</p>
         </div>
+
+
+        <!-- 추천서비스 들어갈 영역 -->
+
+        <div class="col-md-8">
+            <h3 class="my-4">RECOMMEND</h3>
+            <div class="row">
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img class="img-fluid" src="/img/300x200.png" alt="">
+            </div>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img class="img-fluid" src="/img/300x200.png" alt="">
+            </div>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img class="img-fluid" src="/img/300x200.png" alt="">
+            </div>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img class="img-fluid" src="/img/300x200.png" alt="">
+            </div>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img class="img-fluid" src="/img/300x200.png" alt="">
+            </div>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <img class="img-fluid" src="/img/300x200.png" alt="">
+            </div>
+
+            </div>
+        </div>
+
     </div>
 
     <!-- My Pick Art -->
@@ -106,7 +132,7 @@
         <% if (pickArt.length === 0) { %>
             <% for(let i = 0; i < 4; i++) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
-                    <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+                    <img class="img-fluid" src="/img/300x200.png" alt="">
                 </div>
             <% } %>
         <% } else if (pickArt.length < 9) { %>
@@ -133,7 +159,7 @@
         <% if (pickArtist.length === 0) { %>
             <% for(let i = 0; i < 4; i++) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
-                    <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+                    <img class="img-fluid" src="/img/300x200.png" alt="">
                 </div>
             <% } %>
         <% } else if (pickArtist.length < 9) { %>
@@ -159,7 +185,7 @@
         <% if (myArt.length === 0) { %>
             <% for(let i = 0; i < 4; i++) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
-                    <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+                    <img class="img-fluid" src="/img/300x200.png" alt="">
                 </div>
             <% } %>
         <% } else if (myArt.length < 9) { %>
