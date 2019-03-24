@@ -97,29 +97,60 @@
         </div>
 
 
-        <!-- 추천서비스 들어갈 영역 -->
-
+        <!-- 추천서비스 -->
         <div class="col-md-8">
             <h3 class="my-4">RECOMMEND</h3>
             <div class="row">
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img class="img-fluid" src="/img/300x200.png" alt="">
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img class="img-fluid" src="/img/300x200.png" alt="">
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img class="img-fluid" src="/img/300x200.png" alt="">
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img class="img-fluid" src="/img/300x200.png" alt="">
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img class="img-fluid" src="/img/300x200.png" alt="">
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <img class="img-fluid" src="/img/300x200.png" alt="">
-            </div>
+
+                <!-- 전체작품 중복제거-->
+                <% var randArr = []; %>
+                <% for(var i = 0; i < 6; i++) { %>
+                    <% rand = parseInt(Math.random() * allArt.length); %>
+                    <% var flag = false; %>
+                    <% for(var j = 0; j < randArr.length; j++) { %>
+                        <% if(rand === randArr[j]) { %>
+                            <% flag = true; %>
+                            <% --i; %>
+                            <% break; %>
+                        <% } %>
+                    <% } %>
+                    <% if(flag == false) { %>
+                        <% randArr.push(rand); %>
+                    <% }%>
+                <% } %>
+
+                <!-- 추천작품 중복제거 -->
+                <% var randArr2 = []; %>
+                <% for(var i = 0; i < 6; i++) { %>
+                    <% rand2 = parseInt(Math.random() * recommendArt.length); %>
+                    <% var flag = false; %>
+                    <% for(var j = 0; j < randArr2.length; j++) { %>
+                        <% if(rand2 === randArr2[j]) { %>
+                            <% flag = true; %>
+                            <% --i; %>
+                            <% break; %>
+                        <% } %>
+                    <% } %>
+                    <% if(flag == false) { %>ㅋ
+                        <% randArr2.push(rand2); %>
+                    <% }%>
+                <% } %>
+
+                <% if(recommendArt.length === 0) { %>
+                    <% for(var k = 0; k < 6; k++) { %>
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <img class="img-fluid" src="<%= allArt[randArr[k]].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                            <div class="caption"><%= allArt[randArr[k]].art_title %></div>
+                        </div>
+                    <% } %>
+                <% } else { %>
+                    <% for(var m = 0; m < 6; m++) { %>
+                        <div class="col-md-4 col-sm-6 mb-4">
+                            <img class="img-fluid" src="<%= recommendArt[randArr2[m]].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                            <div class="caption"><%= recommendArt[randArr2[m]].art_title %></div>
+                        </div>
+                    <% } %>
+                <% } %>
 
             </div>
         </div>

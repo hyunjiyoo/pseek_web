@@ -27,19 +27,26 @@ router.get('/', (req, res) => {
 
 // 마이페이지
 router.get('/myPage', (req, res) => {
-    /*  sql[0]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
-        sql[1]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 아티스트를 artist_id로 조회하여 art테이블에서 아티스트이미지와 이름 조회.
-        sql[2]: user테이블에서 현재 로그인된 user_id에 해당하는 user를 art테이블에서 가져와서 작품 조회.
+    /*  sql[0]:
+        sql[1]:
+        sql[2]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
+        sql[3]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 아티스트를 artist_id로 조회하여 art테이블에서 아티스트이미지와 이름 조회.
+        sql[4]: user테이블에서 현재 로그인된 user_id에 해당하는 user를 art테이블에서 가져와서 작품 조회.
     */
-    var sql = 'SELECT * FROM `art_tbl` WHERE `art_tbl`.art_id IN (SELECT `pick_tbl`.art_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?);' +
+    var sql =
+        'SELECT * FROM `art_tbl`;' +
+        'SELECT * FROM art_tbl WHERE art_genre = (SELECT art_genre FROM(SELECT COUNT(*) AS cnt, A.art_genre FROM (SELECT art_genre, user_id FROM art_tbl, pick_tbl WHERE art_tbl.art_id = pick_tbl.art_id AND user_id = ?) A GROUP BY art_genre) B ORDER BY B.cnt DESC LIMIT 1);' +
+        'SELECT * FROM `art_tbl` WHERE `art_tbl`.art_id IN (SELECT `pick_tbl`.art_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?);' +
         'SELECT * FROM `user_tbl` WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?); ' +
         'SELECT * FROM art_tbl WHERE art_tbl.artist_id = (SELECT user_tbl.user_id FROM user_tbl WHERE user_id = ?)';
     var loggedinId = req.session.userId;
-    db().query(sql, [loggedinId, loggedinId, loggedinId], (err, results) => {
+    db().query(sql, [loggedinId, loggedinId, loggedinId, loggedinId], (err, results) => {
         res.render("myPage.ejs",{
-            pickArt: results[0],
-            pickArtist: results[1],
-            myArt: results[2]
+            allArt: results[0],
+            recommendArt: results[1],
+            pickArt: results[2],
+            pickArtist: results[3],
+            myArt: results[4]
         });
     });
 });
