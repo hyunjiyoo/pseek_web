@@ -27,8 +27,8 @@ router.get('/', (req, res) => {
 
 // 마이페이지
 router.get('/myPage', (req, res) => {
-    /*  sql[0]:
-        sql[1]:
+    /*  sql[0]: 전체 작품 조회
+        sql[1]: 사용자가 픽한 작품의 장르(그룹)를 기준으로 픽한 장르의 수만큼 내림차순 정렬 -> 정렬 후 가장 많은 수의 장르를 기준으로 작품 테이블에서 데이터 조회.
         sql[2]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 작품을 art_id로 조회하여 art테이블에서 작품이미지와 타이틀 데이터 조회.
         sql[3]: pick테이블에서 현재 로그인된 user_id에 해당하는 pick 아티스트를 artist_id로 조회하여 art테이블에서 아티스트이미지와 이름 조회.
         sql[4]: user테이블에서 현재 로그인된 user_id에 해당하는 user를 art테이블에서 가져와서 작품 조회.
