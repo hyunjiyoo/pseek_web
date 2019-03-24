@@ -101,7 +101,6 @@
         <div class="col-md-8">
             <h3 class="my-4">RECOMMEND</h3>
             <div class="row">
-
                 <!-- 전체작품 중복제거-->
                 <% var randArr = []; %>
                 <% for(var i = 0; i < 6; i++) { %>
@@ -118,7 +117,6 @@
                         <% randArr.push(rand); %>
                     <% }%>
                 <% } %>
-
                 <!-- 추천작품 중복제거 -->
                 <% var randArr2 = []; %>
                 <% for(var i = 0; i < 6; i++) { %>
@@ -131,7 +129,7 @@
                             <% break; %>
                         <% } %>
                     <% } %>
-                    <% if(flag == false) { %>ㅋ
+                    <% if(flag == false) { %>
                         <% randArr2.push(rand2); %>
                     <% }%>
                 <% } %>
