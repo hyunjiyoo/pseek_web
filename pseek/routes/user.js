@@ -28,7 +28,10 @@ router.post('/login', (req, res) => {
                 req.session.userphone = results[0][0].user_tel;
                 req.session.userImg = results[0][0].user_imgsrc;
                 req.session.ticket = [];
-                req.session.ticket.push(results[1]);
+                if(results[1].length !== 0) {
+                    req.session.ticket.push(results[1]);
+                }
+
                 res.redirect('/');
             }
         } else {
