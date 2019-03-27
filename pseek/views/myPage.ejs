@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PSEEK:: My Page</title>
     <% include ./head/headIndex.ejs %>
+    <!-- Viewer css -->
+    <link href="/css/viewer.css" rel="stylesheet">
+    <link href="/css/viewer_main.css" rel="stylesheet">
     <style>
         body {
             padding-top: 54px;
@@ -40,8 +43,8 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
                 <span hidden>
-                <%= MyPageNav = ['pick_art', 'pick_artist', 'my_artwork'] %>
-                <%= NavName = ['PICK ART', 'PICK ARTIST', 'MY ARTWORK'] %>
+                <%= MyPageNav = ['recommend', 'pick_art', 'pick_artist', 'my_artwork'] %>
+                <%= NavName = ['RECOMMEND', 'PICK ART', 'PICK ARTIST', 'MY ARTWORK'] %>
                 </span>
                 <% MyPageNav.forEach((element, i) => { %>
                     <li class="nav-item">
@@ -67,7 +70,6 @@
 
     <!-- Profile -->
     <div class="row" style="margin-top: 50px;">
-
         <div class="col-md-4 mb-4" style="background-color: #E6E6E677">
             <div><img src="<%= userImg %>" style=" margin-top: 10px; height: 10rem" /></div>
             <span style="color: #E84600; font-weight: bold; font-size: 2rem; font-family: Sans-serif;"> MY PROFILE </span>
@@ -96,63 +98,79 @@
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, assumenda beatae dolor dolorum,</p>
         </div>
 
-
         <!-- 추천서비스 -->
-        <div class="col-md-8">
+        <div id ="recommend" class="col-md-8">
             <h3 class="my-4">RECOMMEND</h3>
             <div class="row">
-                <!-- 전체작품 중복제거-->
-                <% var randArr = []; %>
-                <% for(var i = 0; i < 6; i++) { %>
-                    <% rand = parseInt(Math.random() * allArt.length); %>
-                    <% var flag = false; %>
-                    <% for(var j = 0; j < randArr.length; j++) { %>
-                        <% if(rand === randArr[j]) { %>
-                            <% flag = true; %>
-                            <% --i; %>
-                            <% break; %>
-                        <% } %>
-                    <% } %>
-                    <% if(flag == false) { %>
-                        <% randArr.push(rand); %>
-                    <% }%>
-                <% } %>
-                <!-- 추천작품 중복제거 -->
-                <% var randArr2 = []; %>
-                <% for(var i = 0; i < 6; i++) { %>
-                    <% rand2 = parseInt(Math.random() * recommendArt.length); %>
-                    <% var flag = false; %>
-                    <% for(var j = 0; j < randArr2.length; j++) { %>
-                        <% if(rand2 === randArr2[j]) { %>
-                            <% flag = true; %>
-                            <% --i; %>
-                            <% break; %>
-                        <% } %>
-                    <% } %>
-                    <% if(flag == false) { %>
-                        <% randArr2.push(rand2); %>
-                    <% }%>
-                <% } %>
-
                 <% if(recommendArt.length === 0) { %>
+                    <!-- 전체작품 중복제거-->
+                    <% var randArr1 = []; %>
+                    <% for(var i = 0; i < 6; i++) { %>
+                        <% rand1 = parseInt(Math.random() * allArt.length); %>
+                        <% var flag = false; %>
+                        <% for(var j = 0; j < randArr1.length; j++) { %>
+                            <% if(rand1 === randArr1[j]) { %>
+                                <% flag = true; %>
+                                <% --i; %>
+                                <% break; %>
+                            <% } %>
+                        <% } %>
+                        <% if(flag == false) { %>
+                            <% randArr1.push(rand1); %>
+                        <% }%>
+                    <% } %>
                     <% for(var k = 0; k < 6; k++) { %>
                         <div class="col-md-4 col-sm-6 mb-4">
-                            <img class="img-fluid" src="<%= allArt[randArr[k]].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
-                            <div class="caption"><%= allArt[randArr[k]].art_title %></div>
+                            <img class="img-fluid" src="<%= allArt[randArr1[k]].art_imgsrc %>" alt="" style="width: 100%; height: 180px;" onclick="
+                                    var selectImg = document.getElementById('clickImg1<%= randArr1[k] %>');
+                                    selectImg.click();">
+                            <div class="caption"><%= allArt[randArr1[k]].art_title %></div>
+                        </div>
+                        <!-- All ART Viewer Image -->
+                        <div hidden class="docs-galley">
+                            <ul class="docs-pictures clearfix">
+                                <% for (var n = 0; n < 6; n++) { %>
+                                    <li><img id="clickImg1<%= randArr1[n] %>" data-original="<%= allArt[randArr1[n]].art_imgsrc %>" src="<%= allArt[randArr1[n]].art_imgsrc %>" /></li>
+                                <% } %>
+                            </ul>
                         </div>
                     <% } %>
                 <% } else { %>
+                    <!-- 추천작품 중복제거 -->
+                    <% var randArr2 = []; %>
+                    <% for(var i = 0; i < 6; i++) { %>
+                        <% rand2 = parseInt(Math.random() * recommendArt.length); %>
+                        <% var flag = false; %>
+                        <% for(var j = 0; j < randArr2.length; j++) { %>
+                            <% if(rand2 === randArr2[j]) { %>
+                                <% flag = true; %>
+                                <% --i; %>
+                                <% break; %>
+                            <% } %>
+                        <% } %>
+                        <% if(flag == false) { %>
+                            <% randArr2.push(rand2); %>
+                        <% }%>
+                    <% } %>
                     <% for(var m = 0; m < 6; m++) { %>
                         <div class="col-md-4 col-sm-6 mb-4">
-                            <img class="img-fluid" src="<%= recommendArt[randArr2[m]].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
+                            <img class="img-fluid" src="<%= recommendArt[randArr2[m]].art_imgsrc %>" alt="" style="width: 100%; height: 180px;" onclick="
+                                    var selectImg = document.getElementById('clickImg2<%= randArr2[m] %>');
+                                    selectImg.click();">
                             <div class="caption"><%= recommendArt[randArr2[m]].art_title %></div>
+                        </div>
+                        <!-- Recommend Viewer Image -->
+                        <div hidden class="docs-galley">
+                            <ul class="docs-pictures clearfix">
+                                <% for (var p = 0; p < 6; p++) { %>
+                                    <li><img id="clickImg2<%= randArr2[p] %>" data-original="<%= recommendArt[randArr2[p]].art_imgsrc %>" src="<%= recommendArt[randArr2[p]].art_imgsrc %>" /></li>
+                                <% } %>
+                            </ul>
                         </div>
                     <% } %>
                 <% } %>
-
             </div>
         </div>
-
     </div>
 
     <!-- My Pick Art -->
@@ -310,8 +328,7 @@
     });
 </script>
 
-
-
 <% include ./head/footerIndex.ejs %>
+<% include ./head/footerViewer.ejs %>
 </body>
 </html>
