@@ -35,7 +35,7 @@ router.get('/myPage', (req, res) => {
     */
     var sql =
         'SELECT * FROM `art_tbl`;' +
-        'SELECT * FROM art_tbl WHERE art_genre = (SELECT art_genre FROM(SELECT COUNT(*) AS cnt, A.art_genre FROM (SELECT art_genre, user_id FROM art_tbl, pick_tbl WHERE art_tbl.art_id = pick_tbl.art_id AND user_id = ?) A GROUP BY art_genre) B ORDER BY B.cnt DESC LIMIT 1);' +
+        'SELECT * FROM `art_tbl` WHERE art_genre = (SELECT art_genre FROM(SELECT COUNT(*) AS cnt, A.art_genre FROM (SELECT art_genre, user_id FROM art_tbl, pick_tbl WHERE art_tbl.art_id = pick_tbl.art_id AND user_id = ?) A GROUP BY art_genre) B ORDER BY B.cnt DESC LIMIT 1);' +
         'SELECT * FROM `art_tbl` WHERE `art_tbl`.art_id IN (SELECT `pick_tbl`.art_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?);' +
         'SELECT * FROM `user_tbl` WHERE `user_tbl`.user_id IN (SELECT `pick_tbl`.artist_id FROM `pick_tbl` WHERE `pick_tbl`.user_id = ?); ' +
         'SELECT * FROM art_tbl WHERE art_tbl.artist_id = (SELECT user_tbl.user_id FROM user_tbl WHERE user_id = ?)';
