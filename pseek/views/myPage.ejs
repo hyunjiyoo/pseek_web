@@ -28,6 +28,17 @@
             font-family: Sans-serif;
             opacity:0.7;
         }
+        .caption_rec {
+            position: absolute;
+            width: 88%;
+            height: 35px;
+            bottom: 0px;
+            color: #ffffff;
+            background: #000000DD;
+            text-align:center;
+            font-family: Sans-serif;
+            opacity:0.7;
+        }
     </style>
 </head>
 
@@ -124,7 +135,7 @@
                             <img class="img-fluid" src="<%= allArt[randArr1[k]].art_imgsrc %>" alt="" style="width: 100%; height: 180px;" onclick="
                                     var selectImg = document.getElementById('clickImg1<%= randArr1[k] %>');
                                     selectImg.click();">
-                            <div class="caption"><%= allArt[randArr1[k]].art_title %></div>
+                            <div class="caption_rec"><%= allArt[randArr1[k]].art_title %></div>
                         </div>
                         <!-- All ART Viewer Image -->
                         <div hidden class="docs-galley">
@@ -157,7 +168,7 @@
                             <img class="img-fluid" src="<%= recommendArt[randArr2[m]].art_imgsrc %>" alt="" style="width: 100%; height: 180px;" onclick="
                                     var selectImg = document.getElementById('clickImg2<%= randArr2[m] %>');
                                     selectImg.click();">
-                            <div class="caption"><%= recommendArt[randArr2[m]].art_title %></div>
+                            <div class="caption_rec"><%= recommendArt[randArr2[m]].art_title %></div>
                         </div>
                         <!-- Recommend Viewer Image -->
                         <div hidden class="docs-galley">
@@ -185,6 +196,9 @@
         <% } else if (pickArt.length < 9) { %>
             <% for(let i = pickArt.length - 1; i >= 0; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
+                    <form method="post" action="/myPage/<%= pickArt[i].art_genre %>/dislike/<%= pickArt[i].art_id %>">
+                        <button type="submit" class="likeBox_myPage btn "><i class="fas fa-heart"></i></button>
+                    </form>
                     <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArt[i].art_title %></div>
                 </div>
@@ -192,6 +206,9 @@
         <% } else { %>
             <% for(let i = pickArt.length - 1; i > pickArt.length - 9; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
+                    <form method="post" action="/myPage/<%= pickArt[i].art_genre %>/dislike/<%= pickArt[i].art_id %>">
+                        <button type="submit" class="likeBox_myPage btn "><i class="fas fa-heart"></i></button>
+                    </form>
                     <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArt[i].art_title %></div>
                 </div>
@@ -212,6 +229,9 @@
         <% } else if (pickArtist.length < 9) { %>
             <% for(let i = pickArtist.length - 1; i >= 0; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
+                    <form method="post" action="/myPage/dislike/<%= pickArtist[i].user_id %>">
+                        <button type="submit" class="likeBox_myPage btn " ><i class="fas fa-heart"></i></button>
+                    </form>
                     <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArtist[i].user_name %></div>
                 </div>
@@ -219,6 +239,9 @@
         <% } else { %>
             <% for(let i = pickArtist.length    - 1; i > pickArtist.length - 9; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
+                    <form method="post" action="/myPage/dislike/<%= pickArtist[i].user_id %>">
+                        <button type="submit" class="likeBox_myPage btn " ><i class="fas fa-heart"></i></button>
+                    </form>
                     <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArtist[i].user_name %></div>
                 </div>

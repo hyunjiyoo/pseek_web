@@ -51,6 +51,29 @@ router.get('/myPage', (req, res) => {
     });
 });
 
+
+// myPage Pick Delete
+// DISLIKE 버튼 눌렀을 때 pick_tbl에 데이터 DELETE
+router.post('/myPage/:genre/dislike/:id', (req, res) => {
+    // req.params객체로 삭제할 art_id를 가져와서 pick테이블에서 DELETE 수행.
+    var sql = 'DELETE FROM `pick_tbl` WHERE `pick_tbl`.art_id = (SELECT `art_tbl`.art_id FROM `art_tbl` WHERE `art_tbl`.art_id = ' + "'" + req.params.id + "'" + ')';
+    db().query(sql, [], (err, results) => {
+        console.log(req.params.id);
+        if (err) throw err;
+        res.redirect('/myPage');
+    });
+});
+// DISLIKE 버튼 눌렀을 때 pick_tbl에서 픽아티스트 데이터 DELETE
+router.post('/myPage/dislike/:pickuserid', (req,res) => {
+    // req.params객체로 삭제할 user_id를 가져와서 pick테이블에서 DELETE 수행.
+    var sql = 'DELETE FROM `pick_tbl` WHERE `pick_tbl`.artist_id = (SELECT `user_tbl`.user_id FROM `user_tbl` WHERE `user_tbl`.user_id = ? )';
+    db().query(sql, [req.params.pickuserid], (err, results) => {
+        console.log(req.params.pickuserid);
+        if(err) throw err;
+        res.redirect('/myPage');
+    });
+});
+
 // 프로필 edit
 router.post('/myPage/edit', (req, res) => {
     let editProFile = req.files.editProFile;
@@ -129,8 +152,22 @@ for (let i = 0; i < artGenre.length; i++) {
 }
 
 // museum 이동
-router.get('/museum', (req, res) => {
-   res.render('museum.ejs', {});
+// var museum = ['museum1', 'museum2', 'museum3'];
+// for (let i = 1; i < museum.length + 1; i++) {
+//     router.get(`./${museum[i]}`, (req, res) => {
+//         console.log(museum[i]);
+//         res.render("museum1.ejs", {});
+//     });
+// }
+router.get('/museum1', (req, res) => {
+   res.render('museum1.ejs', {});
 });
+router.get('/museum2', (req, res) => {
+    res.render('museum2.ejs', {});
+});
+router.get('/museum3', (req, res) => {
+    res.render('museum3.ejs', {});
+});
+
 
 module.exports = router;
