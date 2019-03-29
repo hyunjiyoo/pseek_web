@@ -196,6 +196,9 @@
         <% } else if (pickArt.length < 9) { %>
             <% for(let i = pickArt.length - 1; i >= 0; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
+                    <form method="post" action="/myPage/<%= pickArt[i].art_genre %>/dislike/<%= pickArt[i].art_id %>">
+                        <button type="submit" class="likeBox_myPage btn "><i class="fas fa-heart"></i></button>
+                    </form>
                     <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArt[i].art_title %></div>
                 </div>
@@ -203,6 +206,9 @@
         <% } else { %>
             <% for(let i = pickArt.length - 1; i > pickArt.length - 9; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
+                    <form method="post" action="/myPage/<%= pickArt[i].art_genre %>/dislike/<%= pickArt[i].art_id %>">
+                        <button type="submit" class="likeBox_myPage btn "><i class="fas fa-heart"></i></button>
+                    </form>
                     <img class="img-fluid" src="<%= pickArt[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArt[i].art_title %></div>
                 </div>
@@ -223,6 +229,9 @@
         <% } else if (pickArtist.length < 9) { %>
             <% for(let i = pickArtist.length - 1; i >= 0; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
+                    <form method="post" action="/myPage/dislike/<%= pickArtist[i].user_id %>">
+                        <button type="submit" class="likeBox_myPage btn " ><i class="fas fa-heart"></i></button>
+                    </form>
                     <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArtist[i].user_name %></div>
                 </div>
@@ -230,6 +239,9 @@
         <% } else { %>
             <% for(let i = pickArtist.length    - 1; i > pickArtist.length - 9; i--) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
+                    <form method="post" action="/myPage/dislike/<%= pickArtist[i].user_id %>">
+                        <button type="submit" class="likeBox_myPage btn " ><i class="fas fa-heart"></i></button>
+                    </form>
                     <img class="img-fluid" src="<%= pickArtist[i].user_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                     <div class="caption"><%= pickArtist[i].user_name %></div>
                 </div>

@@ -81,3 +81,21 @@
 .img-fluid {
     height: 100%;
 }
+
+/* myPage dislike */
+.likeBox_myPage {
+    position: absolute;
+    top: 27px;
+    right: 3px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #CD2737;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.likeBox_myPage:hover {
+    color: #ffffff;
+}

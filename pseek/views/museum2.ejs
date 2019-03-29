@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PSEEK:: MUSEUM</title>
+    <% include ./head/museum.ejs %>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/one-page-wonder.min.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/" style="color: #FED136 !important; font-family: 'Kaushan Script',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'">P-Seek :: <small>artists' playground</small></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <span style="color: #DBDBDB; margin-top: 12px"><small><i>Welcome   to   Leeum   Museum.&nbsp&nbsp&nbsp&nbsp</i></small></span>
+                <li class="nav-item" style="margin-top: 13px;">
+                    <% if (isLogined) { %>
+                        <i class="fas fa-user-circle" style="color: #fed136;"></i>&nbsp;<span id="user" style="color: #fed136;"><%= user %>&nbsp;&nbsp;<a class="btn btn-basic btn-sm" href="/mypage" style="font-weight: bold;">MYPAGE</a></span></a>&nbsp;&nbsp;
+                        <a class="btn btn-primary btn-sm" id="loginBtn" style="color: #474747; font-weight: bold;" href="/login/logout">Sign Out</a>
+                    <% } else { %>
+                        <i class="fas fa-user-circle" style="color: #ADADAD"></i>&nbsp;
+                        <span id="user" style="color: #fed136">Guest</span>
+                    <% } %>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container">
+            <h1 class="masthead-heading mb-0">LEEUM MUSEUM</h1>
+            <h2 class="masthead-subheading mb-0">located in Korea</h2>
+            <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5" style="color: #474747 !important;">Enjoy more</a>
+        </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5">
+                    <img class="img-fluid rounded-circle" src="./img/museum/museum02/sub-img-01.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Fantasy Forest</h2>
+                    <p>Rama is a female apelike Yazarian, Carrel is an insect-like Vrusk, and Gogol is an amoeba-like but intelligent, humanoid Dralasite. There is also Nanny Navigator Robot. The small white Boxils also appear in this book..</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <img class="img-fluid rounded-circle" src="./img/museum/museum02/sub-img-02.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5">
+                    <h2 class="display-4">Gold Leaves</h2>
+                    <p>Find blue leaves Stock Images in HD and millions of other royalty-free stock photos, illustrations, and vectors in the Shutterstock collection. Find blue leaves Stock Images in HD and millions of other royalty-free stock photos, illustrations, and vectors in the Shutterstock collection.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5">
+                    <img class="img-fluid rounded-circle" src="./img/museum/museum02/sub-img-03.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Greeny Fiolent</h2>
+                    <p>Violent Blue is a feature drama directed by Gregory Hatanaka and starring Silvia Suvadova, Jesse Hlubik, and Nick Mancuso. Portions of the film are silent with intertitles accompanied with an original music score by Toshiyuki Hiraoka.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-5 bg-black">
+    <div class="container">
+        <p class="m-0 text-center text-white small">Copyright © P-SEEK.com 2019</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
