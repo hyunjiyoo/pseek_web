@@ -53,10 +53,13 @@ router.post('/edit', (req, res) => {
 
 // 작품 삭제
 router.post('/delete', (req, res) => {
-    var sql = 'DELETE FROM `art_tbl` WHERE art_id = ?';
-    db().query(sql, [req.body.editId], (err, results) => {
-       if(err) throw err;
-       res.redirect('/myart');
+    var sql = 'DELETE FROM `pick_tbl` WHERE art_id = ?';
+    db().query(sql, [req.body.editId], () => {
+        var sql2 = 'DELETE FROM `art_tbl` WHERE art_id = ?';
+        db().query(sql2, [req.body.editId], (err, results) => {
+            if(err) throw err;
+            res.redirect('/myart');
+        });
     });
 });
 

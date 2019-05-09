@@ -16,8 +16,10 @@ router.post('/login', (req, res) => {
     var sql = 'SELECT * FROM `user_tbl` WHERE user_id = ? AND user_password = ?;' +
     'SELECT * FROM tck_tbl WHERE tck_id IN(SELECT tck_id FROM tckreg_tbl WHERE user_id = ?);';
     db().query(sql, [userid, password, userid], (err, results) => {
-        // results.length는 result 값에 값이 하나가 들어있음
-        if(results.length > 0) {
+        // DB에 없는 유저값 시도할 때
+        if(results[0].length === 0) {
+            res.redirect('/user/login');
+        } else if(results.length > 0) { // results.length는 result 값에 값이 하나가 들어있음
             if(userid === results[0][0].user_id && password === results[0][0].user_password) {
                 // 로그인 성공
                 // 세션객체에 로그인여부확인 변수 생성
@@ -31,12 +33,8 @@ router.post('/login', (req, res) => {
                 if(results[1].length !== 0) {
                     req.session.ticket.push(results[1]);
                 }
-
                 res.redirect('/');
             }
-        } else {
-            // 로그인 실패
-            res.redirect('/login');
         }
     });
 });
