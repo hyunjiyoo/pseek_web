@@ -55,6 +55,6 @@ app.use('/artist', require("./routes/artist"));
 app.use('/myPick', require("./routes/myPick"));
 app.use('/ticket', require("./routes/ticket"));
 
-app.listen(30010, () => {
+app.listen(30000, () => {
     console.log('server running');
 });
