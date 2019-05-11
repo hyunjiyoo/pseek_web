@@ -41,7 +41,7 @@ router.get('/myPage', (req, res) => {
         'SELECT * FROM art_tbl WHERE art_tbl.artist_id = (SELECT user_tbl.user_id FROM user_tbl WHERE user_id = ?)';
     var loggedinId = req.session.userId;
     db().query(sql, [loggedinId, loggedinId, loggedinId, loggedinId], (err, results) => {
-        res.render("myPage.ejs",{
+        res.render("myPage.ejs", {
             allArt: results[0],
             recommendArt: results[1],
             pickArt: results[2],
