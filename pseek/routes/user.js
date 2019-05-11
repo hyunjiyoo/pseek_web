@@ -30,7 +30,7 @@ router.post('/login', (req, res) => {
                 req.session.userphone = results[0][0].user_tel;
                 req.session.userImg = results[0][0].user_imgsrc;
                 req.session.ticket = [];
-                if(results[1].length !== 0) {
+                if (results[1].length !== 0) {
                     req.session.ticket.push(results[1]);
                 }
                 res.redirect('/');
@@ -44,7 +44,7 @@ router.get('/logout', (req, res) => {
     // 세션 삭제
     req.session.destroy((err) => {
         res.redirect('/');
-    }) ;
+    });
 });
 
 // 회원가입
