@@ -75,7 +75,7 @@
                     <button type="submit" class="likeBox btn " id="dislike" ><i class="fas fa-heart"></i></button>
                 </form>
             <% } %>
-            <a href="#artDetail" onclick="modalImg('<%= artwork[i].art_imgsrc %>', '<%= artwork[i].art_title %>', '<%= artwork[i].artist_id %>', '<%= artwork[i].art_genre %>', '<%= artwork[i].art_des %>', '<%= artwork[i].art_loc %>')" data-toggle="modal" style="text-decoration: none; color: #000;">
+            <a href="#artDetail" onclick="modalImg('<%= artwork[i].art_imgsrc %>', '<%= artwork[i].art_title %>', '<%= artwork[i].artist_id %>', '<%= artwork[i].art_genre %>', '<%= artwork[i].art_des %>')" data-toggle="modal" style="text-decoration: none; color: #000;">
                 <figcaption style="text-align: center"><b id="artTitle"><%= artwork[i].art_title %></b></figcaption>
             </a>
         </figure>
@@ -121,10 +121,6 @@
                         <td><span style="font-weight: bold">Description </span></td>
                         <td style="width: 100%"><span id="detailDes"></span></td>
                     </tr>
-                    <tr>
-                        <td><span style="font-weight: bold">Location </span></td>
-                        <td><span id="detailLoc"></span></td>
-                    </tr>
                 </table>
             </div>
             <div class="modal-footer">
@@ -154,14 +150,12 @@
         var detailArtist = document.getElementById('detailArtist');
         var detailGenre = document.getElementById('detailGenre');
         var detailDes = document.getElementById('detailDes');
-        var detailLoc = document.getElementById('detailLoc');
 
         detailImg.src = imgSrc;
         detailTitle.innerText = title;
         detailArtist.innerText = artist;
         detailGenre.innerText = genre;
         detailDes.innerText = des;
-        detailLoc.innerText = loc;
     }
 </script>
 </body>

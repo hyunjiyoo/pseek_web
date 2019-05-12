@@ -62,7 +62,7 @@
         <% if (artistWork.length > 0) { %>
             <% for(var i in artistWork) { %>
                 <div class="col-lg-3 col-md-4 col-xs-6">
-                    <a href="#artEdit" onclick="modalImg('<%= artistWork[i].art_imgsrc %>', '<%= artistWork[i].art_title %>', '<%= artistWork[i].art_genre %>', '<%= artistWork[i].art_des %>', '<%= artistWork[i].art_loc %>', '<%= artistWork[i].art_id %>')" data-toggle="modal" class="d-block mb-4 h-100">
+                    <a href="#artEdit" onclick="modalImg('<%= artistWork[i].art_imgsrc %>', '<%= artistWork[i].art_title %>', '<%= artistWork[i].art_genre %>', '<%= artistWork[i].art_des %>', '<%= artistWork[i].art_id %>')" data-toggle="modal" class="d-block mb-4 h-100">
                         <img id="a" class="img-fluid img-thumbnail" src="<%= artistWork[i].art_imgsrc %>" alt="" style="width: 100%; height: 180px;">
                         <div class="caption"><%= artistWork[i].art_title %></div>
                     </a>

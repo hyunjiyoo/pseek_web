@@ -75,7 +75,7 @@
                                 var selectImg = document.getElementById('clickImg<%= i %>');
                                 selectImg.click();">
 
-                        <a href="#artDetail" onclick="modalImg('<%= pickArt[i].art_imgsrc %>', '<%= pickArt[i].art_title %>', '<%= pickArt[i].art_genre %>', '<%= pickArt[i].art_des %>', '<%= pickArt[i].art_loc %>')" data-toggle="modal" style="text-decoration: none; color: #000;">
+                        <a href="#artDetail" onclick="modalImg('<%= pickArt[i].art_imgsrc %>', '<%= pickArt[i].art_title %>', '<%= pickArt[i].art_genre %>', '<%= pickArt[i].art_des %>')" data-toggle="modal" style="text-decoration: none; color: #000;">
                             <div class="caption">
                                 <%= pickArt[i].art_title %>
                             </div>
@@ -127,10 +127,6 @@
                         <td><span style="font-weight: bold">Description </span></td>
                         <td style="width: 100%"><span id="detailDes"></span></td>
                     </tr>
-                    <tr>
-                        <td><span style="font-weight: bold">Location </span></td>
-                        <td><span id="detailLoc"></span></td>
-                    </tr>
                 </table>
             </div>
             <div class="modal-footer">
@@ -155,13 +151,11 @@
         var detailTitle = document.getElementById('detailTitle');
         var detailGenre = document.getElementById('detailGenre');
         var detailDes = document.getElementById('detailDes');
-        var detailLoc = document.getElementById('detailLoc');
 
         detailImg.src = imgSrc;
         detailTitle.innerText = title;
         detailGenre.innerText = genre;
         detailDes.innerText = des;
-        detailLoc.innerText = loc;
     }
 </script>
 
