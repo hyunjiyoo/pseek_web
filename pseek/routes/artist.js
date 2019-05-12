@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
         ') B\n' +
         'ON A.USER_ID=B.ARTIST_ID';
     db().query(sql, [req.session.userId], (err, results) => {
-        console.log(results);
         res.render('artist.ejs', {
             artistList: results
         });
@@ -25,7 +24,6 @@ router.post('/artist/like/:id', (req,res) => {
     // req.params객체로 user_id를 가져와서 user테이블에서 해당 값에 대한 데이터를 pick테이블에 INSERT 수행.
     var sql = 'INSERT INTO pick_tbl VALUES (NULL, ?, NULL, (SELECT user_id FROM user_tbl WHERE user_id = ?))';
     db().query(sql, [req.session.userId, req.params.id], (err, results) => {
-        console.log(req.params.id);
         if(err) throw err;
         res.redirect('/artist');
     });

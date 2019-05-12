@@ -68,7 +68,6 @@ router.post('/myPage/dislike/:pickuserid', (req,res) => {
     // req.params객체로 삭제할 user_id를 가져와서 pick테이블에서 DELETE 수행.
     var sql = 'DELETE FROM `pick_tbl` WHERE `pick_tbl`.artist_id = (SELECT `user_tbl`.user_id FROM `user_tbl` WHERE `user_tbl`.user_id = ? )';
     db().query(sql, [req.params.pickuserid], (err, results) => {
-        console.log(req.params.pickuserid);
         if(err) throw err;
         res.redirect('/myPage');
     });
