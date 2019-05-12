@@ -93,9 +93,9 @@
                     <form action="./ticket">
                         <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold; "/>
                         <% if(ticket.length === 0) { %>
-                            <div style="background-color: #FFFFFF;">Please buy ticket..</div>
+                            <div style="background-color: #FFFFFF; margin-top: 5px;">Please buy ticket..</div>
                         <% } else { %>
-                            <div style="background-color: #FFFFFF;">
+                            <div style="background-color: #FFFFFF; margin-top: 5px;">
                             <span style="font-weight: bold"> My ticket : </span>
                                 <% for (var i = 0; i < ticket[0].length; i++) { %>
                                     <span><%= ticket[0][i].type_title %></span>
@@ -340,7 +340,28 @@
         // 파일태그에서 선택한 이미지로 바뀜
         $('#editProFile').on('change', function (input) {
             readURL3(this);
-        })
+        });
+
+        // 특정키 입력 금지
+        $("input, textarea").keyup(function(){
+            var value = $(this).val();
+            var arr_char = new Array();
+
+            arr_char.push("'");
+            arr_char.push("\"");
+            arr_char.push("<");
+            arr_char.push(">");
+
+            for(var i=0 ; i<arr_char.length ; i++)
+            {
+                if(value.indexOf(arr_char[i]) != -1)
+                {
+                    window.alert("<, >, ', \" 특수문자는 사용하실 수 없습니다.");
+                    value = value.substr(0, value.indexOf(arr_char[i]));
+                    $(this).val(value);
+                }
+            }
+        });
     });
 </script>
 

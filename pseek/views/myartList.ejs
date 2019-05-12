@@ -215,8 +215,30 @@
         // 파일태그에서 선택한 이미지로 바뀜
         $('.addImg').on('change', function () {
             readURL2(this);
-        })
+        });
+        // 특정키 입력 금지
+        $("input, textarea").keyup(function(){
+            var value = $(this).val();
+            var arr_char = new Array();
+
+            arr_char.push("'");
+            arr_char.push("\"");
+            arr_char.push("<");
+            arr_char.push(">");
+
+            for(var i=0 ; i<arr_char.length ; i++)
+            {
+                if(value.indexOf(arr_char[i]) != -1)
+                {
+                    window.alert("<, >, ', \" 특수문자는 사용하실 수 없습니다.");
+                    value = value.substr(0, value.indexOf(arr_char[i]));
+                    $(this).val(value);
+                }
+            }
+        });
     });
+
+
 </script>
 
 <% include ./head/footerIndex.ejs %>
