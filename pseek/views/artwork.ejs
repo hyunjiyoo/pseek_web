@@ -22,29 +22,6 @@
     <!-- Viewer css -->
     <link href="/css/viewer.css" rel="stylesheet">
     <link href="/css/viewer_main.css" rel="stylesheet">
-    <style>
-        /* .table{
-             width: 100px;
-         }
-          .td{
-              box-sizing: border-box;
-              width: 50px;
-              padding : 10px;
-              padding:10px;
-          }*/
-        table {
-            table-layout: fixed;
-            width: 100%;
-            border:1px solid;
-            margin-top:20px;
-            border-collapse: collapse;
-            word-break:break-all;
-        }
-        td {
-            min-width: 250px;
-            border:1px solid;
-        }
-    </style>
 </head>
 
 <body>
@@ -126,23 +103,23 @@
             </div>
             <div class="modal-body">
                 <img id="detailImg" src="" width="100%" style="margin-bottom: 15px"/>
-                <table border="1" style="border-color: #636363; width:200px">
+                <table border="1" style="border-color: #636363">
                     <tr>
                         <td><span style="font-weight: bold">Title </span></td>
                         <td><span id="detailTitle"></span></td>
                     </tr>
                     <tr>
                         <td><span style="font-weight: bold">Artist </span></td>
-                        <td><span id="detailAtist"></span></td>
+                        <td><span id="detailArtist"></span></td>
                     </tr>
 
                     <tr>
-                        <td><span style="font-weight: bold; padding:5px, 10px">Genre </span></td>
+                        <td><span style="font-weight: bold">Genre </span></td>
                         <td><span id="detailGenre"></span></td>
                     </tr>
                     <tr>
                         <td><span style="font-weight: bold">Description </span></td>
-                        <td style="width: 80%;"><span id="detailDes"></span></td>
+                        <td style="width: 100%"><span id="detailDes"></span></td>
                     </tr>
                     <tr>
                         <td><span style="font-weight: bold">Location </span></td>
@@ -157,18 +134,14 @@
     </div>
 </div>
 
-
 <!-- Bootstrap core JavaScript -->
 <script src="/vendor/jquery/jquery.min.js"></script>
 <script src="/vendor/jquery/jquery.slim.min.js"></script>
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 <!-- Plugin JavaScript -->
 <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
-
 <!-- Custom scripts for this template -->
 <script src="/js/agency.min.js"></script>
-
 <!-- Viewer scripts -->
 <% include ./head/footerViewer.ejs %>
 
@@ -178,19 +151,18 @@
     function modalImg(imgSrc, title, artist, genre, des, loc) {
         var detailImg = document.getElementById('detailImg');
         var detailTitle = document.getElementById('detailTitle');
-        var detailAtist = document.getElementById('detailAtist');
+        var detailArtist = document.getElementById('detailArtist');
         var detailGenre = document.getElementById('detailGenre');
         var detailDes = document.getElementById('detailDes');
         var detailLoc = document.getElementById('detailLoc');
 
         detailImg.src = imgSrc;
         detailTitle.innerText = title;
-        detailAtist.innerText = artist;
+        detailArtist.innerText = artist;
         detailGenre.innerText = genre;
         detailDes.innerText = des;
         detailLoc.innerText = loc;
     }
 </script>
-
 </body>
 </html>
