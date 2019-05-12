@@ -22,6 +22,29 @@
     <!-- Viewer css -->
     <link href="/css/viewer.css" rel="stylesheet">
     <link href="/css/viewer_main.css" rel="stylesheet">
+    <style>
+        /* .table{
+             width: 100px;
+         }
+          .td{
+              box-sizing: border-box;
+              width: 50px;
+              padding : 10px;
+              padding:10px;
+          }*/
+        table {
+            table-layout: fixed;
+            width: 100%;
+            border:1px solid;
+            margin-top:20px;
+            border-collapse: collapse;
+            word-break:break-all;
+        }
+        td {
+            min-width: 250px;
+            border:1px solid;
+        }
+    </style>
 </head>
 
 <body>
@@ -37,7 +60,7 @@
             <ul class="navbar-nav ml-auto">
                 <span hidden>
                 <%= artGenre = ['abstract', 'contemporary', 'modern', 'pop', 'stillLife', 'surrealism' ] %>
-                <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
+                    <%= artName = ['추상화', '현대미술', '모던아트', '팝아트', '정물화', '초현실주의'] %>
                 </span>
                 <% artGenre.forEach((element, i) => { %>
                     <li class="nav-item">
@@ -103,7 +126,7 @@
             </div>
             <div class="modal-body">
                 <img id="detailImg" src="" width="100%" style="margin-bottom: 15px"/>
-                <table border="1" style="border-color: #636363">
+                <table border="1" style="border-color: #636363; width:200px">
                     <tr>
                         <td><span style="font-weight: bold">Title </span></td>
                         <td><span id="detailTitle"></span></td>
@@ -114,12 +137,12 @@
                     </tr>
 
                     <tr>
-                        <td><span style="font-weight: bold">Genre </span></td>
+                        <td><span style="font-weight: bold; padding:5px, 10px">Genre </span></td>
                         <td><span id="detailGenre"></span></td>
                     </tr>
                     <tr>
                         <td><span style="font-weight: bold">Description </span></td>
-                        <td style="width: 100%"><span id="detailDes"></span></td>
+                        <td style="width: 80%;"><span id="detailDes"></span></td>
                     </tr>
                     <tr>
                         <td><span style="font-weight: bold">Location </span></td>
