@@ -38,11 +38,9 @@ router.post('/:code', (req, res) => {
             var ticket_length = req.session.ticket.length;
             console.log("ticket_length: " + ticket_length);
             if(ticket_length === 0) {
-                console.log("results: " + results);
                 req.session.ticket.push(results);
             } else {
                 req.session.ticket.pop();
-                console.log("results: " + results);
                 req.session.ticket.push(results);
             }
             res.redirect('/myPage');
