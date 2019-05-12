@@ -93,14 +93,14 @@
                     <form action="./ticket">
                         <input class="btn btn-sm" type="submit" value="Buy Tickets" style="background-color: #fed136; color:#474747; font-weight: bold; "/>
                         <% if(ticket.length === 0) { %>
-                            <span style="background-color: #FFFFFF;">Please buy ticket..</span>
+                            <div style="background-color: #FFFFFF;">Please buy ticket..</div>
                         <% } else { %>
-                            <span style="background-color: #FFFFFF;">
+                            <div style="background-color: #FFFFFF;">
                             <span style="font-weight: bold"> My ticket : </span>
                                 <% for (var i = 0; i < ticket[0].length; i++) { %>
                                     <span><%= ticket[0][i].type_title %></span>
                                 <% } %>
-                            </span>
+                            </div>
                         <% } %>
                     </form>
                 </li>

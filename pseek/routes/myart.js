@@ -42,8 +42,8 @@ router.post('/edit', (req, res) => {
             });
         });
     } else {
-        var sql = 'UPDATE `art_tbl` SET art_title = ?, art_des = ?, art_genre = ?, art_loc = ? WHERE artist_id = ? AND art_id = ?';
-        db().query(sql, [req.body.editTitle, req.body.editDes, req.body.editGenre, req.body.editLoc, req.session.userId, req.body.editId], (err, results) => {
+        var sql = 'UPDATE `art_tbl` SET art_title = ?, art_des = ?, art_genre = ? WHERE artist_id = ? AND art_id = ?';
+        db().query(sql, [req.body.editTitle, req.body.editDes, req.body.editGenre, req.session.userId, req.body.editId], (err, results) => {
             if(err) throw err;
             res.redirect('/myart');
         });

@@ -27,7 +27,6 @@ router.post('/:code', (req, res) => {
     function daily() {
         var sql = 'INSERT INTO `tckreg_tbl`(tck_id, user_id, start_date, end_date) VALUES(?, ?, now(), date_add(now(), INTERVAL 24 HOUR));';
         db().query(sql, [req.params.code, req.session.userId], (err, results) => {
-            console.log("daily insert");
             view();
         });
     }
@@ -36,7 +35,6 @@ router.post('/:code', (req, res) => {
         var sql = 'SELECT * FROM `tck_tbl` WHERE tck_id IN(SELECT tck_id FROM `tckreg_tbl` WHERE user_id = ?);';
         db().query(sql, [req.session.userId], (err, results) => {
             var ticket_length = req.session.ticket.length;
-            console.log("ticket_length: " + ticket_length);
             if(ticket_length === 0) {
                 req.session.ticket.push(results);
             } else {
