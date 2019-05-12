@@ -30,7 +30,6 @@ router.post('/upload', (req, res) => {
 router.post('/edit', (req, res) => {
     // input file타입의 editImg 객체 가져옴
     let editImg = req.files.editImg;
-    console.log(req.files);
 
     if (editImg.name !== '') {
         editImg.mv('./public/uploads/user/'+ req.session.userId + '/art/' + req.body.editTitle + '.jpg', () => {
