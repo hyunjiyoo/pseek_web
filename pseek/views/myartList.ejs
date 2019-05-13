@@ -111,8 +111,6 @@
                             </select></span><br/><br/>
                         <span style="font-weight: bold">Description<br/>
                             <textarea name="addDes" class="addDes" rows="5" style="width: 100%"></textarea></span><br/><br/>
-                        <span style="font-weight: bold">Location<br/>
-                            <textarea name="addLoc" class="addLoc" rows="2" style="width: 100%"></textarea></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -149,8 +147,6 @@
                         </select></span><br/><br/>
                     <span style="font-weight: bold">Description<br/>
                         <textarea name="editDes" id="editDes" class="editDes" rows="5" style="width: 100%"></textarea></span><br/><br/>
-                    <span style="font-weight: bold">Location<br/>
-                        <textarea name="editLoc" id="editLoc" class="editLoc" rows="2" style="width: 100%"></textarea></span>
                 </div>
             </form>
                 <div class="modal-footer">
@@ -172,14 +168,12 @@
         var editTitle = document.getElementById('editTitle');
         var editGenre = document.getElementById('editGenre');
         var editDes = document.getElementById('editDes');
-        var editLoc = document.getElementById('editLoc');
         var editId = document.getElementById('editId');
         var deleteId = document.getElementById('deleteId');
         editImg.src = imgSrc;
         editTitle.value = title;
         editGenre.value = genre;
         editDes.value = des;
-        editLoc.value = loc;
         editId.value = artId;
         deleteId.value = artId;
     }
