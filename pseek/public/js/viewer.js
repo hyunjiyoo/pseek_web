@@ -54,7 +54,7 @@
     fullscreen: true,
 
     // The amount of time to delay between automatically cycling an image when playing.
-    interval: 5000,
+    interval: 3000,
 
     // Enable keyboard support
     keyboard: true,
