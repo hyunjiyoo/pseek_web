@@ -51,7 +51,8 @@ router.get('/:id', (req,res) => {
         if (!err) {
             // 작품 상세페이지에 작품리스트와 LIKE한 작품 전달.
             res.render("pickartistArt.ejs", {
-                pickArt: results
+                pickArt: results,
+                artistId: req.params.id
             });
         }
     });
