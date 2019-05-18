@@ -58,7 +58,9 @@
         <% for (var i = artistList.length - 1; i >= 0; i--) { %>
             <div class="col-lg-4 col-sm-6 text-center mb-4 pt-3" style="background-color: #F3F3F3DD">
                 <div class="likeBox">
+                    <a href="/artist/<%= artistList[i].user_id%>">
                     <img class="rounded-circle img-fluid d-block mx-auto" src="<%= artistList[i].user_imgsrc %>" alt="" style="width: 50%; height:180px">
+                    </a>
                     <% if (artistList[i].LIKEYN === 'N') {  %>
                         <form method="post" action="/artist/artist/like/<%= artistList[i].user_id %>" >
                             <button type="submit" class="likeBox btn " id="heart" style="margin-top: -10px"><i class="fas fa-heart"></i></button>
