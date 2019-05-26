@@ -46,13 +46,14 @@ router.get('/:id', (req,res) => {
         '\t\tSELECT B.* FROM ART_TBL A, PICK_TBL B\n' +
         '        WHERE A.ART_ID = B.ART_ID AND B.USER_ID = ? ) B\n' +
         '        ON A.ART_ID = B.ART_ID\n' +
-        '        WHERE A.artist_id = ?;';
-    db().query(sql, [req.session.userId ,req.params.id], (err, results) => {
+        '        WHERE A.artist_id = ?;' +
+        'SELECT user_name FROM user_tbl WHERE user_id = ?;';
+    db().query(sql, [req.session.userId ,req.params.id, req.params.id], (err, results) => {
         if (!err) {
             // 작품 상세페이지에 작품리스트와 LIKE한 작품 전달.
             res.render("pickartistArt.ejs", {
-                pickArt: results,
-                artistId: req.params.id
+                pickArt: results[0],
+                artistId: results[1][0].user_name
             });
         }
     });
