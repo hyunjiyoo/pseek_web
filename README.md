@@ -11,4 +11,4 @@
 - [express-fileupload](https://github.com/richardgirges/express-fileupload/tree/master/example)
 
 ### Main Page
-<img src="/index/main.JPEG" />
+<img src="./img/index/main.JPEG" />
