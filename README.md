@@ -35,8 +35,34 @@
 3. 예술가의 진입장벽 완화 
  
 
-### 메인페이지
-<img src="./pseek/public/img/index/main.JPEG" />
+### 프로젝트 화면
+
+#### 1. 메인화면
+<img width="700" src="./pseek/public/img/index/main.JPEG" />
+
+#### 2. 작품보기
+<img width="700" alt="작품보기" src="https://user-images.githubusercontent.com/23496927/117947790-7d3cfc80-b34b-11eb-89c7-b51598829ebc.png">
+
+#### 3. 아티스트
+<img width="700" alt="아티스트보기" src="https://user-images.githubusercontent.com/23496927/117947819-84640a80-b34b-11eb-97b8-73ff192ab0b9.png">
+
+#### 4. 마이페이지
+<img width="700" alt="마이페이지" src="https://user-images.githubusercontent.com/23496927/117947825-85953780-b34b-11eb-971b-e004ed714060.png">
+
+#### 5. 찜한작품
+<img width="700" alt="찜한작품보기" src="https://user-images.githubusercontent.com/23496927/117947829-862dce00-b34b-11eb-8fcc-3b2737c2ea88.png">
+
+#### 6. 작품등록
+<img width="700" alt="작품등록1" src="https://user-images.githubusercontent.com/23496927/117947836-86c66480-b34b-11eb-9861-f5a2c328324c.png">
+<img width="700" alt="작품등록2" src="https://user-images.githubusercontent.com/23496927/117947838-875efb00-b34b-11eb-8ba9-fbe39dab83a1.png">
+
+#### 7. 작품추천
+새로고침 버튼을 누를때마다 추천되는 작품이 변경되어 제시
+<img width="700" alt="추천1" src="https://user-images.githubusercontent.com/23496927/117947841-87f79180-b34b-11eb-9bcd-902c777a7e7a.png">
+<img width="700" alt="추천2" src="https://user-images.githubusercontent.com/23496927/117947847-8928be80-b34b-11eb-990e-e41f347c6d61.png">
+
+#### 8. 작품감상
+<img width="700" alt="작품뷰어" src="https://user-images.githubusercontent.com/23496927/117947852-89c15500-b34b-11eb-8cfd-4b567e860f46.png">
 
 
 
