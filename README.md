@@ -1,7 +1,7 @@
 ## P-SEEK
 시공간적인 제한없이 미술작품을 관람하고 나만의 작품을 업로드하여 작품활동을 할 수 있는 온라인 미술작품 플랫폼.
 
-<img src="./pseek/public/img/index/main.JPEG" />
+<img width="521" alt="스크린샷 2021-05-12 오후 4 59 48" src="https://user-images.githubusercontent.com/23496927/117939945-84f8a300-b343-11eb-92dd-a80af8271283.png">
 
 
 ### 슬로건
@@ -34,6 +34,11 @@
 2. 예술작품 대중성 향상
 3. 예술가의 진입장벽 완화 
  
+
+### 메인페이지
+<img src="./pseek/public/img/index/main.JPEG" />
+
+
 
 ### 프로젝트 팀
 - 팀명: <b>PISA</b>(Programming IS Art)
