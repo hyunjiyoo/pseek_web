@@ -57,7 +57,7 @@
 <img width="700" alt="작품등록2" src="https://user-images.githubusercontent.com/23496927/117947838-875efb00-b34b-11eb-8ba9-fbe39dab83a1.png">
 
 #### 7. 작품추천
-새로고침 버튼을 누를때마다 추천되는 작품이 변경되어 제시
+새로고침 버튼을 누를때마다 추천되는 작품이 변경되어 노출
 <img width="700" alt="추천1" src="https://user-images.githubusercontent.com/23496927/117947841-87f79180-b34b-11eb-9bcd-902c777a7e7a.png">
 <img width="700" alt="추천2" src="https://user-images.githubusercontent.com/23496927/117947847-8928be80-b34b-11eb-990e-e41f347c6d61.png">
 
