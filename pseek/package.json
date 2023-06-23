@@ -13,7 +13,7 @@
     "express-fileupload": "^1.1.9",
     "express-session": "^1.15.6",
     "fs": "^0.0.1-security",
-    "make-dir": "^2.0.0",
+    "make-dir": "^4.0.0",
     "mysql": "^2.16.0",
     "session-file-store": "^1.2.0"
   },
